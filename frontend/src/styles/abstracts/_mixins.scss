@@ -7,3 +7,14 @@
   border-bottom: $px $type $color;
 }
 
+@mixin btn-style($background-color, $border-color, $color, $border-bottom-color) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
+  border-bottom-color: $border-bottom-color;
+}
+
+
+
+
+

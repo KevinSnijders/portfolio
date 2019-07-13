@@ -15,7 +15,8 @@
   'base/base',
   'base/fonts',
   'base/typography',
-  'base/helpers';
+  'base/helpers',
+  'base/animations';
 
 // 4. Layout-related sections
 @import
@@ -25,8 +26,9 @@
 // 5. Components
 @import
   'components/hero',
-'components/particles',
-'components/project';
+  'components/particles',
+  'components/btn',
+  'components/project';
 
 // 6. Page-specific styles
 @import

@@ -1,7 +1,11 @@
 .particles {
   background-color: #282c34;
-  min-height: 100vh;
+  max-height: 100vh;
   display: flex;
+
+  canvas {
+    max-height: 100vh;
+  }
 
   &__intro {
     @extend .particles__section;
@@ -30,10 +34,17 @@
   &__cta {
     @extend .particles__section;
     align-self: flex-end;
+    padding-bottom: 2.4rem;
   }
 
   &__scroll-down {
     font-size: 2.4rem;
+    position: relative;
+
+
+
+    text-align: center;
+    margin: 8% 0;
   }
 }
 

@@ -35,7 +35,7 @@
 
   &__resources {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 1.6rem 0;
     img {
       max-height: 50px;
@@ -45,7 +45,7 @@
   }
   &__links {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
   }
   &__load-more {
     background-color: #e4e4e4;
