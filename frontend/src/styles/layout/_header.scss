@@ -1,0 +1,25 @@
+nav {
+  .nav-item {
+    width: 75px;
+    text-align: center;
+    margin: 0 0.25rem;
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+    &:first-child {
+      margin: 0 0.25rem 0 0;
+    }
+    &:last-child {
+      margin: 0 0 0 0.25rem;
+    }
+    &.active {
+      @include nav-link-hover-border(4px, solid, $color-primary);
+    }
+
+    &:hover {
+      @include nav-link-hover-border(4px, solid, $color-primary);
+    }
+  }
+
+}
+
