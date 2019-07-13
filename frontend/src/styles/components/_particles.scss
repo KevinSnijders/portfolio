@@ -1,0 +1,45 @@
+.particles {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+
+  &__intro {
+    @extend .particles__section;
+    align-self: center;
+    background-color: transparent;
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      display: block;
+      margin: 0 auto 2.4rem auto;
+    }
+
+    h1 {
+      max-width: 50%;
+      margin: 0 auto;
+    }
+
+    .fab {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__cta {
+    @extend .particles__section;
+    align-self: flex-end;
+  }
+
+  &__scroll-down {
+    font-size: 2.4rem;
+  }
+}
+
+.particles__section {
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+}

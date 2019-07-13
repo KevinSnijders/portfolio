@@ -10,21 +10,23 @@
 @import
   'vendors/bootstrap';
 
-// 3. Base stuff
+// 3. Base
 @import
   'base/base',
+  'base/fonts',
   'base/typography',
   'base/helpers';
 
 // 4. Layout-related sections
 @import
-  'layout/header';
+  'layout/header',
+  'layout/footer';
 
 // 5. Components
 @import
   'components/hero',
-'components/project',
-'components/contact';
+'components/particles',
+'components/project';
 
 // 6. Page-specific styles
 @import

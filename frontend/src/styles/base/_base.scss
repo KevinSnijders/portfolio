@@ -7,6 +7,7 @@
  */
 html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 /**
@@ -47,10 +48,21 @@ section {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
 }
 
 ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 
+li {
+  line-height: normal;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.btn {
+  font-size: 1.2rem;
+}
