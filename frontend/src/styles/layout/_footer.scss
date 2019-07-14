@@ -9,7 +9,10 @@
 
   .fab {
     font-size: 2.4rem;
-
+    &:hover {
+      color: $accent-color;
+      transform: scale(1.1);
+    }
   }
 
   &__copyright {
