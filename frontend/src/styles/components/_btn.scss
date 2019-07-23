@@ -6,7 +6,6 @@
   letter-spacing: .4px;
   transition: background-color .5s;
   border-bottom: 3px solid;
-  text-shadow: 1px 1px $text-shadow-color;
   &--demo {
     @include btn-style($primary-color, $primary-color, $text-color-light, $primary-color-dark);
     &:hover {
