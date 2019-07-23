@@ -13,57 +13,60 @@
 <body>
 
 <main>
-    <div id="particles-js" class="particles">
-        <nav class="navbar navbar-expand-lg navbar-dark p-5">
-            <div class="container">
-                <a class="navbar-brand" href="#"><img src="/frontend/build/assets/images/ks-white.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <section id="home">
+        <div id="particles-js" class="particles">
+            <nav class="navbar navbar-expand-lg navbar-dark p-5 fade-in-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#"><img src="/frontend/build/assets/images/ks-white.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item nav__item active">
-                            <a class="nav__item__link" href="#particles-js">Home</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item nav__item active">
+                                <a class="nav__item__link" href="#home">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a class="nav__item__link" href="#work">Projects</a>
+                            </li>
+                            <li class="nav__item">
+                                <a class="nav__item__link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="particles__intro jumbotron fade-in-top">
+                <div class="container">
+                    <img class="scale-in-center" src="https://avatars2.githubusercontent.com/u/8851923?s=460&v=4"
+                         alt="Kevin"/>
+                    <ul class="d-flex flex-row justify-content-center w-100">
+                        <li class="pr-2">
+                            <a href="#"><i class="fab fa-github-square"></i></a>
                         </li>
-                        <li class="nav__item">
-                            <a class="nav__item__link" href="#project">Projects</a>
-                        </li>
-                        <li class="nav__item">
-                            <a class="nav__item__link" href="#footer">Contact</a>
+                        <li class="pl-2">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
                         </li>
                     </ul>
+                    <h1 class="display-4 text-shadow">Hi, I'm Kevin a Web Developer from the Netherlands</h1>
                 </div>
             </div>
-        </nav>
-
-        <div class="particles__intro jumbotron">
-            <div class="container">
-                <img src="https://avatars2.githubusercontent.com/u/8851923?s=460&v=4" alt="Kevin"/>
-                <ul class="d-flex flex-row justify-content-center w-100">
-                    <li class="pr-2">
-                        <a href="#"><i class="fab fa-github-square"></i></a>
-                    </li>
-                    <li class="pl-2">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                </ul>
-                <h1 class="display-4 text-shadow">Hi, I'm Kevin a Web Developer from the Netherlands</h1>
+            <div class="particles__cta fade-in-bottom">
+                <p class="mb-0">Learn more about what I do</p>
+                <a class="particles__scroll-down" href="#work"><i
+                        class="fas fa-chevron-down text-shadow bounce"></i></a>
             </div>
         </div>
-        <div class="particles__cta">
-            <p class="mb-0">Learn more about what I do</p>
-            <a class="particles__scroll-down" href="#project"><i
-                    class="fas fa-chevron-down text-shadow bounce"></i></a>
-        </div>
-    </div>
-    <section id="project" class="project">
-        <h1 class="section-heading">Projects</h1>
+    </section>
+    <section id="work" class="project">
+        <h1 class="section-heading fade-in">Recent work</h1>
         <div class="project__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1">
+                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
                     <h4 class="project__title">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
                     </h4>
@@ -80,7 +83,7 @@
                     </div>
 
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2">
+                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
                     <img class="project__preview"
                          src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
                          alt=""/>
@@ -89,13 +92,13 @@
         </div>
         <div class="project__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2">
+                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
                     <img class="project__preview"
                          src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4">
+                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
                     <h4 class="project__title">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
                     </h4>
@@ -116,7 +119,7 @@
         </div>
         <div class="project__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1">
+                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
                     <h4 class="project__title">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
                     </h4>
@@ -132,7 +135,7 @@
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2">
+                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
                     <img class="project__preview"
                          src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
                          alt=""/>
@@ -142,13 +145,13 @@
         </div>
         <div class="project__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2">
+                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
                     <img class="project__preview"
                          src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4">
+                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
                     <h4 class="project__title">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
                     </h4>
@@ -164,18 +167,16 @@
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
                 </div>
-
             </div>
-
         </div>
-        <div class="project__load-more d-flex justify-content-center p-5">
+        <div class="project__load-more d-flex justify-content-center p-5 fade-in">
             <button type="button" class="btn btn--loadmore">Load more projects</button>
         </div>
 
     </section>
 </main>
-<footer id="footer" class="footer">
-    <div class="col-sm-auto">
+<footer id="contact" class="footer">
+    <div class="col-sm-auto fade-in-bottom">
         <button type="button" class="btn btn-outline-light mb-4">Contact me</button>
         <div class="social">
             <ul class="d-flex flex-row justify-content-center mb-4">

@@ -8,6 +8,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 /**
@@ -52,7 +53,7 @@ section {
 
 ul {
   list-style: none;
-  padding-inline-start: 0;
+  padding: 0;
 }
 
 li {
