@@ -1,15 +1,15 @@
-
-
-particlesJS.load('particles-js', '/frontend/build/assets/particles.json', function () {
-
-});
+particlesJS.load('particles-js', '/assets/particles.json');
 
 $(document).ready(function () {
-	var sliceStart = 0;
-	var sliceEnd = 4;
-	var targetItem = ".project__item";
-	var btnLoadMore = "#btn--load-more";
-	var hidden = "hidden";
+	loadMorePortfolioItems();
+});
+
+function loadMorePortfolioItems() {
+	let sliceStart = 0;
+	let sliceEnd = 4;
+	let targetItem = ".project__item";
+	let btnLoadMore = "#btn--load-more";
+	let hidden = "hidden";
 
 	$(targetItem).slice(sliceStart,sliceEnd).show();
 	if ($(targetItem + ":" + hidden).length !== 0) {
@@ -23,4 +23,4 @@ $(document).ready(function () {
 			$(btnLoadMore)[0].parentElement.className = hidden;
 		}
 	});
-});
+}
