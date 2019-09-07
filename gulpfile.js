@@ -20,8 +20,8 @@ const dirPaths = {
     app: {
         styles: baseApp + 'styles/**/*.scss',
         scripts: {
-            vendors: baseApp + 'scripts/vendors/*.js',
-            js: baseApp + 'scripts/js/*.js'
+            vendors: baseApp + 'scripts/vendors/**/*.js',
+            js: baseApp + 'scripts/js/**/*.js'
         },
         assets: baseApp + 'assets/**/*',
     },
@@ -68,7 +68,9 @@ function compileStyles() {
 
 function compileScripts() {
     let {scripts} = dirPaths.app;
-    return src([scripts.vendors, scripts.js])
+    let bootstrap = "node_modules/bootstrap/dist/js/*.js";
+    let particles = "node_modules/particles.js/*.js";
+    return src([scripts.vendors, bootstrap, particles, scripts.js])
         .pipe(plumber())
         .pipe(uglify())
         .pipe(concat(minifiedFileName + '.js'))
