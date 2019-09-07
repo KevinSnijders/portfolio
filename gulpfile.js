@@ -53,7 +53,6 @@ function browserSyncReload(done) {
 }
 
 function clean() {
-    console.log(dirPaths.build);
     return del(baseBuild)
 }
 
