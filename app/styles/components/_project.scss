@@ -1,0 +1,62 @@
+.project {
+  background-color: $accent-odd-color;
+  position: relative;
+  &__item {
+    padding: 4rem 1.6rem;
+    &:nth-child(even) {
+      background-color: $accent-even-color;
+      //clip-path: polygon(0 5%,100% 0%,100% 100%,100% 100%,100% 95%,0 100%);
+      clip-path: polygon(0 0%,100% 5%,100% 100%,100% 100%,100% 95%,0 100%);
+
+    }
+    &:nth-child(odd) {
+      background-color: $accent-odd-color;
+      //clip-path: polygon(0 0%,100% 5%,100% 100%,100% 100%,100% 100%,0 95%);
+      clip-path: polygon(0 5%,100% 0%,100% 100%,100% 100%,100% 100%,0 95%);
+      padding: 1.2rem 1.6rem 1rem;
+      @include media-breakpoint-up(md) {
+        padding: 4rem 1.6rem 2.2rem;
+      }
+      //TODO Fix the position of the different projects items a cleaner way
+    }
+
+  }
+  &__title {
+    color: #444;
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    font-family: $montserrat-bold;
+  }
+
+  &__description {
+    color: #888;
+    font-size: 1.5rem;
+  }
+
+  &__preview {
+    margin: 2.4rem 0;
+    border-radius: .5rem;
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+
+  &__resources {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1.6rem 0;
+    img {
+      max-height: 50px;
+      width: auto;
+    }
+
+  }
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__load-more {
+    background-color: #e4e4e4;
+  }
+
+}
