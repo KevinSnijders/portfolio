@@ -18,10 +18,10 @@ const baseTemplates = './templates/';
 
 const dirPaths = {
     app: {
-        styles: baseApp + 'scss/**/*.scss',
+        styles: baseApp + 'styles/**/*.scss',
         scripts: {
-            js: baseApp + 'js/*.js',
-            vendor: baseApp + 'js/vendors/*.js',
+            vendors: baseApp + 'scripts/vendors/*.js',
+            js: baseApp + 'scripts/js/*.js'
         },
         assets: baseApp + 'assets/**/*',
     },
@@ -33,8 +33,7 @@ const dirPaths = {
     templates: baseTemplates + '**/*.html'
 };
 
-const minifyStylesFileName = 'style.min.css';
-const minifyScriptsFileName = 'script.min.js';
+const minifiedFileName = 'all.min';
 
 // BrowserSync
 function browserSynchronize(done) {
@@ -54,7 +53,8 @@ function browserSyncReload(done) {
 }
 
 function clean() {
-    return del(distSrc)
+    console.log(dirPaths.build);
+    return del(baseBuild)
 }
 
 function compileStyles() {
@@ -62,17 +62,17 @@ function compileStyles() {
         .pipe(plumber())
         .pipe(sass({outputStyle: "expanded"}))
         .pipe(cleanCSS({compatibility: 'ie11'}))
-        .pipe(concat(minifyStylesFileName))
+        .pipe(concat(minifiedFileName + '.css'))
         .pipe(dest(dirPaths.build.styles))
         .pipe(browserSync.stream());
 }
 
 function compileScripts() {
     let {scripts} = dirPaths.app;
-    return src([scripts.vendor, scripts.js])
+    return src([scripts.vendors, scripts.js])
         .pipe(plumber())
         .pipe(uglify())
-        .pipe(concat(minifyScriptsFileName))
+        .pipe(concat(minifiedFileName + '.js'))
         .pipe(dest(dirPaths.build.scripts))
         .pipe(browserSync.stream());
 }
@@ -110,7 +110,7 @@ function copyAssets() {
 function watchFiles() {
     let {scripts} = dirPaths.app;
     watch(dirPaths.app.styles, compileStyles);
-    watch([scripts.vendor, scripts.js], series(compileScripts));
+    watch([scripts.vendors, scripts.js], series(compileScripts));
     watch(dirPaths.app.assets, copyAssets);
     watch(dirPaths.templates, copyTemplates);
 }
