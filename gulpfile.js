@@ -1,5 +1,3 @@
-'use strict';
-
 // Load plugins
 const browserSync = require('browser-sync').create();
 const del = require('del');
@@ -8,6 +6,7 @@ const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
+const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const newer = require('gulp-newer');
 const imageMinify = require('gulp-imagemin');
@@ -69,10 +68,10 @@ function compileStyles() {
 function compileScripts() {
     let {scripts} = dirPaths.app;
     let bootstrap = "node_modules/bootstrap/dist/js/*.js";
-    let particles = "node_modules/particles.js/*.js";
-    return src([scripts.vendors, bootstrap, particles, scripts.js])
+    return src([scripts.vendors, bootstrap, scripts.js])
         .pipe(plumber())
-        .pipe(uglify())
+        .pipe(babel())
+        //.pipe(uglify())
         .pipe(concat(minifiedFileName + '.js'))
         .pipe(dest(dirPaths.build.scripts))
         .pipe(browserSync.stream());
@@ -122,6 +121,7 @@ const templates = series(copyTemplates);
 const assets = series(copyAssets);
 const watchAll = parallel(watchFiles, browserSynchronize);
 const build = series(clean, parallel(scripts, styles, templates, assets), watchAll);
+
 
 exports.clean = clean;
 exports.scripts = scripts;
