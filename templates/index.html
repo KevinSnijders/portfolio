@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/css/all.min.css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
 
@@ -30,7 +28,7 @@
                                 <a class="nav__item__link" href="#home">Home</a>
                             </li>
                             <li class="nav__item">
-                                <a class="nav__item__link" href="#work">Projects</a>
+                                <a class="nav__item__link" href="#work">portfolios</a>
                             </li>
                             <li class="nav__item">
                                 <a class="nav__item__link" href="#contact">Contact</a>
@@ -46,10 +44,12 @@
                          alt="Kevin"/>
                     <ul class="d-flex flex-row justify-content-center w-100">
                         <li class="pr-2">
-                            <a href="#"><i class="fab fa-github-square"></i></a>
+                            <a href="#">
+                                <svg class="icon icon-github-square-brands"><use xlink:href="#.icon-github-square-brands"></use></svg>
+                            </a>
                         </li>
                         <li class="pl-2">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><svg class="icon icon-linkedin-brands"><use xlink:href="#.icon-linkedin-brands"></use></svg></a>
                         </li>
                     </ul>
                     <h1 class="display-4 text-shadow">Hi, I'm Kevin a Web Developer from the Netherlands</h1>
@@ -57,59 +57,62 @@
             </div>
             <div class="particles__cta fade-in-bottom">
                 <p class="mb-0">Learn more about what I do</p>
-                <a class="particles__scroll-down" href="#work"><i
-                        class="fas fa-chevron-down text-shadow bounce"></i></a>
+                <a class="particles__scroll-down" href="#work">
+                    <svg class="icon icon-keyboard_arrow_down bounce"><use xlink:href="#.icon-keyboard_arrow_down"></use></svg>
+                </a>
             </div>
         </div>
     </section>
-    <section id="work" class="project">
-        <h1 class="section-heading fade-in">Recent work</h1>
-        <div class="project__item">
+    <section id="work" class="portfolio">
+        <div class="portfolio__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
                         Natours
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo
+
+                        </button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
+                        <svg class="brand brand-bootstrap"><use xlink:href="#.brand-bootstrap"></use></svg>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
 
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
                          src="assets/images/portfolio/natours.png"
                          alt="website natours"/>
                 </div>
             </div>
         </div>
-        <div class="project__item">
+        <div class="portfolio__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
@@ -117,158 +120,52 @@
 
             </div>
         </div>
-        <div class="project__item">
+        <div class="portfolio__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
             </div>
 
         </div>
-        <div class="project__item">
+        <div class="portfolio__item">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="project__item hidden">
-            <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
-                        quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
-                    </div>
-                    <div class="project__resources">
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                    </div>
-
-                </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
-                         alt=""/>
-                </div>
-            </div>
-        </div>
-        <div class="project__item hidden">
-            <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
-                         alt=""/>
-                </div>
-
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
-                        quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
-                    </div>
-                    <div class="project__resources">
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="project__item hidden">
-            <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
-                        quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
-                    </div>
-                    <div class="project__resources">
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
-                    </div>
-                </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
-                         alt=""/>
-                </div>
-            </div>
-
-        </div>
-        <div class="project__item hidden">
-            <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
-                         alt=""/>
-                </div>
-
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
-                        quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
-                    </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
@@ -276,52 +173,52 @@
             </div>
         </div>
 
-        <div class="project__item hidden">
+        <div class="portfolio__item hidden">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
 
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
             </div>
         </div>
-        <div class="project__item hidden">
+        <div class="portfolio__item hidden">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
@@ -329,52 +226,52 @@
 
             </div>
         </div>
-        <div class="project__item hidden">
+        <div class="portfolio__item hidden">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
                 </div>
-                <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
             </div>
 
         </div>
-        <div class="project__item hidden">
+        <div class="portfolio__item hidden">
             <div class="row d-flex align-items-center">
-                <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 fade-in-left">
-                    <img class="project__preview"
-                         src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2016/11/content-asset-responsivedesign07-1.png?auto=format&q=60&fit=max&w=930"
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
                          alt=""/>
                 </div>
 
-                <div class="col-sm-auto col-md-6 col-lg-4 fade-in">
-                    <h4 class="project__title">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, reprehenderit?
-                    </h4>
-                    <p class="project__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
                         quaerat repellendus, sequi.</p>
-                    <div class="project__links">
-                        <button type="button" class="btn btn--demo mr-3">View demo</button>
-                        <button type="button" class="btn btn--github">View source code</button>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
-                    <div class="project__resources">
+                    <div class="portfolio__resources">
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
@@ -382,31 +279,140 @@
             </div>
         </div>
 
-        <div class="project__load-more d-flex justify-content-center p-5 fade-in">
-            <button id="btn--load-more" type="button" class="btn btn--load-more">Load more projects</button>
+        <div class="portfolio__item hidden">
+            <div class="row d-flex align-items-center">
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
+                        quaerat repellendus, sequi.</p>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
+                    </div>
+                    <div class="portfolio__resources">
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                    </div>
+
+                </div>
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
+                         alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio__item hidden">
+            <div class="row d-flex align-items-center">
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
+                         alt=""/>
+                </div>
+
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
+                        quaerat repellendus, sequi.</p>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
+                    </div>
+                    <div class="portfolio__resources">
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="portfolio__item hidden">
+            <div class="row d-flex align-items-center">
+                <div class="col-sm-auto col-md-6 col-lg-3 offset-lg-2 order-2 order-md-1 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
+                        quaerat repellendus, sequi.</p>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
+                    </div>
+                    <div class="portfolio__resources">
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-auto col-md-6 col-lg-5 order-1 order-md-2 fade-in-right">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
+                         alt=""/>
+                </div>
+            </div>
+
+        </div>
+        <div class="portfolio__item hidden">
+            <div class="row d-flex align-items-center">
+                <div class="col-sm-auto col-md-6 col-lg-5 offset-lg-2 fade-in-left">
+                    <img class="portfolio__preview"
+                         src="assets/images/portfolio/natours.png"
+                         alt=""/>
+                </div>
+
+                <div class="col-sm-auto col-md-6 col-lg-3 fade-in">
+                    <h2 class="portfolio__title">
+                        Natours
+                    </h2>
+                    <p class="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
+                        quaerat repellendus, sequi.</p>
+                    <div class="portfolio__links">
+                        <button type="button" class="btn btn--primary mr-3">View demo</button>
+                        <button type="button" class="btn btn--secondary">View source code</button>
+                    </div>
+                    <div class="portfolio__resources">
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                        <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio__load-more d-flex justify-content-center p-5 fade-in">
+            <button id="btn--load-more" type="button" class="btn btn--primary btn--load-more">Load more work</button>
         </div>
 
     </section>
 </main>
+
 <footer id="contact" class="footer">
     <div class="col-sm-auto fade-in-bottom">
         <button type="button" class="btn btn-outline-light mb-4">Contact me</button>
-        <div class="social">
+        <div class="footer__social">
             <ul class="d-flex flex-row justify-content-center mb-4">
                 <li class="pl-2 pr-2">
-                    <a href="#"><i class="fab fa-github-square"></i></a>
+                    <a href="#">
+                        <svg class="icon icon-github-square-brands"><use xlink:href="#.icon-github-square-brands"></use></svg>
+                    </a>
                 </li>
                 <li class="pl-2 pr-2">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><svg class="icon icon-linkedin-brands"><use xlink:href="#.icon-linkedin-brands"></use></svg></a>
                 </li>
             </ul>
         </div>
-        <div class="footer__copyright">
+        <p class="footer__copyright">
             Kevin Snijders &copy; 2019 all rights reserved
-        </div>
+        </p>
         <div class="footer__back-to-top">
             <a href="#home">
-                <i class="fas fa-chevron-up text-shadow bounce"></i>
+                <svg class="icon icon-keyboard_arrow_up bounce"><use xlink:href="#.icon-keyboard_arrow_up"></use></svg>
             </a>
         </div>
     </div>

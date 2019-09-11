@@ -1,5 +1,8 @@
-#work {
-  .btn {
-    text-shadow: 1px 1px $text-shadow-color;
-  }
+#home {
+  clip-path: polygon(0 0,100% 0%,100% 100%,100% 100%,100% 95%,0 100%);
 }
+
+footer {
+  clip-path: polygon(0 5%,100% 0,100% 100%,100% 100%,100% 100%,0 100%);
+}
+

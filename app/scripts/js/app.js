@@ -7,7 +7,7 @@ $(document).ready(function () {
 function loadMorePortfolioItems() {
 	let sliceStart = 0;
 	let sliceEnd = 4;
-	let targetItem = ".project__item";
+	let targetItem = ".portfolio__item";
 	let btnLoadMore = "#btn--load-more";
 	let hidden = "hidden";
 
