@@ -11,9 +11,20 @@ p {
   font-size: 1.5rem;
 }
 
+span {
+  font-family: $font-light;
+  font-size: 2.4rem;
+}
+
 .particles {
   p {
     color: $text-color-light;
+  }
+}
+
+nav {
+  a {
+    font-family: $font-light;
   }
 }
 .btn {

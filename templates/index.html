@@ -28,7 +28,7 @@
                                 <a class="nav__item__link" href="#home">Home</a>
                             </li>
                             <li class="nav__item">
-                                <a class="nav__item__link" href="#work">portfolios</a>
+                                <a class="nav__item__link" href="#work">Portfolio</a>
                             </li>
                             <li class="nav__item">
                                 <a class="nav__item__link" href="#contact">Contact</a>
@@ -38,27 +38,40 @@
                 </div>
             </nav>
 
-            <div class="particles__intro jumbotron fade-in-top">
-                <div class="container">
-                    <img class="scale-in-center" src="https://avatars2.githubusercontent.com/u/8851923?s=460&v=4"
-                         alt="Kevin"/>
-                    <ul class="d-flex flex-row justify-content-center w-100">
-                        <li class="pr-2">
-                            <a href="#">
-                                <svg class="icon icon-github-square-brands"><use xlink:href="#.icon-github-square-brands"></use></svg>
-                            </a>
-                        </li>
-                        <li class="pl-2">
-                            <a href="#"><svg class="icon icon-linkedin-brands"><use xlink:href="#.icon-linkedin-brands"></use></svg></a>
-                        </li>
-                    </ul>
-                    <h1 class="display-4 text-shadow">Hi, I'm Kevin a Web Developer from the Netherlands</h1>
-                </div>
+            <div class="particles__intro jumbotron fade-in-top row d-flex align-items-center">
+                    <div class="col-sm-auto col-md-6 col-lg-4 offset-lg-2 order-2 order-md-1 fade-in">
+                        <h1 class="display-4 text-shadow"><span>Hello, I'm</span>Kevin Snijders
+                            <span>Web Developer</span></h1>
+                        <ul class="d-flex flex-row w-100">
+                            <li class="pr-2">
+                                <a href="#">
+                                    <svg class="icon icon-github-square-brands">
+                                        <use xlink:href="#.icon-github-square-brands"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="pl-2">
+                                <a href="#">
+                                    <svg class="icon icon-linkedin-brands">
+                                        <use xlink:href="#.icon-linkedin-brands"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn--light mr-3">See my resume</button>
+
+                    </div>
+                    <div class="col-sm-auto col-md-6 col-lg-4 order-1 order-md-2 fade-in-right">
+                        <img class="scale-in-center" src="https://avatars2.githubusercontent.com/u/8851923?s=460&v=4"
+                             alt="Kevin"/>
+                    </div>
             </div>
             <div class="particles__cta fade-in-bottom">
                 <p class="mb-0">Learn more about what I do</p>
                 <a class="particles__scroll-down" href="#work">
-                    <svg class="icon icon-keyboard_arrow_down bounce"><use xlink:href="#.icon-keyboard_arrow_down"></use></svg>
+                    <svg class="icon icon-keyboard_arrow_down bounce">
+                        <use xlink:href="#.icon-keyboard_arrow_down"></use>
+                    </svg>
                 </a>
             </div>
         </div>
@@ -80,7 +93,9 @@
                         <button type="button" class="btn btn--secondary">View source code</button>
                     </div>
                     <div class="portfolio__resources">
-                        <svg class="brand brand-bootstrap"><use xlink:href="#.brand-bootstrap"></use></svg>
+                        <svg class="brand brand-bootstrap">
+                            <use xlink:href="#.brand-bootstrap"></use>
+                        </svg>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         <img src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                     </div>
@@ -390,33 +405,42 @@
         </div>
 
     </section>
+    <footer id="contact" class="footer">
+        <div class="col-sm-auto fade-in-bottom">
+            <button type="button" class="btn btn--light mb-4">Contact me</button>
+            <div class="footer__social">
+                <ul class="d-flex flex-row justify-content-center mb-4">
+                    <li class="pl-2 pr-2">
+                        <a href="#">
+                            <svg class="icon icon-github-square-brands">
+                                <use xlink:href="#.icon-github-square-brands"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="pl-2 pr-2">
+                        <a href="#">
+                            <svg class="icon icon-linkedin-brands">
+                                <use xlink:href="#.icon-linkedin-brands"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="footer__copyright">
+                Kevin Snijders &copy; 2019 all rights reserved
+            </p>
+            <div class="footer__back-to-top">
+                <a href="#home">
+                    <svg class="icon icon-keyboard_arrow_up bounce">
+                        <use xlink:href="#.icon-keyboard_arrow_up"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 </main>
 
-<footer id="contact" class="footer">
-    <div class="col-sm-auto fade-in-bottom">
-        <button type="button" class="btn btn-outline-light mb-4">Contact me</button>
-        <div class="footer__social">
-            <ul class="d-flex flex-row justify-content-center mb-4">
-                <li class="pl-2 pr-2">
-                    <a href="#">
-                        <svg class="icon icon-github-square-brands"><use xlink:href="#.icon-github-square-brands"></use></svg>
-                    </a>
-                </li>
-                <li class="pl-2 pr-2">
-                    <a href="#"><svg class="icon icon-linkedin-brands"><use xlink:href="#.icon-linkedin-brands"></use></svg></a>
-                </li>
-            </ul>
-        </div>
-        <p class="footer__copyright">
-            Kevin Snijders &copy; 2019 all rights reserved
-        </p>
-        <div class="footer__back-to-top">
-            <a href="#home">
-                <svg class="icon icon-keyboard_arrow_up bounce"><use xlink:href="#.icon-keyboard_arrow_up"></use></svg>
-            </a>
-        </div>
-    </div>
-</footer>
+
 
 <script src="/js/all.min.js"></script>
 </body>

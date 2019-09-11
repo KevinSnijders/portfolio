@@ -7,9 +7,9 @@
   border-bottom: $px $type $color;
 }
 
-@mixin btn-style($b-c, $c, $b-b-c) {
+@mixin btn-style($b-c, $b, $c, $b-b-c) {
   background-color: $b-c;
-  border-color: $b-c;
+  border-color: $b;
   color: $c;
   border-bottom-color: $b-b-c;
   &:hover {

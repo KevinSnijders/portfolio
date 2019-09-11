@@ -7,12 +7,19 @@
   height: 3.8rem;
 
   &--primary {
-    @include btn-style($btn-primary-color, $text-color-light, $btn-primary-color-dark);
+    @include btn-style($btn-primary-color, $btn-primary-color, $text-color-light, $btn-primary-color-dark);
     text-shadow: 1px 1px $text-shadow-color;
   }
 
   &--secondary {
-    @include btn-style($btn-secondary-color,  $text-color-light, $btn-secondary-color-dark);
+    @include btn-style($btn-secondary-color, $btn-secondary-color, $text-color-light, $btn-secondary-color-dark);
     text-shadow: 1px 1px $text-shadow-color;
+  }
+
+  &--light {
+    @include btn-style(transparent, $bg-brightness-high,  $text-color-light, $bg-brightness-high);
+    &:hover {
+      color: $text-color-dark;
+    }
   }
 }

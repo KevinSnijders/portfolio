@@ -20,21 +20,26 @@
       display: block;
       margin: 0 auto 2.4rem auto;
       @include media-breakpoint-up(md) {
-        width: 175px;
-        height: 175px;
+        width: 225px;
+        height: 225px;
+        margin-bottom: 0;
       }
     }
-
     h1 {
-      @include media-breakpoint-up(lg) {
-        max-width: 50%;
-      }
-      margin: 0 auto;
+      line-height: 1.3;
+      margin: 0;
+    }
+    ul {
+      margin: 1.2rem 0 2.4rem;
+    }
+    span {
+      display: block;
     }
   }
 
   &__cta {
     @extend .particles__section;
+    text-align: center;
     align-self: flex-end;
     padding-bottom: 2.4rem;
   }
@@ -45,7 +50,6 @@
 
 .particles__section {
   color: #fff;
-  text-align: center;
   width: 100%;
   z-index: 100;
 }
