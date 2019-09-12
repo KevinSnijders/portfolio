@@ -15,6 +15,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const streamify = require('gulp-streamify');
+const watchify = require('watchify');
 
 const baseApp = './app/';
 const baseBuild = './build/';
@@ -75,14 +76,29 @@ function compileStyles() {
         .pipe(browserSync.stream());
 }
 
-function browserifyReact() {
+function browserifyReact(watch) {
     let {scripts} = dirPaths.app;
-    return browserify(scripts.react.index)
-        .transform(babelify, {presets: ["@babel/preset-env", "@babel/preset-react"]})
-        .bundle()
-        .pipe(source(reactCompiledFileName))
-        .pipe(streamify(uglify()))
-        .pipe(dest(scripts.react.compiled))
+
+    let bundler = browserify(scripts.react.index, {
+        debug: true,
+        extensions: ['.js', '.jsx', '.json']
+    });
+
+    function bundle() {
+        return bundler
+            .transform(babelify, {presets: ["@babel/preset-env", "@babel/preset-react"]})
+            .bundle()
+            .pipe(source(reactCompiledFileName))
+            .pipe(streamify(uglify()))
+            .pipe(dest(scripts.react.compiled))
+    }
+
+    if(watch) {
+        bundler = watchify(bundler)
+            .on('update', bundle);
+    }
+
+    return bundle();
 }
 
 function compileScripts() {
@@ -130,7 +146,8 @@ function copyAssets() {
 function watchFiles() {
     let {scripts} = dirPaths.app;
     watch(dirPaths.app.styles, compileStyles);
-    watch([scripts.vendors, scripts.js], series(compileScripts));
+    watch(scripts.react.index, browserifyReact(true));
+    watch([scripts.vendors, scripts.js, scripts.react.compiled + reactCompiledFileName], series(compileScripts));
     watch(dirPaths.app.assets, copyAssets);
     watch(dirPaths.templates, copyTemplates);
 }
