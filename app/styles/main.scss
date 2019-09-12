@@ -8,7 +8,8 @@
 
 // 2. Vendors
 @import
-  'vendors/bootstrap';
+  'vendors/bootstrap',
+  'vendors/sprite';
 
 // 3. Base
 @import
@@ -25,10 +26,9 @@
 
 // 5. Components
 @import
-  'components/hero',
   'components/particles',
   'components/btn',
-  'components/project';
+  'components/portfolio';
 
 // 6. Page-specific styles
 @import

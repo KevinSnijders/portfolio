@@ -1,0 +1,60 @@
+.portfolio {
+  background-color: $bg-brightness-high;
+
+  &__item {
+    padding: 4.8rem 2.4rem;
+    margin-top: -2.4rem;
+
+    &:first-child {
+      margin-top: -2.5rem;
+    }
+
+    &:nth-child(even) {
+      background-color: $bg-brightness-medium;
+      clip-path: polygon(0 0%, 100% 5%, 100% 100%, 100% 100%, 100% 95%, 0 100%);
+    }
+
+    &:nth-child(odd) {
+      clip-path: polygon(0 5%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0 95%);
+    }
+
+  }
+
+  &__title {
+    margin-bottom: 1.2rem;
+  }
+
+  &__details {
+    margin-bottom: 2.4rem;
+  }
+
+  &__preview {
+    margin: 2.4rem 0;
+    border-radius: .5rem;
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+
+  &__resources {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2.4rem;
+
+    img {
+      max-height: 50px;
+      width: auto;
+    }
+
+  }
+
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__load-more {
+    margin: 1.2rem 0 3.2rem;
+  }
+
+}

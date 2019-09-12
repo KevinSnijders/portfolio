@@ -88,21 +88,21 @@ function copyTemplates() {
 function copyAssets() {
     return src(dirPaths.app.assets)
         .pipe(newer(dirPaths.build.assets))
-        .pipe(
-            imageMinify([
-                imageMinify.gifsicle({interlaced: true}),
-                imageMinify.jpegtran({progressive: true}),
-                imageMinify.optipng({optimizationLevel: 5}),
-                imageMinify.svgo({
-                    plugins: [
-                        {
-                            removeViewBox: false,
-                            collapseGroups: true
-                        }
-                    ]
-                })
-            ])
-        )
+        // .pipe(
+        //     imageMinify([
+        //         imageMinify.gifsicle({interlaced: true}),
+        //         imageMinify.jpegtran({progressive: true}),
+        //         imageMinify.optipng({optimizationLevel: 5}),
+        //         imageMinify.svgo({
+        //             plugins: [
+        //                 {
+        //                     removeViewBox: false,
+        //                     collapseGroups: true
+        //                 }
+        //             ]
+        //         })
+        //     ])
+        // )
         .pipe(dest(dirPaths.build.assets))
         .pipe(browserSync.stream());
 }

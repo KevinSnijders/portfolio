@@ -1,21 +1,29 @@
 .btn {
-  font-size: 1.4rem;
   border-radius: .5rem;
   min-width: 10rem;
   padding: .6rem 1.2rem;
-  letter-spacing: .4px;
   transition: background-color .5s;
   border-bottom: 3px solid;
-  &--demo {
-    @include btn-style($primary-color, $primary-color, $text-color-light, $primary-color-dark);
+  height: 3.8rem;
+
+  &--primary {
+    @include btn-style($btn-primary-color, $btn-primary-color, $text-color-light, $btn-primary-color-dark);
+    text-shadow: 1px 1px $text-shadow-color;
+  }
+
+  &--secondary {
+    @include btn-style($btn-secondary-color, $btn-secondary-color, $text-color-light, $btn-secondary-color-dark);
+    text-shadow: 1px 1px $text-shadow-color;
+  }
+
+  &--light {
+    @include btn-style(transparent, $primary-color,  $text-color-light, $primary-color);
     &:hover {
-      @include btn-style($primary-color-dark, $primary-color-dark, $text-color-light, $primary-color-dark);
+      color: $text-color-dark;
     }
   }
-  &--github, &--load-more {
-    @include btn-style($secondary-color, $secondary-color, $text-color-light, $secondary-color-dark);
-    &:hover {
-      @include btn-style($secondary-color-dark, $secondary-color-dark, $text-color-light, $secondary-color-dark);
-    }
+
+  &--dark {
+    @include btn-style($secondary-color, $secondary-color,  $text-color-light, $secondary-color-dark);
   }
 }
