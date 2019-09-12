@@ -88,6 +88,10 @@ function browserifyReact(watch) {
         return bundler
             .transform(babelify, {presets: ["@babel/preset-env", "@babel/preset-react"]})
             .bundle()
+            .on('error', function(err){
+                console.log(err.message);
+                this.emit('end');
+            })
             .pipe(source(reactCompiledFileName))
             .pipe(streamify(uglify()))
             .pipe(dest(scripts.react.compiled))
@@ -99,6 +103,8 @@ function browserifyReact(watch) {
     }
 
     return bundle();
+
+
 }
 
 function compileScripts() {
@@ -124,21 +130,6 @@ function copyTemplates() {
 function copyAssets() {
     return src(dirPaths.app.assets)
         .pipe(newer(dirPaths.build.assets))
-        // .pipe(
-        //     imageMinify([
-        //         imageMinify.gifsicle({interlaced: true}),
-        //         imageMinify.jpegtran({progressive: true}),
-        //         imageMinify.optipng({optimizationLevel: 5}),
-        //         imageMinify.svgo({
-        //             plugins: [
-        //                 {
-        //                     removeViewBox: false,
-        //                     collapseGroups: true
-        //                 }
-        //             ]
-        //         })
-        //     ])
-        // )
         .pipe(dest(dirPaths.build.assets))
         .pipe(browserSync.stream());
 }
@@ -153,7 +144,7 @@ function watchFiles() {
 }
 
 const scripts = series(compileScripts);
-const combineReactAndScripts = (series(browserifyReact, compileScripts));
+const combineReactAndScripts = series(browserifyReact, compileScripts);
 const styles = series(compileStyles);
 const templates = series(copyTemplates);
 const assets = series(copyAssets);
