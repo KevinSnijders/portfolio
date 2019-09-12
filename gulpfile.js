@@ -11,6 +11,11 @@ const uglify = require('gulp-uglify');
 const newer = require('gulp-newer');
 const imageMinify = require('gulp-imagemin');
 
+const browserify = require('browserify');
+const babelify = require('babelify');
+const source = require('vinyl-source-stream');
+const streamify = require('gulp-streamify');
+
 const baseApp = './app/';
 const baseBuild = './build/';
 const baseTemplates = './templates/';
@@ -20,7 +25,11 @@ const dirPaths = {
         styles: baseApp + 'styles/**/*.scss',
         scripts: {
             vendors: baseApp + 'scripts/vendors/**/*.js',
-            js: baseApp + 'scripts/js/**/*.js'
+            js: baseApp + 'scripts/js/**/*.js',
+            react: {
+                index: baseApp + 'scripts/react/index.js',
+                compiled: baseApp + 'scripts/react/compiled/'
+            }
         },
         assets: baseApp + 'assets/**/*',
     },
@@ -33,6 +42,7 @@ const dirPaths = {
 };
 
 const minifiedFileName = 'all.min';
+const reactCompiledFileName = 'compiled-react.js';
 
 // BrowserSync
 function browserSynchronize(done) {
@@ -65,10 +75,20 @@ function compileStyles() {
         .pipe(browserSync.stream());
 }
 
+function browserifyReact() {
+    let {scripts} = dirPaths.app;
+    return browserify(scripts.react.index)
+        .transform(babelify, {presets: ["@babel/preset-env", "@babel/preset-react"]})
+        .bundle()
+        .pipe(source(reactCompiledFileName))
+        .pipe(streamify(uglify()))
+        .pipe(dest(scripts.react.compiled))
+}
+
 function compileScripts() {
     let {scripts} = dirPaths.app;
     let bootstrap = "node_modules/bootstrap/dist/js/*.js";
-    return src([scripts.vendors, bootstrap, scripts.js])
+    return src([scripts.vendors, bootstrap, scripts.js, scripts.react.compiled + reactCompiledFileName])
         .pipe(plumber())
         .pipe(babel())
         //.pipe(uglify())
@@ -116,11 +136,12 @@ function watchFiles() {
 }
 
 const scripts = series(compileScripts);
+const combineReactAndScripts = (series(browserifyReact, compileScripts));
 const styles = series(compileStyles);
 const templates = series(copyTemplates);
 const assets = series(copyAssets);
 const watchAll = parallel(watchFiles, browserSynchronize);
-const build = series(clean, parallel(scripts, styles, templates, assets), watchAll);
+const build = series(clean, parallel(combineReactAndScripts, styles, templates, assets), watchAll);
 
 
 exports.clean = clean;
