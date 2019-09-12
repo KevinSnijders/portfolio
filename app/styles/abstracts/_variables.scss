@@ -13,13 +13,11 @@ $red-dark:                  #d32f2f;
 $red-light:                 #ff7961;
 
 // Main colors
-$primary-color:             $black;
-$primary-color-dark:        $black-dark;
-$primary-color-light:       $black-light;
+$primary-color:             $white;
 
-$secondary-color:           #5c6bc0;
-$secondary-color-dark:      #3f51b5;
-$secondary-color-light:     #8e99f3;
+$secondary-color:           $black;
+$secondary-color-dark:      $black-dark;
+$secondary-color-light:     $black-light;
 
 // Background
 $bg-hero:                   $navy;
@@ -36,16 +34,16 @@ $btn-secondary-color-dark:  $blue-dark;
 $btn-secondary-color-light: $blue-light;
 
 // Text
-$text-color-light:          $white;
+$text-color-light:          $primary-color;
 $text-color-dark:           $black;
-$text-color-paragraph:      #888;
+$text-color-paragraph:      #333;
 $text-shadow-color:         $black;
 
 // Accent colors
 $accent-color:              $red;
 
 // Links
-$links-color:               $primary-color;
+$links-color:               $secondary-color;
 
 //Filters
 $filter-primary-color:     invert(45%) sepia(98%) saturate(5543%) hue-rotate(343deg) brightness(99%) contrast(93%);

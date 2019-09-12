@@ -17,9 +17,13 @@
   }
 
   &--light {
-    @include btn-style(transparent, $bg-brightness-high,  $text-color-light, $bg-brightness-high);
+    @include btn-style(transparent, $primary-color,  $text-color-light, $primary-color);
     &:hover {
       color: $text-color-dark;
     }
+  }
+
+  &--dark {
+    @include btn-style($secondary-color, $secondary-color,  $text-color-light, $secondary-color-dark);
   }
 }

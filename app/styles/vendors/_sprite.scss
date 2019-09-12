@@ -6,7 +6,7 @@
 
   &:hover {
     transform: scale(1.1);
-    filter: $filter-accent-color;
+    filter: none;
   }
 
   &-github-square-brands {
@@ -41,75 +41,80 @@
   background-repeat: no-repeat;
   background-image: url("/assets/images/sprites/sprite-brands.svg");
 
-  &-webpack {
+  &-html5 {
     width: 50px;
     height: 50px;
     background-position: 0 0;
   }
-  &-mongodb {
+  &-webpack {
     width: 50px;
     height: 50px;
     background-position: -66px 0;
   }
-  &-git {
+  &-mongodb {
     width: 50px;
     height: 50px;
     background-position: -132px 0;
   }
-  &-heroku {
+  &-git {
     width: 50px;
     height: 50px;
     background-position: -198px 0;
   }
-  &-eslint {
+  &-heroku {
     width: 50px;
     height: 50px;
     background-position: -264px 0;
   }
-  &-jquery {
+  &-eslint {
     width: 50px;
     height: 50px;
     background-position: -330px 0;
   }
-  &-node-dot-js {
+  &-jquery {
     width: 50px;
     height: 50px;
     background-position: -396px 0;
   }
-  &-circleci {
+  &-node-dot-js {
     width: 50px;
     height: 50px;
     background-position: -462px 0;
   }
-  &-redux {
+  &-circleci {
     width: 50px;
     height: 50px;
     background-position: -528px 0;
   }
-  &-react {
+  &-redux {
     width: 50px;
     height: 50px;
     background-position: -594px 0;
   }
-  &-javascript {
+  &-react {
     width: 50px;
     height: 50px;
     background-position: -660px 0;
   }
-  &-sass {
+  &-javascript {
     width: 50px;
     height: 50px;
     background-position: -726px 0;
   }
-  &-gulp {
+  &-sass {
     width: 50px;
     height: 50px;
     background-position: -792px 0;
   }
-  &-bootstrap {
+  &-gulp {
     width: 50px;
     height: 50px;
     background-position: -858px 0;
+  }
+  &-bootstrap {
+    width: 50px;
+    height: 50px;
+    background-position: -924px 0;
   }
 }
 
