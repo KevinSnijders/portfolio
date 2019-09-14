@@ -1,14 +1,12 @@
 import React from 'react';
 
-const Details = () => {
+const Details = ({title, description, demo, source}) => {
     return (
         <>
             <h2 className="portfolio__title">
-                Natours
+                {title}
             </h2>
-            <p className="portfolio__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Aliquam consectetur cupiditate delectus incidunt labore laudantium molestias officiis
-                quaerat repellendus, sequi.</p>
+            <p className="portfolio__details">{description}</p>
             <div className="portfolio__links">
                 <button type="button" className="btn btn--primary mr-3">View demo
 

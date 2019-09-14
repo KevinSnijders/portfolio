@@ -5,7 +5,6 @@ import Api from '../../../api/api';
 
 const init = {
     portfolio: [],
-    itemsPerPage: 4,
     errors: null,
     apiUrl: 'http://localhost:8626'
 };
@@ -22,8 +21,10 @@ class App extends Component {
             `${apiUrl}/portfolio`,
             'get'
         ).then((response) => {
-            //console.log(response);
-            response.map((item) => {
+            // this.setState({
+            //     portfolio: response
+            // });
+            response.map((item, index) => {
                 this.setState({
                     portfolio: [
                         ...this.state.portfolio,
@@ -31,10 +32,11 @@ class App extends Component {
                             id: item.projectid,
                             title: item.title,
                             description: item.description,
-                            demoUrl: item.demo,
-                            gitSourceUrl: item.source,
+                            demo: item.demo,
+                            source: item.source,
                             preview: item.preview,
-                            resources: item.resources
+                            resources: item.resources,
+                            index: index
                         }]
                 });
             });

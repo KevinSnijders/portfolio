@@ -8,7 +8,7 @@ class Item extends Component {
         super(props);
     }
 
-    getEvenOrOddItem(i) {
+    getEvenOrOddItem(data) {
         let number = 2;
         const col = "col-sm-auto col-md-6";
         const detailsLeft = `${col} col-lg-3 offset-lg-2 order-2 order-md-1 fade-in`;
@@ -16,15 +16,19 @@ class Item extends Component {
         const detailsRight = `${col} col-lg-3 fade-in`;
         const previewLeft = `${col} col-lg-5 offset-lg-2 fade-in-left`;
 
-        return (i % number === 0) ?
+        let {index, title, description, demo, source, preview} = data;
+
+        return (index % number === 0) ?
             <>
-                {this.renderComponent(<Details/>, detailsLeft)}
-                {this.renderComponent(<Preview/>, previewRight)}
+                {this.renderComponent(<Details title={title} description={description} demo={demo}
+                                               source={source}/>, detailsLeft)}
+                {this.renderComponent(<Preview preview={preview}/>, previewRight)}
             </>
             :
             <>
-                {this.renderComponent(<Preview/>, previewLeft)}
-                {this.renderComponent(<Details/>, detailsRight)}
+                {this.renderComponent(<Preview preview={preview}/>, previewLeft)}
+                {this.renderComponent(<Details title={title} description={description} demo={demo}
+                                               source={source}/>, detailsRight)}
             </>
     };
 
@@ -37,23 +41,17 @@ class Item extends Component {
 
     displayItems() {
         const {portfolio} = this.props;
-
         return (
             <>
-                {(portfolio.length > 0) ? (
-                        <>
-                            {
-                                portfolio.map((item, i) => {
-                                    return (
-                                        <div key={i} className="portfolio__item">
-                                            <div className="row d-flex align-items-center">
-                                                {this.getEvenOrOddItem(i)}
-                                            </div>
-                                        </div>
-                                    );
-                                })
-                            }
-                        </>
+                {(Object.entries(portfolio).length > 0) ? (
+                        <div className="portfolio__item">
+                            <div className="row d-flex align-items-center">
+                                {this.getEvenOrOddItem(portfolio)}
+                            </div>
+                            <div className="row d-flex justify-content-center">
+                                <Resources resources={portfolio.resources}/>
+                            </div>
+                        </div>
                     )
                     :
                     <div>Empty</div>

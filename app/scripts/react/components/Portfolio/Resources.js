@@ -1,24 +1,19 @@
 import React from 'react';
 
-const Resources = () => {
+const Resources = ({resources}) => {
     return (
-        <div className="portfolio__resources fade-in">
-            <svg className="brand brand-html5">
-                <use xlinkHref="#.brand-html5"></use>
-            </svg>
-            <svg className="brand brand-javascript">
-                <use xlinkHref="#.brand-javascript"></use>
-            </svg>
-            <svg className="brand brand-sass">
-                <use xlinkHref="#.brand-sass"></use>
-            </svg>
-            <svg className="brand brand-git">
-                <use xlinkHref="#.brand-git"></use>
-            </svg>
-            <svg className="brand brand-node-dot-js">
-                <use xlinkHref="#.brand-node-dot-js"></use>
-            </svg>
-        </div>
+        <>
+            {resources.map((resource, index) => {
+                let {name} = resource;
+                return (
+                    <svg key={index} className={`brand brand-${name}`}>
+                        <use xlinkHref={`#.brand-${name}`}></use>
+                    </svg>
+                )
+            })
+            }
+        </>
+
     )
 };
 

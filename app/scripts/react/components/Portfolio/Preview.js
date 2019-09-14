@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Preview = () => {
+const Preview = ({preview}) => {
     return (
         <img className="portfolio__preview"
-             src="assets/images/portfolio/natours.png"
+             src={preview}
              alt="website natours"/>
     )
 };
