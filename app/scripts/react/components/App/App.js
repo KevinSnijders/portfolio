@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import Error from '../Message/Error';
+import Portfolio from '../Portfolio/Portfolio';
+import Api from '../../../api/api';
 
 const init = {
-
+    portfolio: [],
+    errors: null,
+    apiUrl: 'http://localhost:8626'
 };
 
 class App extends Component {
@@ -10,9 +15,44 @@ class App extends Component {
         this.state = init;
     }
 
+    componentDidMount() {
+        const {apiUrl} = this.state;
+        Api.httpRequest(
+            `${apiUrl}/portfolio`,
+            'get'
+        ).then((response) => {
+            //console.log(response);
+            response.map((item) => {
+                this.setState({
+                    portfolio: [
+                        ...this.state.portfolio,
+                        {
+                            id: item.projectid,
+                            title: item.title,
+                            description: item.description,
+                            demoUrl: item.demo,
+                            gitSourceUrl: item.source,
+                            preview: item.preview,
+                            resources: item.resources
+                        }]
+                });
+            });
+        }).catch((error) => {
+            error.json().then((json) => {
+                this.setState({
+                    errors: json
+                })
+            })
+        })
+    };
+
     render() {
+        const {errors, portfolio} = this.state;
         return (
-            <div>First React Element</div>
+            <>
+                <Error errors={errors} />
+                <Portfolio portfolio={portfolio}/>
+            </>
         )
     }
 }
