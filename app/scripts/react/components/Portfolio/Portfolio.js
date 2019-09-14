@@ -1,10 +1,10 @@
 import React from 'react';
 import Item from './Item';
 
-const Portfolio = ({portfolio}) => {
+const Portfolio = ({itemsPerPage, portfolio}) => {
     return (
-        <div className="portfolio__item">
-            <Item />
+        <div className="portfolio">
+            <Item portfolio={portfolio}/>
         </div>
     )
 };

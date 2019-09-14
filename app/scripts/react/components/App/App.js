@@ -5,6 +5,7 @@ import Api from '../../../api/api';
 
 const init = {
     portfolio: [],
+    itemsPerPage: 4,
     errors: null,
     apiUrl: 'http://localhost:8626'
 };
@@ -47,11 +48,11 @@ class App extends Component {
     };
 
     render() {
-        const {errors, portfolio} = this.state;
+        const {errors, itemsPerPage, portfolio} = this.state;
         return (
             <>
                 <Error errors={errors} />
-                <Portfolio portfolio={portfolio}/>
+                <Portfolio itemsPerPage={itemsPerPage} portfolio={portfolio}/>
             </>
         )
     }
