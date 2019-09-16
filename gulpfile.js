@@ -1,7 +1,7 @@
 // Load plugins
 const browserSync = require('browser-sync').create();
 const del = require('del');
-const {dest, src, series, parallel, watch} = require('gulp');
+const { dest, src, series, parallel, watch } = require('gulp');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
@@ -9,154 +9,173 @@ const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const newer = require('gulp-newer');
-const imageMinify = require('gulp-imagemin');
-
 const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const streamify = require('gulp-streamify');
 const watchify = require('watchify');
-
-const baseApp = './app/';
-const baseBuild = './build/';
-const baseTemplates = './templates/';
+const baseSrc = './src/';
+const baseDist = './dist/';
 
 const dirPaths = {
-    app: {
-        styles: baseApp + 'styles/**/*.scss',
-        scripts: {
-            vendors: baseApp + 'scripts/vendors/**/*.js',
-            js: baseApp + 'scripts/js/**/*.js',
-            react: {
-                index: baseApp + 'scripts/react/index.js',
-                compiled: baseApp + 'scripts/react/compiled/'
-            }
-        },
-        assets: baseApp + 'assets/**/*',
+  src: {
+    styles: baseSrc + 'styles/**/*.scss',
+    scripts: {
+      vendors: baseSrc + 'scripts/vendors/**/*.js',
+      js: baseSrc + 'scripts/js/**/*.js',
+      react: baseSrc + 'scripts/react/index.js',
+      nodeModules: 'node_modules/bootstrap/dist/js/*.js'
     },
-    build: {
-        styles: baseBuild + 'css/',
-        scripts: baseBuild + 'js/',
-        assets: baseBuild + 'assets',
-    },
-    templates: baseTemplates + '**/*.html'
+    assetsSrc: baseSrc + 'assets/**/*',
+    templates: baseSrc + 'templates/**/*.html'
+  },
+  dist: {
+    css: baseDist + 'css/',
+    js: baseDist + 'js/',
+    assetsDist: baseDist + 'assets/'
+  }
 };
 
-const minifiedFileName = 'all.min';
-const reactCompiledFileName = 'compiled-react.js';
+// Input
+const { styles, scripts, assetsSrc, templates } = dirPaths.src;
+
+// Output
+const { css, js, assetsDist } = dirPaths.dist;
 
 // BrowserSync
 function browserSynchronize(done) {
-    browserSync.init({
-        server: {
-            baseDir: baseBuild
-        },
-        port: 3000
-    });
-    done();
-}
-
-// BrowserSync Reload
-function browserSyncReload(done) {
-    browserSync.reload();
-    done();
+  browserSync.init({
+    server: {
+      baseDir: baseDist
+    },
+    port: 3000
+  });
+  done();
 }
 
 function clean() {
-    return del(baseBuild)
+  return del(baseDist);
 }
 
 function compileStyles() {
-    return src([dirPaths.app.styles])
-        .pipe(plumber())
-        .pipe(sass({outputStyle: "expanded"}))
-        .pipe(cleanCSS({compatibility: 'ie11'}))
-        .pipe(concat(minifiedFileName + '.css'))
-        .pipe(dest(dirPaths.build.styles))
-        .pipe(browserSync.stream());
+  return src([styles])
+    .pipe(plumber())
+    .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(cleanCSS({ compatibility: 'ie11' }))
+    .pipe(concat('all.min.css'))
+    .pipe(dest(css))
+    .pipe(browserSync.stream());
 }
 
-function browserifyReact(watch) {
-    let {scripts} = dirPaths.app;
+function browserifyReact() {
+  let bundler = browserify(scripts.react, {
+    debug: true,
+    extensions: ['.js', '.jsx', '.json']
+  });
 
-    let bundler = browserify(scripts.react.index, {
-        debug: true,
-        extensions: ['.js', '.jsx', '.json']
-    });
+  function bundle() {
+    return bundler
+      .transform(babelify, {
+        presets: ['@babel/preset-env', '@babel/preset-react']
+      })
+      .bundle()
+      .on('error', function(err) {
+        console.log(err.message);
+        this.emit('end');
+      })
+      .pipe(source('react.min.js'))
+      .pipe(streamify(uglify()))
+      .pipe(dest(js));
+  }
 
-    function bundle() {
-        return bundler
-            .transform(babelify, {presets: ["@babel/preset-env", "@babel/preset-react"]})
-            .bundle()
-            .on('error', function(err){
-                console.log(err.message);
-                this.emit('end');
-            })
-            .pipe(source(reactCompiledFileName))
-            .pipe(streamify(uglify()))
-            .pipe(dest(scripts.react.compiled))
-    }
+  bundler = watchify(bundler).on('update', bundle);
+  return bundle();
+}
 
-    if(watch) {
-        bundler = watchify(bundler)
-            .on('update', bundle);
-    }
-
-    return bundle();
-
-
+function compileVendorScripts() {
+  return src([scripts.vendors, scripts.nodeModules])
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(concat('vendors.js'))
+    .pipe(dest(js))
+    .pipe(browserSync.stream());
 }
 
 function compileScripts() {
-    let {scripts} = dirPaths.app;
-    let bootstrap = "node_modules/bootstrap/dist/js/*.js";
-    return src([scripts.vendors, bootstrap, scripts.js, scripts.react.compiled + reactCompiledFileName])
-        .pipe(plumber())
-        .pipe(babel())
-        //.pipe(uglify())
-        .pipe(concat(minifiedFileName + '.js'))
-        .pipe(dest(dirPaths.build.scripts))
-        .pipe(browserSync.stream());
+  return src([scripts.js])
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(uglify())
+    .pipe(concat('scripts.js'))
+    .pipe(dest(js))
+    .pipe(browserSync.stream());
+}
+
+function bundleScripts() {
+  const files = js + '*.js';
+  return src([files])
+    .pipe(plumber())
+    .pipe(concat('all.min.js'))
+    .pipe(dest(js))
+    .pipe(browserSync.stream());
 }
 
 function copyTemplates() {
-    return src([dirPaths.templates])
-        .pipe(plumber())
-        .pipe(dest(baseBuild))
-        .pipe(browserSync.stream());
-
+  return src([templates])
+    .pipe(plumber())
+    .pipe(dest(baseDist))
+    .pipe(browserSync.stream());
 }
 
 function copyAssets() {
-    return src(dirPaths.app.assets)
-        .pipe(newer(dirPaths.build.assets))
-        .pipe(dest(dirPaths.build.assets))
-        .pipe(browserSync.stream());
+  return src(assetsSrc)
+    .pipe(newer(assetsDist))
+    .pipe(dest(assetsDist))
+    .pipe(browserSync.stream());
 }
 
 function watchFiles() {
-    let {scripts} = dirPaths.app;
-    watch(dirPaths.app.styles, compileStyles);
-    watch(scripts.react.index, browserifyReact(true));
-    watch([scripts.vendors, scripts.js, scripts.react.compiled + reactCompiledFileName], series(compileScripts));
-    watch(dirPaths.app.assets, copyAssets);
-    watch(dirPaths.templates, copyTemplates);
+  watch(styles, compileStyles);
+  watch(assetsSrc, copyAssets);
+  watch(
+    [scripts.vendors, scripts.nodeModules],
+    series(compileVendorScripts)
+  );
+  watch(scripts.react, series(browserifyReact));
+  watch(scripts.js, series(compileScripts));
+  watch(templates, copyTemplates);
 }
 
-const scripts = series(compileScripts);
-const combineReactAndScripts = series(browserifyReact, compileScripts);
-const styles = series(compileStyles);
-const templates = series(copyTemplates);
-const assets = series(copyAssets);
+const stylesAndAssets = series(compileStyles, copyAssets);
+
+const bundleJs = series(
+  compileVendorScripts,
+  compileScripts,
+  browserifyReact
+);
+
 const watchAll = parallel(watchFiles, browserSynchronize);
-const build = series(clean, parallel(combineReactAndScripts, styles, templates, assets), watchAll);
 
+const development = series(
+  clean,
+  stylesAndAssets,
+  parallel(bundleJs),
+  copyTemplates,
+  watchAll
+);
 
+const production = series(
+  clean,
+  compileStyles,
+  parallel(bundleJs),
+  bundleScripts,
+  copyTemplates
+);
+
+exports.templates = copyTemplates;
 exports.clean = clean;
-exports.scripts = scripts;
-exports.styles = styles;
-exports.build = build;
-exports.templates = templates;
-exports.assets = assets;
+exports.stylesAndAssets = stylesAndAssets;
+exports.production = production;
 exports.watchAll = watchAll;
-exports.default = build;
+exports.default = development;
