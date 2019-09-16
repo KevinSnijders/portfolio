@@ -14,6 +14,7 @@ const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 const streamify = require('gulp-streamify');
 const watchify = require('watchify');
+const htmlmin = require('gulp-htmlmin');
 const baseSrc = './src/';
 const baseDist = './dist/';
 
@@ -124,6 +125,12 @@ function bundleScripts() {
 function copyTemplates() {
   return src([templates])
     .pipe(plumber())
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+        removeComments: true
+      })
+    )
     .pipe(dest(baseDist))
     .pipe(browserSync.stream());
 }
@@ -138,10 +145,7 @@ function copyAssets() {
 function watchFiles() {
   watch(styles, compileStyles);
   watch(assetsSrc, copyAssets);
-  watch(
-    [scripts.vendors, scripts.nodeModules],
-    series(compileVendorScripts)
-  );
+  watch([scripts.vendors, scripts.nodeModules], series(compileVendorScripts));
   watch(scripts.react, series(browserifyReact));
   watch(scripts.js, series(compileScripts));
   watch(templates, copyTemplates);
@@ -149,11 +153,7 @@ function watchFiles() {
 
 const stylesAndAssets = series(compileStyles, copyAssets);
 
-const bundleJs = series(
-  compileVendorScripts,
-  compileScripts,
-  browserifyReact
-);
+const bundleJs = series(compileVendorScripts, compileScripts, browserifyReact);
 
 const watchAll = parallel(watchFiles, browserSynchronize);
 

@@ -22,8 +22,10 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["html", "react", "react-hooks"],
   "settings": {
+    "html/indent": "+2", // indentation is the <script> indentation plus two spaces.
+    "html/report-bad-indent": "error",
     "react": {
       "version": "detect"
     }
