@@ -23,9 +23,7 @@ class Portfolio extends Component {
     return (
       <div className="portfolio">
         {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
-          return (
-            <Item key={index} length={portfolio.length} portfolio={portfolio} />
-          );
+          return <Item key={index} length={portfolio.length} portfolio={portfolio} />;
         })}
 
         {portfolio.length > itemsPerPage && (

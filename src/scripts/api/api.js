@@ -13,11 +13,7 @@ const Api = {
       config.body = JSON.stringify(payload);
     }
     // if custom headers need to be set for the specific request override them here
-    if (
-      headers &&
-      typeof headers === 'object' &&
-      Object.keys(headers).length > 0
-    ) {
+    if (headers && typeof headers === 'object' && Object.keys(headers).length > 0) {
       config.headers = headers;
     }
     return fetch(url, config).then(response => {
@@ -26,9 +22,7 @@ const Api = {
         let data = response;
 
         // if the type is json return, interpret it as json
-        if (
-          response.headers.get('Content-Type').indexOf('application/json') > -1
-        ) {
+        if (response.headers.get('Content-Type').indexOf('application/json') > -1) {
           data = response.json();
         }
         return data;

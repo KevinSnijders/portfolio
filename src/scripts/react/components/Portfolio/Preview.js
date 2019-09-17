@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Preview = ({ preview }) => {
-  return (
-    <img className="portfolio__preview" src={preview} alt="website natours" />
-  );
+  return <img className="portfolio__preview" src={preview} alt="website natours" />;
 };
 
 Preview.propTypes = {

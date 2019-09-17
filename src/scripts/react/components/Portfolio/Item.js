@@ -22,12 +22,7 @@ class Item extends Component {
     return index % number === 0 ? (
       <>
         {this.renderComponent(
-          <Details
-            title={title}
-            description={description}
-            demo={demo}
-            source={source}
-          />,
+          <Details title={title} description={description} demo={demo} source={source} />,
           detailsLeft
         )}
         {this.renderComponent(<Preview preview={preview} />, previewRight)}
@@ -36,12 +31,7 @@ class Item extends Component {
       <>
         {this.renderComponent(<Preview preview={preview} />, previewLeft)}
         {this.renderComponent(
-          <Details
-            title={title}
-            description={description}
-            demo={demo}
-            source={source}
-          />,
+          <Details title={title} description={description} demo={demo} source={source} />,
           detailsRight
         )}
       </>
@@ -58,9 +48,7 @@ class Item extends Component {
       <>
         {Object.entries(portfolio).length > 0 ? (
           <div className="portfolio__item">
-            <div className="row d-flex align-items-center">
-              {this.getEvenOrOddItem(portfolio)}
-            </div>
+            <div className="row d-flex align-items-center">{this.getEvenOrOddItem(portfolio)}</div>
             <div className="row d-flex justify-content-center">
               <Resources resources={portfolio.resources} />
             </div>
