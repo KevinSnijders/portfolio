@@ -4,8 +4,8 @@
   "description": "Personal portfolio to showcase my previous work",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/scripts/js/*.js src/scripts/react/**/*.js src/templates/**/*.html && echo 'Lint complete.",
-    "lint:fix": "prettier-eslint src/scripts/js/*.js src/scripts/react/**/*.js src/templates/**/*.html --write"
+    "lint": "eslint src/scripts/**/*.js src/templates/**/*.html && echo 'Lint complete.",
+    "lint:fix": "prettier-eslint src/scripts/**/*.js src/templates/**/*.html --write"
   },
   "husky": {
     "hooks": {
@@ -78,6 +78,7 @@
     "eslint-plugin-html": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
     "particles.js": "^2.0.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
