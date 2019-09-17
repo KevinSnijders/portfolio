@@ -157,21 +157,9 @@ const bundleJs = series(compileVendorScripts, compileScripts, browserifyReact);
 
 const watchAll = parallel(watchFiles, browserSynchronize);
 
-const development = series(
-  clean,
-  stylesAndAssets,
-  parallel(bundleJs),
-  copyTemplates,
-  watchAll
-);
+const development = series(clean, stylesAndAssets, parallel(bundleJs), copyTemplates, watchAll);
 
-const production = series(
-  clean,
-  compileStyles,
-  parallel(bundleJs),
-  bundleScripts,
-  copyTemplates
-);
+const production = series(clean, stylesAndAssets, parallel(bundleJs), bundleScripts, copyTemplates);
 
 exports.templates = copyTemplates;
 exports.clean = clean;
