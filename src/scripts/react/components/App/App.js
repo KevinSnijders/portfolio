@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Error from '../Message/Error';
 import Portfolio from '../Portfolio/Portfolio';
 import Api from '../../../api/api';
+import PropTypes from 'prop-types';
 
 const init = {
   portfolio: [],
@@ -54,13 +55,14 @@ class App extends Component {
     return (
       <>
         <Error errors={errors} />
-        <Portfolio
-          itemsPerPage={itemsPerPage}
-          portfolio={portfolio}
-        />
+        <Portfolio itemsPerPage={itemsPerPage} portfolio={portfolio} />
       </>
     );
   }
 }
+
+App.propTypes = {
+  portfolio: PropTypes.array
+};
 
 export default App;

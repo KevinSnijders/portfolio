@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Resources = ({ resources }) => {
   return (
@@ -13,6 +14,10 @@ const Resources = ({ resources }) => {
       })}
     </>
   );
+};
+
+Resources.propTypes = {
+  resources: PropTypes.array
 };
 
 export default Resources;

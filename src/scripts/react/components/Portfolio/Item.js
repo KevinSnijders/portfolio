@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Details from './Details';
 import Preview from './Preview';
 import Resources from './Resources';
+import PropTypes from 'prop-types';
 
 class Item extends Component {
   constructor(props) {
@@ -29,17 +30,11 @@ class Item extends Component {
           />,
           detailsLeft
         )}
-        {this.renderComponent(
-          <Preview preview={preview} />,
-          previewRight
-        )}
+        {this.renderComponent(<Preview preview={preview} />, previewRight)}
       </>
     ) : (
       <>
-        {this.renderComponent(
-          <Preview preview={preview} />,
-          previewLeft
-        )}
+        {this.renderComponent(<Preview preview={preview} />, previewLeft)}
         {this.renderComponent(
           <Details
             title={title}
@@ -81,5 +76,9 @@ class Item extends Component {
     return this.displayItems();
   }
 }
+
+Item.propTypes = {
+  portfolio: PropTypes.object
+};
 
 export default Item;

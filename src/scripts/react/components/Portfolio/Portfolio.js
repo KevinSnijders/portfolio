@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './Item';
+import PropTypes from 'prop-types';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -23,11 +24,7 @@ class Portfolio extends Component {
       <div className="portfolio">
         {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
           return (
-            <Item
-              key={index}
-              length={portfolio.length}
-              portfolio={portfolio}
-            />
+            <Item key={index} length={portfolio.length} portfolio={portfolio} />
           );
         })}
 
@@ -47,5 +44,9 @@ class Portfolio extends Component {
     );
   }
 }
+
+Portfolio.propTypes = {
+  portfolio: PropTypes.array
+};
 
 export default Portfolio;
