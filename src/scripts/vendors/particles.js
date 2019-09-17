@@ -8,9 +8,7 @@
 /* ----------------------------------------------- */
 
 var pJS = function(tag_id, params) {
-  var canvas_el = document.querySelector(
-    '#' + tag_id + ' > .particles-js-canvas-el'
-  );
+  var canvas_el = document.querySelector('#' + tag_id + ' > .particles-js-canvas-el');
 
   /* particles.js variables with default values */
   this.pJS = {
@@ -166,22 +164,14 @@ var pJS = function(tag_id, params) {
     pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
     pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
 
-    pJS.particles.size.value =
-      pJS.tmp.obj.size_value * pJS.canvas.pxratio;
-    pJS.particles.size.anim.speed =
-      pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
-    pJS.particles.move.speed =
-      pJS.tmp.obj.move_speed * pJS.canvas.pxratio;
-    pJS.particles.line_linked.distance =
-      pJS.tmp.obj.line_linked_distance * pJS.canvas.pxratio;
-    pJS.interactivity.modes.grab.distance =
-      pJS.tmp.obj.mode_grab_distance * pJS.canvas.pxratio;
-    pJS.interactivity.modes.bubble.distance =
-      pJS.tmp.obj.mode_bubble_distance * pJS.canvas.pxratio;
-    pJS.particles.line_linked.width =
-      pJS.tmp.obj.line_linked_width * pJS.canvas.pxratio;
-    pJS.interactivity.modes.bubble.size =
-      pJS.tmp.obj.mode_bubble_size * pJS.canvas.pxratio;
+    pJS.particles.size.value = pJS.tmp.obj.size_value * pJS.canvas.pxratio;
+    pJS.particles.size.anim.speed = pJS.tmp.obj.size_anim_speed * pJS.canvas.pxratio;
+    pJS.particles.move.speed = pJS.tmp.obj.move_speed * pJS.canvas.pxratio;
+    pJS.particles.line_linked.distance = pJS.tmp.obj.line_linked_distance * pJS.canvas.pxratio;
+    pJS.interactivity.modes.grab.distance = pJS.tmp.obj.mode_grab_distance * pJS.canvas.pxratio;
+    pJS.interactivity.modes.bubble.distance = pJS.tmp.obj.mode_bubble_distance * pJS.canvas.pxratio;
+    pJS.particles.line_linked.width = pJS.tmp.obj.line_linked_width * pJS.canvas.pxratio;
+    pJS.interactivity.modes.bubble.size = pJS.tmp.obj.mode_bubble_size * pJS.canvas.pxratio;
     pJS.interactivity.modes.repulse.distance =
       pJS.tmp.obj.mode_repulse_distance * pJS.canvas.pxratio;
   };
@@ -236,9 +226,7 @@ var pJS = function(tag_id, params) {
 
   pJS.fn.particle = function(color, opacity, position) {
     /* size */
-    this.radius =
-      (pJS.particles.size.random ? Math.random() : 1) *
-      pJS.particles.size.value;
+    this.radius = (pJS.particles.size.random ? Math.random() : 1) * pJS.particles.size.value;
     if (pJS.particles.size.anim.enable) {
       this.size_status = false;
       this.vs = pJS.particles.size.anim.speed / 100;
@@ -252,11 +240,9 @@ var pJS = function(tag_id, params) {
     this.y = position ? position.y : Math.random() * pJS.canvas.h;
 
     /* check position  - into the canvas */
-    if (this.x > pJS.canvas.w - this.radius * 2)
-      this.x = this.x - this.radius;
+    if (this.x > pJS.canvas.w - this.radius * 2) this.x = this.x - this.radius;
     else if (this.x < this.radius * 2) this.x = this.x + this.radius;
-    if (this.y > pJS.canvas.h - this.radius * 2)
-      this.y = this.y - this.radius;
+    if (this.y > pJS.canvas.h - this.radius * 2) this.y = this.y - this.radius;
     else if (this.y < this.radius * 2) this.y = this.y + this.radius;
 
     /* check position - avoid overlap */
@@ -269,11 +255,7 @@ var pJS = function(tag_id, params) {
     if (typeof color.value == 'object') {
       if (color.value instanceof Array) {
         var color_selected =
-          color.value[
-            Math.floor(
-              Math.random() * pJS.particles.color.value.length
-            )
-          ];
+          color.value[Math.floor(Math.random() * pJS.particles.color.value.length)];
         this.color.rgb = hexToRgb(color_selected);
       } else {
         if (
@@ -311,9 +293,7 @@ var pJS = function(tag_id, params) {
     }
 
     /* opacity */
-    this.opacity =
-      (pJS.particles.opacity.random ? Math.random() : 1) *
-      pJS.particles.opacity.value;
+    this.opacity = (pJS.particles.opacity.random ? Math.random() : 1) * pJS.particles.opacity.value;
     if (pJS.particles.opacity.anim.enable) {
       this.opacity_status = false;
       this.vo = pJS.particles.opacity.anim.speed / 100;
@@ -378,8 +358,7 @@ var pJS = function(tag_id, params) {
     var shape_type = pJS.particles.shape.type;
     if (typeof shape_type == 'object') {
       if (shape_type instanceof Array) {
-        var shape_selected =
-          shape_type[Math.floor(Math.random() * shape_type.length)];
+        var shape_selected = shape_type[Math.floor(Math.random() * shape_type.length)];
         this.shape = shape_selected;
       }
     } else {
@@ -393,10 +372,7 @@ var pJS = function(tag_id, params) {
         ratio: sh.image.width / sh.image.height
       };
       if (!this.img.ratio) this.img.ratio = 1;
-      if (
-        pJS.tmp.img_type == 'svg' &&
-        pJS.tmp.source_svg != undefined
-      ) {
+      if (pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg != undefined) {
         pJS.fn.vendors.createSvgImg(this);
         if (pJS.tmp.pushing) {
           this.img.loaded = false;
@@ -422,26 +398,10 @@ var pJS = function(tag_id, params) {
 
     if (p.color.rgb) {
       var color_value =
-        'rgba(' +
-        p.color.rgb.r +
-        ',' +
-        p.color.rgb.g +
-        ',' +
-        p.color.rgb.b +
-        ',' +
-        opacity +
-        ')';
+        'rgba(' + p.color.rgb.r + ',' + p.color.rgb.g + ',' + p.color.rgb.b + ',' + opacity + ')';
     } else {
       var color_value =
-        'hsla(' +
-        p.color.hsl.h +
-        ',' +
-        p.color.hsl.s +
-        '%,' +
-        p.color.hsl.l +
-        '%,' +
-        opacity +
-        ')';
+        'hsla(' + p.color.hsl.h + ',' + p.color.hsl.s + '%,' + p.color.hsl.l + '%,' + opacity + ')';
     }
 
     pJS.canvas.ctx.fillStyle = color_value;
@@ -453,12 +413,7 @@ var pJS = function(tag_id, params) {
         break;
 
       case 'edge':
-        pJS.canvas.ctx.rect(
-          p.x - radius,
-          p.y - radius,
-          radius * 2,
-          radius * 2
-        );
+        pJS.canvas.ctx.rect(p.x - radius, p.y - radius, radius * 2, radius * 2);
         break;
 
       case 'triangle':
@@ -477,8 +432,7 @@ var pJS = function(tag_id, params) {
           pJS.canvas.ctx,
           p.x - radius / (pJS.particles.shape.polygon.nb_sides / 3.5), // startX
           p.y - radius / (2.66 / 3.5), // startY
-          (radius * 2.66) /
-            (pJS.particles.shape.polygon.nb_sides / 3), // sideLength
+          (radius * 2.66) / (pJS.particles.shape.polygon.nb_sides / 3), // sideLength
           pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
           1 // sideCountDenominator
         );
@@ -487,11 +441,9 @@ var pJS = function(tag_id, params) {
       case 'star':
         pJS.fn.vendors.drawShape(
           pJS.canvas.ctx,
-          p.x -
-            (radius * 2) / (pJS.particles.shape.polygon.nb_sides / 4), // startX
+          p.x - (radius * 2) / (pJS.particles.shape.polygon.nb_sides / 4), // startX
           p.y - radius / ((2 * 2.66) / 3.5), // startY
-          (radius * 2 * 2.66) /
-            (pJS.particles.shape.polygon.nb_sides / 3), // sideLength
+          (radius * 2 * 2.66) / (pJS.particles.shape.polygon.nb_sides / 3), // sideLength
           pJS.particles.shape.polygon.nb_sides, // sideCountNumerator
           2 // sideCountDenominator
         );
@@ -535,10 +487,7 @@ var pJS = function(tag_id, params) {
   pJS.fn.particlesCreate = function() {
     for (var i = 0; i < pJS.particles.number.value; i++) {
       pJS.particles.array.push(
-        new pJS.fn.particle(
-          pJS.particles.color,
-          pJS.particles.opacity.value
-        )
+        new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value)
       );
     }
   };
@@ -566,12 +515,10 @@ var pJS = function(tag_id, params) {
       /* change opacity status */
       if (pJS.particles.opacity.anim.enable) {
         if (p.opacity_status == true) {
-          if (p.opacity >= pJS.particles.opacity.value)
-            p.opacity_status = false;
+          if (p.opacity >= pJS.particles.opacity.value) p.opacity_status = false;
           p.opacity += p.vo;
         } else {
-          if (p.opacity <= pJS.particles.opacity.anim.opacity_min)
-            p.opacity_status = true;
+          if (p.opacity <= pJS.particles.opacity.anim.opacity_min) p.opacity_status = true;
           p.opacity -= p.vo;
         }
         if (p.opacity < 0) p.opacity = 0;
@@ -580,12 +527,10 @@ var pJS = function(tag_id, params) {
       /* change size */
       if (pJS.particles.size.anim.enable) {
         if (p.size_status == true) {
-          if (p.radius >= pJS.particles.size.value)
-            p.size_status = false;
+          if (p.radius >= pJS.particles.size.value) p.size_status = false;
           p.radius += p.vs;
         } else {
-          if (p.radius <= pJS.particles.size.anim.size_min)
-            p.size_status = true;
+          if (p.radius <= pJS.particles.size.anim.size_min) p.size_status = true;
           p.radius -= p.vs;
         }
         if (p.radius < 0) p.radius = 0;
@@ -653,10 +598,7 @@ var pJS = function(tag_id, params) {
       }
 
       /* interaction auto between particles */
-      if (
-        pJS.particles.line_linked.enable ||
-        pJS.particles.move.attract.enable
-      ) {
+      if (pJS.particles.line_linked.enable || pJS.particles.move.attract.enable) {
         for (var j = i + 1; j < pJS.particles.array.length; j++) {
           var p2 = pJS.particles.array[j];
 
@@ -722,9 +664,7 @@ var pJS = function(tag_id, params) {
     if (dist <= pJS.particles.line_linked.distance) {
       var opacity_line =
         pJS.particles.line_linked.opacity -
-        dist /
-          (1 / pJS.particles.line_linked.opacity) /
-          pJS.particles.line_linked.distance;
+        dist / (1 / pJS.particles.line_linked.opacity) / pJS.particles.line_linked.distance;
 
       if (opacity_line > 0) {
         /* style */
@@ -792,14 +732,10 @@ var pJS = function(tag_id, params) {
 
     for (var i = 0; i < nb; i++) {
       pJS.particles.array.push(
-        new pJS.fn.particle(
-          pJS.particles.color,
-          pJS.particles.opacity.value,
-          {
-            x: pos ? pos.pos_x : Math.random() * pJS.canvas.w,
-            y: pos ? pos.pos_y : Math.random() * pJS.canvas.h
-          }
-        )
+        new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value, {
+          x: pos ? pos.pos_x : Math.random() * pJS.canvas.w,
+          y: pos ? pos.pos_y : Math.random() * pJS.canvas.h
+        })
       );
       if (i == nb - 1) {
         if (!pJS.particles.move.enable) {
@@ -825,11 +761,8 @@ var pJS = function(tag_id, params) {
     ) {
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
         dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
-        dist_mouse = Math.sqrt(
-          dx_mouse * dx_mouse + dy_mouse * dy_mouse
-        ),
-        ratio =
-          1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
+        ratio = 1 - dist_mouse / pJS.interactivity.modes.bubble.distance;
 
       function init() {
         p.opacity_bubble = p.opacity;
@@ -840,23 +773,14 @@ var pJS = function(tag_id, params) {
       if (dist_mouse <= pJS.interactivity.modes.bubble.distance) {
         if (ratio >= 0 && pJS.interactivity.status == 'mousemove') {
           /* size */
-          if (
-            pJS.interactivity.modes.bubble.size !=
-            pJS.particles.size.value
-          ) {
-            if (
-              pJS.interactivity.modes.bubble.size >
-              pJS.particles.size.value
-            ) {
-              var size =
-                p.radius +
-                pJS.interactivity.modes.bubble.size * ratio;
+          if (pJS.interactivity.modes.bubble.size != pJS.particles.size.value) {
+            if (pJS.interactivity.modes.bubble.size > pJS.particles.size.value) {
+              var size = p.radius + pJS.interactivity.modes.bubble.size * ratio;
               if (size >= 0) {
                 p.radius_bubble = size;
               }
             } else {
-              var dif =
-                  p.radius - pJS.interactivity.modes.bubble.size,
+              var dif = p.radius - pJS.interactivity.modes.bubble.size,
                 size = p.radius - dif * ratio;
               if (size > 0) {
                 p.radius_bubble = size;
@@ -867,32 +791,17 @@ var pJS = function(tag_id, params) {
           }
 
           /* opacity */
-          if (
-            pJS.interactivity.modes.bubble.opacity !=
-            pJS.particles.opacity.value
-          ) {
-            if (
-              pJS.interactivity.modes.bubble.opacity >
-              pJS.particles.opacity.value
-            ) {
-              var opacity =
-                pJS.interactivity.modes.bubble.opacity * ratio;
-              if (
-                opacity > p.opacity &&
-                opacity <= pJS.interactivity.modes.bubble.opacity
-              ) {
+          if (pJS.interactivity.modes.bubble.opacity != pJS.particles.opacity.value) {
+            if (pJS.interactivity.modes.bubble.opacity > pJS.particles.opacity.value) {
+              var opacity = pJS.interactivity.modes.bubble.opacity * ratio;
+              if (opacity > p.opacity && opacity <= pJS.interactivity.modes.bubble.opacity) {
                 p.opacity_bubble = opacity;
               }
             } else {
               var opacity =
                 p.opacity -
-                (pJS.particles.opacity.value -
-                  pJS.interactivity.modes.bubble.opacity) *
-                  ratio;
-              if (
-                opacity < p.opacity &&
-                opacity >= pJS.interactivity.modes.bubble.opacity
-              ) {
+                (pJS.particles.opacity.value - pJS.interactivity.modes.bubble.opacity) * ratio;
+              if (opacity < p.opacity && opacity >= pJS.interactivity.modes.bubble.opacity) {
                 p.opacity_bubble = opacity;
               }
             }
@@ -914,46 +823,29 @@ var pJS = function(tag_id, params) {
       if (pJS.tmp.bubble_clicking) {
         var dx_mouse = p.x - pJS.interactivity.mouse.click_pos_x,
           dy_mouse = p.y - pJS.interactivity.mouse.click_pos_y,
-          dist_mouse = Math.sqrt(
-            dx_mouse * dx_mouse + dy_mouse * dy_mouse
-          ),
-          time_spent =
-            (new Date().getTime() -
-              pJS.interactivity.mouse.click_time) /
-            1000;
+          dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse),
+          time_spent = (new Date().getTime() - pJS.interactivity.mouse.click_time) / 1000;
 
         if (time_spent > pJS.interactivity.modes.bubble.duration) {
           pJS.tmp.bubble_duration_end = true;
         }
 
-        if (
-          time_spent >
-          pJS.interactivity.modes.bubble.duration * 2
-        ) {
+        if (time_spent > pJS.interactivity.modes.bubble.duration * 2) {
           pJS.tmp.bubble_clicking = false;
           pJS.tmp.bubble_duration_end = false;
         }
       }
 
-      function process(
-        bubble_param,
-        particles_param,
-        p_obj_bubble,
-        p_obj,
-        id
-      ) {
+      function process(bubble_param, particles_param, p_obj_bubble, p_obj, id) {
         if (bubble_param != particles_param) {
           if (!pJS.tmp.bubble_duration_end) {
-            if (
-              dist_mouse <= pJS.interactivity.modes.bubble.distance
-            ) {
+            if (dist_mouse <= pJS.interactivity.modes.bubble.distance) {
               if (p_obj_bubble != undefined) var obj = p_obj_bubble;
               else var obj = p_obj;
               if (obj != bubble_param) {
                 var value =
                   p_obj -
-                  (time_spent * (p_obj - bubble_param)) /
-                    pJS.interactivity.modes.bubble.duration;
+                  (time_spent * (p_obj - bubble_param)) / pJS.interactivity.modes.bubble.duration;
                 if (id == 'size') p.radius_bubble = value;
                 if (id == 'opacity') p.opacity_bubble = value;
               }
@@ -965,8 +857,7 @@ var pJS = function(tag_id, params) {
             if (p_obj_bubble != undefined) {
               var value_tmp =
                   p_obj -
-                  (time_spent * (p_obj - bubble_param)) /
-                    pJS.interactivity.modes.bubble.duration,
+                  (time_spent * (p_obj - bubble_param)) / pJS.interactivity.modes.bubble.duration,
                 dif = bubble_param - value_tmp;
               value = bubble_param + dif;
               if (id == 'size') p.radius_bubble = value;
@@ -1005,9 +896,7 @@ var pJS = function(tag_id, params) {
     ) {
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
         dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
-        dist_mouse = Math.sqrt(
-          dx_mouse * dx_mouse + dy_mouse * dy_mouse
-        );
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
       var normVec = {
           x: dx_mouse / dist_mouse,
@@ -1030,10 +919,8 @@ var pJS = function(tag_id, params) {
       };
 
       if (pJS.particles.move.out_mode == 'bounce') {
-        if (pos.x - p.radius > 0 && pos.x + p.radius < pJS.canvas.w)
-          p.x = pos.x;
-        if (pos.y - p.radius > 0 && pos.y + p.radius < pJS.canvas.h)
-          p.y = pos.y;
+        if (pos.x - p.radius > 0 && pos.x + p.radius < pJS.canvas.w) p.x = pos.x;
+        if (pos.y - p.radius > 0 && pos.y + p.radius < pJS.canvas.h) p.y = pos.y;
       } else {
         p.x = pos.x;
         p.y = pos.y;
@@ -1050,10 +937,7 @@ var pJS = function(tag_id, params) {
       }
 
       if (pJS.tmp.repulse_clicking) {
-        var repulseRadius = Math.pow(
-          pJS.interactivity.modes.repulse.distance / 6,
-          3
-        );
+        var repulseRadius = Math.pow(pJS.interactivity.modes.repulse.distance / 6, 3);
 
         var dx = pJS.interactivity.mouse.click_pos_x - p.x,
           dy = pJS.interactivity.mouse.click_pos_y - p.y,
@@ -1101,15 +985,10 @@ var pJS = function(tag_id, params) {
   };
 
   pJS.fn.modes.grabParticle = function(p) {
-    if (
-      pJS.interactivity.events.onhover.enable &&
-      pJS.interactivity.status == 'mousemove'
-    ) {
+    if (pJS.interactivity.events.onhover.enable && pJS.interactivity.status == 'mousemove') {
       var dx_mouse = p.x - pJS.interactivity.mouse.pos_x,
         dy_mouse = p.y - pJS.interactivity.mouse.pos_y,
-        dist_mouse = Math.sqrt(
-          dx_mouse * dx_mouse + dy_mouse * dy_mouse
-        );
+        dist_mouse = Math.sqrt(dx_mouse * dx_mouse + dy_mouse * dy_mouse);
 
       /* draw a line between the cursor and the particle if the distance between them is under the config distance */
       if (dist_mouse <= pJS.interactivity.modes.grab.distance) {
@@ -1138,10 +1017,7 @@ var pJS = function(tag_id, params) {
           /* path */
           pJS.canvas.ctx.beginPath();
           pJS.canvas.ctx.moveTo(p.x, p.y);
-          pJS.canvas.ctx.lineTo(
-            pJS.interactivity.mouse.pos_x,
-            pJS.interactivity.mouse.pos_y
-          );
+          pJS.canvas.ctx.lineTo(pJS.interactivity.mouse.pos_x, pJS.interactivity.mouse.pos_y);
           pJS.canvas.ctx.stroke();
           pJS.canvas.ctx.closePath();
         }
@@ -1160,10 +1036,7 @@ var pJS = function(tag_id, params) {
     }
 
     /* detect mouse pos - on hover / click event */
-    if (
-      pJS.interactivity.events.onhover.enable ||
-      pJS.interactivity.events.onclick.enable
-    ) {
+    if (pJS.interactivity.events.onhover.enable || pJS.interactivity.events.onclick.enable) {
       /* el on mousemove */
       pJS.interactivity.el.addEventListener('mousemove', function(e) {
         if (pJS.interactivity.el == window) {
@@ -1186,9 +1059,7 @@ var pJS = function(tag_id, params) {
       });
 
       /* el on onmouseleave */
-      pJS.interactivity.el.addEventListener('mouseleave', function(
-        e
-      ) {
+      pJS.interactivity.el.addEventListener('mouseleave', function(e) {
         pJS.interactivity.mouse.pos_x = null;
         pJS.interactivity.mouse.pos_y = null;
         pJS.interactivity.status = 'mouseleave';
@@ -1198,10 +1069,8 @@ var pJS = function(tag_id, params) {
     /* on click event */
     if (pJS.interactivity.events.onclick.enable) {
       pJS.interactivity.el.addEventListener('click', function() {
-        pJS.interactivity.mouse.click_pos_x =
-          pJS.interactivity.mouse.pos_x;
-        pJS.interactivity.mouse.click_pos_y =
-          pJS.interactivity.mouse.pos_y;
+        pJS.interactivity.mouse.click_pos_x = pJS.interactivity.mouse.pos_x;
+        pJS.interactivity.mouse.click_pos_y = pJS.interactivity.mouse.pos_y;
         pJS.interactivity.mouse.click_time = new Date().getTime();
 
         if (pJS.interactivity.events.onclick.enable) {
@@ -1218,20 +1087,14 @@ var pJS = function(tag_id, params) {
                     pJS.interactivity.modes.push.particles_nb,
                     pJS.interactivity.mouse
                   );
-                } else if (
-                  pJS.interactivity.modes.push.particles_nb > 1
-                ) {
-                  pJS.fn.modes.pushParticles(
-                    pJS.interactivity.modes.push.particles_nb
-                  );
+                } else if (pJS.interactivity.modes.push.particles_nb > 1) {
+                  pJS.fn.modes.pushParticles(pJS.interactivity.modes.push.particles_nb);
                 }
               }
               break;
 
             case 'remove':
-              pJS.fn.modes.removeParticles(
-                pJS.interactivity.modes.remove.particles_nb
-              );
+              pJS.fn.modes.removeParticles(pJS.interactivity.modes.remove.particles_nb);
               break;
 
             case 'bubble':
@@ -1262,14 +1125,11 @@ var pJS = function(tag_id, params) {
 
       /* calc number of particles based on density area */
       var nb_particles =
-        (area * pJS.particles.number.value) /
-        pJS.particles.number.density.value_area;
+        (area * pJS.particles.number.value) / pJS.particles.number.density.value_area;
 
       /* add or remove X particles */
-      var missing_particles =
-        pJS.particles.array.length - nb_particles;
-      if (missing_particles < 0)
-        pJS.fn.modes.pushParticles(Math.abs(missing_particles));
+      var missing_particles = pJS.particles.array.length - nb_particles;
+      if (missing_particles < 0) pJS.fn.modes.pushParticles(Math.abs(missing_particles));
       else pJS.fn.modes.removeParticles(missing_particles);
     }
   };
@@ -1356,10 +1216,8 @@ var pJS = function(tag_id, params) {
     // By Programming Thomas - https://programmingthomas.wordpress.com/2013/04/03/n-sided-shapes/
     var sideCount = sideCountNumerator * sideCountDenominator;
     var decimalSides = sideCountNumerator / sideCountDenominator;
-    var interiorAngleDegrees =
-      (180 * (decimalSides - 2)) / decimalSides;
-    var interiorAngle =
-      Math.PI - (Math.PI * interiorAngleDegrees) / 180; // convert to radians
+    var interiorAngleDegrees = (180 * (decimalSides - 2)) / decimalSides;
+    var interiorAngle = Math.PI - (Math.PI * interiorAngleDegrees) / 180; // convert to radians
     c.save();
     c.beginPath();
     c.translate(startX, startY);
@@ -1416,51 +1274,32 @@ var pJS = function(tag_id, params) {
       if (pJS.tmp.img_type == 'svg') {
         if (pJS.tmp.count_svg >= pJS.particles.number.value) {
           pJS.fn.particlesDraw();
-          if (!pJS.particles.move.enable)
-            cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-          else
-            pJS.fn.drawAnimFrame = requestAnimFrame(
-              pJS.fn.vendors.draw
-            );
+          if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
         } else {
           //console.log('still loading...');
-          if (!pJS.tmp.img_error)
-            pJS.fn.drawAnimFrame = requestAnimFrame(
-              pJS.fn.vendors.draw
-            );
+          if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
         }
       } else {
         if (pJS.tmp.img_obj != undefined) {
           pJS.fn.particlesDraw();
-          if (!pJS.particles.move.enable)
-            cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-          else
-            pJS.fn.drawAnimFrame = requestAnimFrame(
-              pJS.fn.vendors.draw
-            );
+          if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
         } else {
-          if (!pJS.tmp.img_error)
-            pJS.fn.drawAnimFrame = requestAnimFrame(
-              pJS.fn.vendors.draw
-            );
+          if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
         }
       }
     } else {
       pJS.fn.particlesDraw();
-      if (!pJS.particles.move.enable)
-        cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
-      else
-        pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+      if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+      else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
     }
   };
 
   pJS.fn.vendors.checkBeforeDraw = function() {
     // if shape is image
     if (pJS.particles.shape.type == 'image') {
-      if (
-        pJS.tmp.img_type == 'svg' &&
-        pJS.tmp.source_svg == undefined
-      ) {
+      if (pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg == undefined) {
         pJS.tmp.checkAnimFrame = requestAnimFrame(check);
       } else {
         //console.log('images loaded! cancel check');
@@ -1486,9 +1325,7 @@ var pJS = function(tag_id, params) {
     pJS.fn.vendors.densityAutoParticles();
 
     /* particles.line_linked - convert hex colors to rgb */
-    pJS.particles.line_linked.color_rgb_line = hexToRgb(
-      pJS.particles.line_linked.color
-    );
+    pJS.particles.line_linked.color_rgb_line = hexToRgb(pJS.particles.line_linked.color);
   };
 
   pJS.fn.vendors.start = function() {
@@ -1623,11 +1460,7 @@ window.particlesJS = function(tag_id, params) {
   }
 };
 
-window.particlesJS.load = function(
-  tag_id,
-  path_config_json,
-  callback
-) {
+window.particlesJS.load = function(tag_id, path_config_json, callback) {
   /* load json config */
   var xhr = new XMLHttpRequest();
   xhr.open('GET', path_config_json);
@@ -1638,9 +1471,7 @@ window.particlesJS.load = function(
         window.particlesJS(tag_id, params);
         if (callback) callback();
       } else {
-        console.log(
-          'Error pJS - XMLHttpRequest status: ' + xhr.status
-        );
+        console.log('Error pJS - XMLHttpRequest status: ' + xhr.status);
         console.log('Error pJS - File config not found');
       }
     }
