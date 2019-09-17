@@ -98,7 +98,7 @@ function compileVendorScripts() {
     .pipe(plumber())
     .pipe(babel())
     .pipe(uglify())
-    .pipe(concat('vendors.js'))
+    .pipe(concat('vendors.min.js'))
     .pipe(dest(js))
     .pipe(browserSync.stream());
 }
@@ -108,7 +108,7 @@ function compileScripts() {
     .pipe(plumber())
     .pipe(babel())
     .pipe(uglify())
-    .pipe(concat('scripts.js'))
+    .pipe(concat('scripts.min.js'))
     .pipe(dest(js))
     .pipe(browserSync.stream());
 }
