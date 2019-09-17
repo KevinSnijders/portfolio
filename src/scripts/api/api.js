@@ -9,11 +9,7 @@ const Api = {
       }
     };
     // method = post and payload, add it to the fetch request
-    if (
-      method.toLowerCase() === 'post' &&
-      payload &&
-      payload.length > 0
-    ) {
+    if (method.toLowerCase() === 'post' && payload && payload.length > 0) {
       config.body = JSON.stringify(payload);
     }
     // if custom headers need to be set for the specific request override them here
@@ -31,9 +27,7 @@ const Api = {
 
         // if the type is json return, interpret it as json
         if (
-          response.headers
-            .get('Content-Type')
-            .indexOf('application/json') > -1
+          response.headers.get('Content-Type').indexOf('application/json') > -1
         ) {
           data = response.json();
         }
