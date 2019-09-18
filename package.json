@@ -19,6 +19,12 @@
       "git add"
     ]
   },
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "./src/scripts/setupTests.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KevinSnijders/portfolio.git"
