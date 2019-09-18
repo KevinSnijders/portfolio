@@ -4,8 +4,9 @@
   "description": "Personal portfolio to showcase my previous work",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src/scripts/**/*.js src/templates/**/*.html && echo 'Lint complete.",
-    "lint:fix": "prettier-eslint src/scripts/**/*.js src/templates/**/*.html --write"
+    "lint": "eslint **/*.js src/templates/**/*.html && echo 'Lint complete.",
+    "lint:fix": "prettier-eslint **/*.js src/templates/**/*.html --write",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
