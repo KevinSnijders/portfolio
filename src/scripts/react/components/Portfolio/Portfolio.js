@@ -1,50 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Item from './Item';
 import PropTypes from 'prop-types';
 
-class Portfolio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itemsPerPage: 4
-    };
+const Portfolio = ({ portfolio, amountOfItems, itemsPerPage }) => {
+  if (!portfolio) {
+    return null;
   }
 
-  loadMore() {
-    this.setState(prev => {
-      return { itemsPerPage: prev.itemsPerPage + prev.itemsPerPage };
-    });
-  }
+  return (
+    <div data-test="PortfolioComponent" className="portfolio">
+      {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
+        return <Item key={index} portfolio={portfolio} />;
+      })}
 
-  render() {
-    const { portfolio } = this.props;
-    const { itemsPerPage } = this.state;
-
-    return (
-      <div className="portfolio">
-        {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
-          return <Item key={index} length={portfolio.length} portfolio={portfolio} />;
-        })}
-
-        {portfolio.length > itemsPerPage && (
-          <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
-            <button
-              id="btn--load-more"
-              onClick={() => this.loadMore()}
-              type="button"
-              className="btn btn--dark btn--load-more"
-            >
-              Load more
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+      {amountOfItems > itemsPerPage && (
+        <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
+          <button
+            data-test="loadMoreButton"
+            id="btn--load-more"
+            onClick={this.props.loadMore}
+            type="button"
+            className="btn btn--dark btn--load-more"
+          >
+            Load more
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
 
 Portfolio.propTypes = {
-  portfolio: PropTypes.array
+  portfolio: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      demo: PropTypes.string,
+      source: PropTypes.string,
+      preview: PropTypes.string,
+      resources: PropTypes.arrayOf(
+        PropTypes.shape({
+          projectid: PropTypes.number,
+          name: PropTypes.string
+        })
+      )
+    })
+  ),
+  amountOfItems: PropTypes.number,
+  itemsPerPage: PropTypes.number,
+  loadMore: PropTypes.func
 };
 
 export default Portfolio;

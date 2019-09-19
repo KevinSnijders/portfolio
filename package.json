@@ -42,6 +42,7 @@
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.7",
     "browserify": "^16.5.0",
+    "check-prop-types": "^1.1.2",
     "del": "^5.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",

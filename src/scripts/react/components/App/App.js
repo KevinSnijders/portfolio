@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Error from '../Message/Error';
 import Portfolio from '../Portfolio/Portfolio';
 import Api from '../../../api/api';
-import PropTypes from 'prop-types';
 
 const init = {
   portfolio: [],
+  amountOfItems: null,
+  itemsPerPage: 1,
   errors: null,
   apiUrl: 'https://kevin-portfolio-api.herokuapp.com'
 };
@@ -20,9 +21,6 @@ class App extends Component {
     const { apiUrl } = this.state;
     Api.httpRequest(`${apiUrl}/portfolio`, 'get')
       .then(response => {
-        // this.setState({
-        //     portfolio: response
-        // });
         response.map((item, index) => {
           this.setState({
             portfolio: [
@@ -34,10 +32,10 @@ class App extends Component {
                 demo: item.demo,
                 source: item.source,
                 preview: item.preview,
-                resources: item.resources,
-                index: index
+                resources: item.resources
               }
-            ]
+            ],
+            amountOfItems: index
           });
         });
       })
@@ -50,19 +48,26 @@ class App extends Component {
       });
   }
 
+  loadMore() {
+    this.setState(prev => {
+      return { itemsPerPage: prev.itemsPerPage + prev.itemsPerPage };
+    });
+  }
+
   render() {
-    const { errors, itemsPerPage, portfolio } = this.state;
+    const { errors, itemsPerPage, portfolio, amountOfItems } = this.state;
     return (
       <>
         <Error errors={errors} />
-        <Portfolio itemsPerPage={itemsPerPage} portfolio={portfolio} />
+        <Portfolio
+          itemsPerPage={itemsPerPage}
+          portfolio={portfolio}
+          amountOfItems={amountOfItems}
+          loadMore={this.loadMore}
+        />
       </>
     );
   }
 }
-
-App.propTypes = {
-  portfolio: PropTypes.array
-};
 
 export default App;
