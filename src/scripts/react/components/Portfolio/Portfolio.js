@@ -2,7 +2,7 @@ import React from 'react';
 import Item from './Item';
 import PropTypes from 'prop-types';
 
-const Portfolio = ({ portfolio, amountOfItems, itemsPerPage }) => {
+const Portfolio = ({ portfolio, amountOfItems, itemsPerPage, loadMore }) => {
   if (!portfolio) {
     return null;
   }
@@ -18,7 +18,7 @@ const Portfolio = ({ portfolio, amountOfItems, itemsPerPage }) => {
           <button
             data-test="loadMoreButton"
             id="btn--load-more"
-            onClick={this.props.loadMore}
+            onClick={loadMore}
             type="button"
             className="btn btn--dark btn--load-more"
           >
