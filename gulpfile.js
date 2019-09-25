@@ -37,6 +37,13 @@ const dirPaths = {
   }
 };
 
+const fileName = {
+  vendors: 'vendors.min.js',
+  js: 'scripts.min.js',
+  react: 'react.min.js',
+  all: 'all.min.js'
+};
+
 // Input
 const { styles, scripts, assetsSrc, templates } = dirPaths.src;
 
@@ -84,7 +91,7 @@ function browserifyReact() {
         console.log(err.message);
         this.emit('end');
       })
-      .pipe(source('react.min.js'))
+      .pipe(source(fileName.react))
       .pipe(streamify(uglify()))
       .pipe(dest(js));
   }
@@ -98,7 +105,7 @@ function compileVendorScripts() {
     .pipe(plumber())
     .pipe(babel())
     .pipe(uglify())
-    .pipe(concat('vendors.min.js'))
+    .pipe(concat(fileName.vendors))
     .pipe(dest(js))
     .pipe(browserSync.stream());
 }
@@ -108,16 +115,15 @@ function compileScripts() {
     .pipe(plumber())
     .pipe(babel())
     .pipe(uglify())
-    .pipe(concat('scripts.min.js'))
+    .pipe(concat(fileName.js))
     .pipe(dest(js))
     .pipe(browserSync.stream());
 }
 
 function bundleScripts() {
-  const files = js + '*.js';
-  return src([files])
+  return src([js + fileName.vendors, js + fileName.js, js + fileName.react])
     .pipe(plumber())
-    .pipe(concat('all.min.js'))
+    .pipe(concat(fileName.all))
     .pipe(dest(js))
     .pipe(browserSync.stream());
 }
@@ -159,7 +165,14 @@ const watchAll = parallel(watchFiles, browserSynchronize);
 
 const development = series(clean, stylesAndAssets, parallel(bundleJs), copyTemplates, watchAll);
 
-const production = series(clean, stylesAndAssets, parallel(bundleJs), bundleScripts, copyTemplates);
+const production = series(
+  clean,
+  stylesAndAssets,
+  parallel(bundleJs),
+  bundleScripts,
+  copyTemplates,
+  watchAll
+);
 
 exports.templates = copyTemplates;
 exports.clean = clean;
