@@ -1,1 +1,1 @@
-window.particlesJS.load('particles-js', '/assets/particles.json');
+window.particlesJS.load('particles-js', '/portfolio/assets/particles.json');
