@@ -5,10 +5,10 @@
   justify-content: center;
   color: $primary-color;
   text-align: center;
-  padding: 3.2rem 0 .8rem;
+  padding: 3.2rem 0 0.8rem;
   margin-top: -2.4rem;
   &__social {
-    padding: .8rem 0;
+    padding: 0.8rem 0;
   }
 
   &__copyright {
@@ -26,6 +26,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.5);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
   }
 }

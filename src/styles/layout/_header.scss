@@ -5,17 +5,17 @@ nav {
 .nav {
   &__item {
     text-align: center;
-    margin: 0 .8rem;
+    margin: 0 0.8rem;
     padding: 1rem 0;
 
     @include media-breakpoint-down(md) {
       width: 100%;
     }
     &:first-child {
-      margin: 0 .8rem 0 0;
+      margin: 0 0.8rem 0 0;
     }
     &:last-child {
-      margin: 0 0 0 .8rem;
+      margin: 0 0 0 0.8rem;
     }
     &.active {
       @include nav-link-hover-border(4px, solid, $secondary-color);
@@ -27,8 +27,7 @@ nav {
     }
     a {
       color: $text-color-light;
+      padding: 0.5rem 0;
     }
   }
-
 }
-
