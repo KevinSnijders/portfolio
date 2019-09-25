@@ -39,7 +39,7 @@ describe('Portfolio Compontent', () => {
     let wrapper;
     beforeEach(() => {
       const props = {
-        portfolio: [
+        items: [
           {
             projectid: 1,
             title: 'Natours'
@@ -49,7 +49,6 @@ describe('Portfolio Compontent', () => {
             title: 'Trillo'
           }
         ],
-        amountOfItems: 2,
         itemsPerPage: 1
       };
 
@@ -58,6 +57,7 @@ describe('Portfolio Compontent', () => {
 
     it('Should render without errors', () => {
       const compontent = findByTestAtrr(wrapper, 'PortfolioComponent');
+      console.log(compontent);
       expect(compontent.length).toBe(1);
     });
 

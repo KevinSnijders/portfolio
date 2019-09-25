@@ -1,37 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Item from './Item';
 import PropTypes from 'prop-types';
 
-const Portfolio = ({ portfolio, amountOfItems, itemsPerPage, loadMore }) => {
-  if (!portfolio) {
-    return null;
+class Portfolio extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      itemsPerPage: 1
+    };
   }
 
-  return (
-    <div data-test="PortfolioComponent" className="portfolio">
-      {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
-        return <Item key={index} portfolio={portfolio} />;
-      })}
+  componentDidMount() {
+    this.props.onFetchPortfolio();
+  }
 
-      {amountOfItems > itemsPerPage && (
-        <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
-          <button
-            data-test="loadMoreButton"
-            id="btn--load-more"
-            onClick={loadMore}
-            type="button"
-            className="btn btn--dark btn--load-more"
-          >
-            Load more
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
+  loadMoreItems() {
+    this.setState(prev => {
+      return { itemsPerPage: prev.itemsPerPage + prev.itemsPerPage };
+    });
+  }
+
+  render() {
+    const { items } = this.props;
+    const { itemsPerPage } = this.state;
+    let currentLength = items !== undefined ? items.length : 0;
+
+    if (currentLength === 0) {
+      return null;
+    }
+
+    return (
+      <div data-test="PortfolioComponent" className="portfolio">
+        {items.slice(0, itemsPerPage).map((item, index) => {
+          return <Item key={index} item={item} />;
+        })}
+
+        {currentLength > itemsPerPage && (
+          <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
+            <button
+              data-test="loadMoreButton"
+              id="btn--load-more"
+              onClick={() => this.loadMoreItems()}
+              type="button"
+              className="btn btn--dark btn--load-more"
+            >
+              Load more
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
+
+export default Portfolio;
 
 Portfolio.propTypes = {
-  portfolio: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
@@ -47,9 +72,7 @@ Portfolio.propTypes = {
       )
     })
   ),
-  amountOfItems: PropTypes.number,
   itemsPerPage: PropTypes.number,
-  loadMore: PropTypes.func
+  loadMoreItems: PropTypes.func,
+  onFetchPortfolio: PropTypes.func
 };
-
-export default Portfolio;
