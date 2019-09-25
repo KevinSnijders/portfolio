@@ -6,31 +6,41 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemsPerPage: 4
+      itemsPerPage: 1
     };
   }
 
-  loadMore() {
+  componentDidMount() {
+    this.props.onFetchPortfolio();
+  }
+
+  loadMoreItems() {
     this.setState(prev => {
       return { itemsPerPage: prev.itemsPerPage + prev.itemsPerPage };
     });
   }
 
   render() {
-    const { portfolio } = this.props;
+    const { items } = this.props;
     const { itemsPerPage } = this.state;
+    let currentLength = items !== undefined ? items.length : 0;
+
+    if (currentLength === 0) {
+      return null;
+    }
 
     return (
-      <div className="portfolio">
-        {portfolio.slice(0, itemsPerPage).map((portfolio, index) => {
-          return <Item key={index} length={portfolio.length} portfolio={portfolio} />;
+      <div data-test="PortfolioComponent" className="portfolio">
+        {items.slice(0, itemsPerPage).map((item, index) => {
+          return <Item key={index} item={item} />;
         })}
 
-        {portfolio.length > itemsPerPage && (
+        {currentLength > itemsPerPage && (
           <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
             <button
+              data-test="loadMoreButton"
               id="btn--load-more"
-              onClick={() => this.loadMore()}
+              onClick={() => this.loadMoreItems()}
               type="button"
               className="btn btn--dark btn--load-more"
             >
@@ -43,8 +53,26 @@ class Portfolio extends Component {
   }
 }
 
-Portfolio.propTypes = {
-  portfolio: PropTypes.array
-};
-
 export default Portfolio;
+
+Portfolio.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      demo: PropTypes.string,
+      source: PropTypes.string,
+      preview: PropTypes.string,
+      resources: PropTypes.arrayOf(
+        PropTypes.shape({
+          projectid: PropTypes.number,
+          name: PropTypes.string
+        })
+      )
+    })
+  ),
+  itemsPerPage: PropTypes.number,
+  loadMoreItems: PropTypes.func,
+  onFetchPortfolio: PropTypes.func
+};

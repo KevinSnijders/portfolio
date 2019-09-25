@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Details = ({ title, description, demo, source }) => {
-  console.log(typeof title);
   return (
     <>
       <h2 className="portfolio__title">{title}</h2>

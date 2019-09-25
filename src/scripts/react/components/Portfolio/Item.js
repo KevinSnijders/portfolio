@@ -9,48 +9,46 @@ class Item extends Component {
     super(props);
   }
 
-  getEvenOrOddItem(data) {
-    let number = 2;
+  getEvenOrOddItem(item) {
     const col = 'col-sm-auto col-md-6';
     const detailsLeft = `${col} col-lg-3 offset-lg-2 order-2 order-md-1 fade-in`;
     const previewRight = `${col} col-lg-5 order-1 order-md-2 fade-in-right`;
     const detailsRight = `${col} col-lg-3 fade-in`;
     const previewLeft = `${col} col-lg-5 offset-lg-2 fade-in-left`;
 
-    let { index, title, description, demo, source, preview } = data;
-
-    return index % number === 0 ? (
+    const { index, title, description, demo, source, preview } = item;
+    const position = this.calculateOddOrEven(index);
+    const detailsCompontent = (
+      <Details title={title} description={description} demo={demo} source={source} />
+    );
+    const previewComponent = <Preview preview={preview} />;
+    return position ? (
       <>
-        {this.renderComponent(
-          <Details title={title} description={description} demo={demo} source={source} />,
-          detailsLeft
-        )}
-        {this.renderComponent(<Preview preview={preview} />, previewRight)}
+        <div className={previewLeft}>{previewComponent}</div>
+        <div className={detailsRight}>{detailsCompontent}</div>
       </>
     ) : (
       <>
-        {this.renderComponent(<Preview preview={preview} />, previewLeft)}
-        {this.renderComponent(
-          <Details title={title} description={description} demo={demo} source={source} />,
-          detailsRight
-        )}
+        <div className={detailsLeft}>{detailsCompontent}</div>
+        <div className={previewRight}>{previewComponent}</div>
       </>
     );
   }
 
-  renderComponent(component, className) {
-    return <div className={className}>{component}</div>;
+  calculateOddOrEven(index) {
+    const NUMBER = 2;
+    return index % NUMBER === 0;
   }
 
-  displayItems() {
-    const { portfolio } = this.props;
+  render() {
+    const { item } = this.props;
     return (
       <>
-        {Object.entries(portfolio).length > 0 ? (
+        {Object.entries(item).length > 0 ? (
           <div className="portfolio__item">
-            <div className="row d-flex align-items-center">{this.getEvenOrOddItem(portfolio)}</div>
+            <div className="row d-flex align-items-center">{this.getEvenOrOddItem(item)}</div>
             <div className="row d-flex justify-content-center">
-              <Resources resources={portfolio.resources} />
+              <Resources resources={item.resources} />
             </div>
           </div>
         ) : (
@@ -59,14 +57,10 @@ class Item extends Component {
       </>
     );
   }
-
-  render() {
-    return this.displayItems();
-  }
 }
 
 Item.propTypes = {
-  portfolio: PropTypes.object
+  item: PropTypes.object
 };
 
 export default Item;
