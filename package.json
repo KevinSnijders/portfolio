@@ -4,6 +4,9 @@
   "description": "Personal portfolio to showcase my previous work",
   "main": "index.js",
   "scripts": {
+    "build:gulp": "gulp",
+    "build:webpack": "webpack --config webpack.config.js",
+    "build": "gulp && webpack --config webpack.config.js",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint **/*.js src/templates/**/*.html && echo 'Lint complete.",
     "lint:fix": "prettier-eslint **/*.js src/templates/**/*.html --write",
