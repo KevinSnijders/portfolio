@@ -9,7 +9,8 @@ const configFolders = {
   input: {
     assets: {
       root: `${inputFolder}/assets/**/*`,
-      images: `${inputFolder}/assets/images/**/*`
+      images: `${inputFolder}/assets/images/**/*`,
+      favicon: `${inputFolder}/assets/images/favicon.ico`
     }
   },
   output: {
@@ -42,13 +43,22 @@ function copyImages() {
     .pipe(browserSync.stream());
 }
 
+function copyFavicon() {
+  return src(input.assets.favicon)
+    .pipe(newer(outputFolder))
+    .pipe(dest(outputFolder))
+    .pipe(browserSync.stream());
+}
+
 function watchFiles() {
   watch(input.assets.images, copyImages);
+  watch(input.assets.favicon, copyFavicon);
 }
 
 const watchAll = parallel(watchFiles, browserSynchronize);
-const development = series(clean, copyImages, watchAll);
-const production = series(clean, copyImages);
+const gulp = series(clean, copyImages, copyFavicon);
+const development = series(gulp, watchAll);
+const production = series(gulp);
 
 exports.clean = clean;
 exports.watchAll = watchAll;
