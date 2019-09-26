@@ -6,7 +6,8 @@ module.exports = {
   entry: ['./src/scripts/index.js', './src/styles/main.scss'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.min.js',
+    publicPath: './'
   },
   module: {
     rules: [
@@ -29,7 +30,7 @@ module.exports = {
             options: {
               url: url => {
                 // Don't handle image urls, because gulp handles all the static images
-                let images = '/assets/images';
+                let images = 'assets/images';
                 if (url.includes(images)) {
                   return false;
                 }
@@ -54,7 +55,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'assets/fonts'
+              outputPath: '/assets/fonts'
             }
           }
         ]
@@ -63,7 +64,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'bundle.css'
+      filename: 'bundle.min.css',
+      publicPath: './'
     }),
     new htmlWebpackPlugin({
       template: './src/templates/index.html',
