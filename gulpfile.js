@@ -10,7 +10,7 @@ const configFolders = {
     assets: {
       root: `${inputFolder}/assets/**/*`,
       images: `${inputFolder}/assets/images/**/*`,
-      favicon: `${inputFolder}/assets/images/favicon.ico`
+      favicon: `${inputFolder}/assets/images/favicon.*`
     }
   },
   output: {
