@@ -9,15 +9,13 @@ const configFolders = {
   input: {
     assets: {
       root: `${inputFolder}/assets/**/*`,
-      images: `${inputFolder}/assets/images/**/*`,
-      svg: `${inputFolder}/assets/svg/**/*.svg`
+      images: `${inputFolder}/assets/images/**/*`
     }
   },
   output: {
     assets: {
       root: `${outputFolder}/assets/`,
-      images: `${outputFolder}/assets/images/`,
-      svg: `${outputFolder}/assets/svg/`
+      images: `${outputFolder}/assets/images/`
     }
   }
 };
@@ -37,29 +35,21 @@ function clean() {
   return del(outputFolder);
 }
 
-function copyImageFiles() {
+function copyImages() {
   return src(input.assets.images)
     .pipe(newer(output.assets.images))
     .pipe(dest(output.assets.images))
     .pipe(browserSync.stream());
 }
 
-function copySvgFiles() {
-  return src(input.assets.svg)
-    .pipe(newer(output.assets.svg))
-    .pipe(dest(output.assets.svg))
-    .pipe(browserSync.stream());
-}
-
 function watchFiles() {
-  watch(input.assets.images, copyImageFiles);
-  watch(input.assets.svg, copySvgFiles);
+  watch(input.assets.images, copyImages);
 }
 
-const bundleAssets = series(copyImageFiles, copySvgFiles);
 const watchAll = parallel(watchFiles, browserSynchronize);
-const development = series(clean, bundleAssets, watchAll);
-const production = series(clean, bundleAssets);
+const development = series(clean, copyImages, watchAll);
+const production = series(clean, copyImages);
+
 exports.clean = clean;
 exports.watchAll = watchAll;
 exports.development = development;
