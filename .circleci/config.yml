@@ -3,9 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
-    branches:
-      ignore:
-        - gh-pages
     steps:
       - checkout
       - restore_cache:
@@ -18,3 +15,11 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+workflows:
+  version: 2.1
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
