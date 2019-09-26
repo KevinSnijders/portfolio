@@ -25,7 +25,17 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader
           },
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              url: url => {
+                // Don't handle image urls, because gulp handles all the static images
+                let images = '/assets/images';
+                if (url.includes(images)) {
+                  return false;
+                }
+                return true;
+              }
+            }
           },
           {
             loader: 'postcss-loader'
@@ -34,17 +44,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass')
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'assets/images'
             }
           }
         ]
