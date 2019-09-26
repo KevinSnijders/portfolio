@@ -79,6 +79,7 @@
     "prettier": "^1.18.2",
     "prettier-eslint": "^9.0.0",
     "prettier-eslint-cli": "^5.0.0",
+    "purgecss-webpack-plugin": "^1.6.0",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.0",
@@ -86,6 +87,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "indent-string": "^4.0.0",
     "particles.js": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",

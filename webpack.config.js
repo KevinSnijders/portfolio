@@ -1,6 +1,12 @@
 const path = require('path');
+const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+
+const PATHS = {
+  src: path.join(__dirname, 'src')
+};
 
 module.exports = {
   entry: ['./src/scripts/index.js', './src/styles/main.scss'],
@@ -8,6 +14,19 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.min.js',
     publicPath: './'
+  },
+  optimization: {
+    usedExports: true,
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
   },
   module: {
     rules: [
@@ -78,6 +97,9 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
       }
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
     })
   ],
   mode: 'production'
