@@ -9,9 +9,12 @@ const setUp = (props = {}) => {
 };
 
 const configProps = {
-  name: 'View more',
+  text: 'View more',
   link: '#more',
-  style: 'btn--light'
+  style: 'btn--light',
+  config: {
+    target: '_blank'
+  }
 };
 
 describe('Button compontent', () => {
@@ -34,6 +37,17 @@ describe('Button compontent', () => {
     it('Should render without errors ', () => {
       const button = findByTestAtrr(component, 'ButtonComponent');
       expect(button.length).toBe(1);
+    });
+  });
+
+  describe('Button without props', () => {
+    let component;
+    beforeEach(() => {
+      component = setUp();
+    });
+    it('Should NOT render without errors', () => {
+      const button = findByTestAtrr(component, 'ButtonComponent');
+      expect(button.length).toBe(0);
     });
   });
 });
