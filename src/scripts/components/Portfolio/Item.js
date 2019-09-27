@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Details from './Details';
-import Preview from './Preview';
+import Image from '../Shared/Image';
 import Resources from './Resources';
 import PropTypes from 'prop-types';
 
@@ -21,16 +21,16 @@ class Item extends Component {
     const detailsCompontent = (
       <Details title={title} description={description} demo={demo} source={source} />
     );
-    const previewComponent = <Preview preview={preview} />;
+    const imageComponent = <Image source={preview} alt={title} style="preview__portfolio" />;
     return position ? (
       <>
-        <div className={previewLeft}>{previewComponent}</div>
+        <div className={previewLeft}>{imageComponent}</div>
         <div className={detailsRight}>{detailsCompontent}</div>
       </>
     ) : (
       <>
         <div className={detailsLeft}>{detailsCompontent}</div>
-        <div className={previewRight}>{previewComponent}</div>
+        <div className={previewRight}>{imageComponent}</div>
       </>
     );
   }
