@@ -16,5 +16,6 @@ const Icon = ({ icon, style }) => {
 export default Icon;
 
 Icon.propTypes = {
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  style: PropTypes.string
 };
