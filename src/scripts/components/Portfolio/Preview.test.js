@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Preview from './Preview';
-import { findByTestAtrr } from '../../../utils/index';
+import { findByTestAtrr } from '../../utils/index';
 
 const setUp = (props = {}) => {
   const compontent = shallow(<Preview {...props} />);

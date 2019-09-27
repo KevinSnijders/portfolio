@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Portfolio from './Portfolio';
 
-import { findByTestAtrr, checkProps } from '../../../utils/index';
+import { findByTestAtrr, checkProps } from '../../utils/index';
 
 const setUp = (props = {}) => {
   const compontent = shallow(<Portfolio {...props} />);
