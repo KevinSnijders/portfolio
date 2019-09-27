@@ -4,18 +4,18 @@ import Preview from './Preview';
 import { findByTestAtrr } from '../../utils/index';
 
 const setUp = (props = {}) => {
-  const compontent = shallow(<Preview {...props} />);
-  return compontent;
+  const component = shallow(<Preview {...props} />);
+  return component;
 };
 
-describe('Preview Compontent', () => {
-  let compontent;
+describe('Preview Component', () => {
+  let component;
   beforeEach(() => {
-    compontent = setUp();
+    component = setUp();
   });
 
   it('Should render without errros', () => {
-    const logo = findByTestAtrr(compontent, 'logo');
+    const logo = findByTestAtrr(component, 'logo');
     expect(logo.length).toBe(1);
   });
 });
