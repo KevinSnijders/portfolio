@@ -33,7 +33,7 @@ function browserSynchronize(done) {
 }
 
 function clean() {
-  return del(outputFolder);
+  return del(output.assets.images);
 }
 
 function copyImages() {
