@@ -4,9 +4,11 @@
   "description": "Personal portfolio to showcase my previous work",
   "main": "index.js",
   "scripts": {
-    "build:gulp": "gulp",
-    "build:webpack": "webpack --config webpack.config.js",
-    "build": "gulp && webpack --config webpack.config.js",
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server",
+    "dev:server": "npm run webpack-dev-server -- --env.mode development",
+    "build:dev": "gulp && npm run webpack -- --env.mode development",
+    "build:prod": "gulp && npm run webpack -- --env.mode production",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint **/*.js src/templates/**/*.html && echo 'Lint complete.",
     "lint:fix": "prettier-eslint **/*.js src/templates/**/*.html --write",
@@ -82,8 +84,10 @@
     "purgecss-webpack-plugin": "^1.6.0",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
+    "url-loader": "^2.1.0",
     "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -95,6 +99,7 @@
     "react-particles-js": "^2.7.0",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   }
 }
