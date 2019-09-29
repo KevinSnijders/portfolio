@@ -4,11 +4,25 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
+const webpack = require('webpack');
 
 const PATHS = {
   src: path.join(__dirname, 'src')
 };
 
+const sharedPlugins = [
+  new MiniCssExtractPlugin({
+    filename: 'bundle.min.css',
+    publicPath: './'
+  }),
+  new htmlWebpackPlugin({
+    template: './src/templates/index.html',
+    filename: 'index.html'
+  }),
+  new PurgecssPlugin({
+    paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
+  })
+];
 module.exports = ({ mode } = { mode: 'production' }) => {
   console.log(`mode is: ${mode}`);
 
@@ -16,6 +30,10 @@ module.exports = ({ mode } = { mode: 'production' }) => {
     mode,
     entry: ['./src/scripts/index.js', './src/styles/main.scss'],
     devServer: {
+      publicPath: 'http://0.0.0.0:8080/dist/',
+      hot: true,
+      inline: true,
+      index: 'index.html',
       open: true
     },
     output: {
@@ -104,18 +122,9 @@ module.exports = ({ mode } = { mode: 'production' }) => {
         }
       ]
     },
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: 'bundle.min.css',
-        publicPath: './'
-      }),
-      new htmlWebpackPlugin({
-        template: './src/templates/index.html',
-        filename: 'index.html'
-      }),
-      new PurgecssPlugin({
-        paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
-      })
-    ]
+    plugins:
+      mode === 'production'
+        ? sharedPlugins
+        : sharedPlugins.concat([new webpack.HotModuleReplacementPlugin()])
   };
 };
