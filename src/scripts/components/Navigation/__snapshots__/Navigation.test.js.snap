@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<nav
+  className="nav fade-in-top"
+  data-test="NavigationComponent"
+  style={
+    Object {
+      "backgroundColor": "#282c34",
+    }
+  }
+>
+  <div
+    className="container"
+  >
+    <ul
+      className="nav__menu"
+      data-test="MenuComponent"
+    >
+      <li
+        className="nav__item  nav__item--1 active"
+      >
+        <a
+          className="nav__item--1"
+          href="#top"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li
+        className="nav__item  nav__item--2 "
+      >
+        <a
+          className="nav__item--2"
+          href="#portfolio"
+          onClick={[Function]}
+        >
+          Portfolio
+        </a>
+      </li>
+      <li
+        className="nav__item  nav__item--3 "
+      >
+        <a
+          className="nav__item--3"
+          href="#contact"
+          onClick={[Function]}
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;
