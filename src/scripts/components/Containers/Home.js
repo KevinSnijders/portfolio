@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import Navigation from '../Navigation/Navigation';
+import { fetchPortfolio } from '../../redux/actions';
+import Navigation from '../Header/Navigation';
 import Particles from 'react-particles-js';
 import Portfolio from '../Portfolio/Portfolio';
-import { fetchPortfolio } from '../../redux/actions';
+import Footer from '../Footer/Footer';
 
 const mapStateToProps = state => {
   return { items: state.requestPortfolio };
@@ -134,6 +134,7 @@ class Home extends Component {
         <Navigation />
         <Particles className="particles" params={particlesOptions} />
         <Portfolio {...this.props} />
+        <Footer />
       </>
     );
   }
