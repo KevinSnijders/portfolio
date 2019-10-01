@@ -7,7 +7,7 @@ const Icon = ({ icon, style }) => {
     return null;
   }
   return (
-    <svg data-test="IconComponent" className={`icon ${icon} ${style}`}>
+    <svg data-test="IconComponent" className={`icon ${icon} ${style !== undefined ? style : ''}`}>
       <use xlinkHref={`#.${icon}`}></use>
     </svg>
   );
