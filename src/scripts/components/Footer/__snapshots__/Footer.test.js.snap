@@ -16,14 +16,43 @@ exports[` 1`] = `
     >
       Contact me
     </a>
-    <div
-      className="footer__social"
-      data-test="IconComponent"
+    <ul
+      className="d-flex flex-row justify-content-center mb-4"
+      data-test="SocialComponent"
     >
-      <ul
-        className="d-flex flex-row justify-content-center mb-4"
-      />
-    </div>
+      <li
+        className="pl-2 pr-2"
+      >
+        <a
+          href="#"
+        >
+          <svg
+            className="icon icon-github-square-brands "
+            data-test="IconComponent"
+          >
+            <use
+              xlinkHref="#.github-square-brands"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        className="pl-2 pr-2"
+      >
+        <a
+          href="#"
+        >
+          <svg
+            className="icon icon-linkedin-brands "
+            data-test="IconComponent"
+          >
+            <use
+              xlinkHref="#.linkedin-brands"
+            />
+          </svg>
+        </a>
+      </li>
+    </ul>
     <p
       className="footer__copyright"
     >
@@ -42,7 +71,7 @@ exports[` 1`] = `
           data-test="IconComponent"
         >
           <use
-            xlinkHref="#.icon-keyboard_arrow_up"
+            xlinkHref="#.keyboard_arrow_up"
           />
         </svg>
       </a>
