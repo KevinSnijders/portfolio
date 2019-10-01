@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import {
   setUpComponent,
   checkProps,
-  testCompontentMatchSnapshot,
+  testComponentMatchSnapshot,
   testComponentIsRendered
 } from '../../utils/index';
 import Menu from './Menu';
@@ -20,7 +20,7 @@ const configProps = {
 
 describe('Menu Component', () => {
   describe('Snapshot renders', () => {
-    testCompontentMatchSnapshot(Menu);
+    testComponentMatchSnapshot(Menu);
   });
   describe('Check PropTypes', () => {
     it('Should not throw a warning', () => {
