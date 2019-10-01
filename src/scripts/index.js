@@ -12,7 +12,7 @@ const renderComponent = Component => {
     <AppContainer>
       <Component store={store} />
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('react')
   );
 };
 
