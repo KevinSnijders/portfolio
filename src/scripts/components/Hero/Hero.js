@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="hero__intro jumbotron fade-in-top row d-flex align-items-center">
         <div className="col-6 col-lg-5 offset-lg-2 order-md-1 fade-in">
           <h1 className="display-4 text-shadow">
-            <span>Hello, Im</span>Kevin Snijders
+            <span>{`Hello, I'm`}</span>Kevin Snijders
             <span className="m-fs">Web Developer</span>
           </h1>
           <Social />
