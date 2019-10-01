@@ -30,7 +30,7 @@ class Portfolio extends Component {
     }
 
     return (
-      <div data-test="PortfolioComponent" className="portfolio">
+      <section data-test="PortfolioComponent" className="portfolio">
         {items.slice(0, itemsPerPage).map((item, index) => {
           return <Item key={index} item={item} />;
         })}
@@ -48,7 +48,7 @@ class Portfolio extends Component {
             </button>
           </div>
         )}
-      </div>
+      </section>
     );
   }
 }

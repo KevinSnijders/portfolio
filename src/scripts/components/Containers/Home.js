@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPortfolio } from '../../redux/actions';
+import Hero from '../Hero/Hero';
 import Navigation from '../Header/Navigation';
 import Particles from 'react-particles-js';
 import Portfolio from '../Portfolio/Portfolio';
@@ -131,8 +132,11 @@ class Home extends Component {
   render() {
     return (
       <>
-        <Navigation />
-        <Particles className="particles" params={particlesOptions} />
+        <section className="heading">
+          <Particles className="particles" params={particlesOptions} />
+          <Navigation />
+          <Hero></Hero>
+        </section>
         <Portfolio {...this.props} />
         <Footer />
       </>

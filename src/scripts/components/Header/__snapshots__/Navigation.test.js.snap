@@ -4,11 +4,6 @@ exports[` 1`] = `
 <nav
   className="nav fade-in-top"
   data-test="NavigationComponent"
-  style={
-    Object {
-      "backgroundColor": "#282c34",
-    }
-  }
 >
   <div
     className="container"
