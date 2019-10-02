@@ -133,9 +133,11 @@ class Home extends Component {
     return (
       <>
         <section className="heading">
-          <Particles className="particles" params={particlesOptions} />
-          <Navigation />
-          <Hero></Hero>
+          <div className="container">
+            <Particles className="particles" params={particlesOptions} />
+            <Navigation />
+            <Hero></Hero>
+          </div>
         </section>
         <Portfolio {...this.props} />
         <Footer />

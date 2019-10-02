@@ -5,6 +5,7 @@
   transition: background-color 0.5s;
   border-bottom: 3px solid;
   height: 3.8rem;
+  font-size: 1.5rem;
 
   &--primary {
     @include btn-style(

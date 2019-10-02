@@ -9,8 +9,8 @@ import Icon from '../Shared/Icon';
 const Hero = () => {
   return (
     <>
-      <div className="hero__intro jumbotron fade-in-top row d-flex align-items-center">
-        <div className="col-6 col-lg-5 offset-lg-2 order-md-1 fade-in">
+      <div className="hero__intro fade-in-top row d-flex align-items-center">
+        <div className="col-12 col-sm-7 col-lg-5 offset-lg-2 order-2 order-sm-1 fade-in">
           <h1 className="display-4 text-shadow">
             <span>{`Hello, I'm`}</span>Kevin Snijders
             <span className="m-fs">Web Developer</span>
@@ -18,7 +18,7 @@ const Hero = () => {
           <Social />
           <Button link="#" style="btn--light mr-3" text="Download my resume" />
         </div>
-        <div className="col-6 col-lg-3 order-md-2 fade-in-right">
+        <div className="col col-sm-5 col-lg-3 order-1 order-sm-2 fade-in-right">
           <Image source={Photo} alt="Image Kevin" style="scale-in-center" />
         </div>
       </div>

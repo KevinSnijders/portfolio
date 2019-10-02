@@ -1,7 +1,7 @@
 .nav {
   @extend .nav-flex;
   z-index: 100;
-  padding: 3rem;
+  padding: 3rem 0 0;
   .container {
     @extend .nav-flex;
   }

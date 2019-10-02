@@ -6,10 +6,8 @@ import Menu from './Menu';
 const Navigation = () => {
   return (
     <nav data-test="NavigationComponent" className="nav fade-in-top">
-      <div className="container">
-        <Image source={Logo} alt="brand logo" style="nav__image" />
-        <Menu />
-      </div>
+      <Image source={Logo} alt="brand logo" style="nav__image" />
+      <Menu />
     </nav>
   );
 };
