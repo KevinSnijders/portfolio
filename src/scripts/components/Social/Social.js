@@ -25,7 +25,7 @@ class Social extends Component {
     return socials.map(({ icon, link }, index) => {
       return (
         <li key={index} className="pl-2 pr-2">
-          <a href={`${link}`}>
+          <a href={`${link}`} aria-label="display a brand icon">
             <Icon icon={`${icon}`} />
           </a>
         </li>

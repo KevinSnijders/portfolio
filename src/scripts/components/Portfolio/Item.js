@@ -21,7 +21,13 @@ class Item extends Component {
     const detailsCompontent = (
       <Details title={title} description={description} demo={demo} source={source} />
     );
-    const imageComponent = <Image source={preview} alt={title} style="preview__portfolio" />;
+    const imageComponent = (
+      <Image
+        source={preview}
+        alt={`Showcase example of the website called: ${title}`}
+        style="preview__portfolio"
+      />
+    );
     return position ? (
       <>
         <div className={previewLeft}>{imageComponent}</div>

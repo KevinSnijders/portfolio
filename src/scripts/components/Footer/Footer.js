@@ -24,7 +24,7 @@ class Footer extends Component {
             Kevin Snijders &copy; {this.getCurrentYear()} all rights reserved
           </p>
           <div className="footer__back-to-top">
-            <a href="#top">
+            <a href="#top" aria-label="click here to scroll back to the top">
               <Icon icon="keyboard_arrow_up" style="bounce" />
             </a>
           </div>
