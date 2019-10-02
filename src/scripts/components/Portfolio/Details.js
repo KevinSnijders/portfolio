@@ -13,7 +13,12 @@ const Details = ({ title, description, demo, source }) => {
       <p className="portfolio__details">{description}</p>
       <div className="portfolio__links">
         <Button config={buttonConfig} link={demo} style="btn--primary mr-3" text="View Demo" />
-        <Button link={source} style="btn--secondary" text="View source code" />
+        <Button
+          config={buttonConfig}
+          link={source}
+          style="btn--secondary"
+          text="View source code"
+        />
       </div>
     </>
   );

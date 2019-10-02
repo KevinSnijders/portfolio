@@ -38,6 +38,9 @@
 
   &__title {
     margin-bottom: 1.2rem;
+    @include media-breakpoint-down(sm) {
+      padding-top: 1.8rem;
+    }
   }
 
   &__details {
