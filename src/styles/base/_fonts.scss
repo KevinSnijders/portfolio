@@ -1,37 +1,25 @@
+//https://stackoverflow.com/questions/36105194/are-eot-ttf-and-svg-still-necessary-in-the-font-face-declaration
+
 @font-face {
   font-family: 'montserratregular';
-  src: url('../assets/fonts/Montserrat/montserratregular-webfont.eot');
-  src: url('../assets/fonts/Montserrat/montserratregular-webfont.eot?#iefix')
-      format('embedded-opentype'),
-    url('../assets/fonts/Montserrat/montserratregular-webfont.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat/montserratregular-webfont.woff') format('woff'),
-    url('../assets/fonts/Montserrat/montserratregular-webfont.ttf') format('truetype'),
-    url('../assets/fonts/Montserrat/montserratregular-webfont.svg#montserratregular') format('svg');
+  src: url('../assets/fonts/Montserrat/montserratregular-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat/montserratregular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'montserratlight';
-  src: url('../assets/fonts/Montserrat/montserratlight-webfont.eot');
-  src: url('../assets/fonts/Montserrat/montserratlight-webfont.eot?#iefix')
-      format('embedded-opentype'),
-    url('../assets/fonts/Montserrat/montserratlight-webfont.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat/montserratlight-webfont.woff') format('woff'),
-    url('../assets/fonts/Montserrat/montserratlight-webfont.ttf') format('truetype');
+  src: url('../assets/fonts/Montserrat/montserratlight-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat/montserratlight-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'montserratbold';
-  src: url('../assets/fonts/Montserrat/montserratbold-webfont.eot');
-  src: url('../assets/fonts/Montserrat/montserratbold-webfont.eot?#iefix')
-      format('embedded-opentype'),
-    url('../assets/fonts/Montserrat/montserratbold-webfont.woff2') format('woff2'),
-    url('../assets/fonts/Montserrat/montserratbold-webfont.woff') format('woff'),
-    url('../assets/fonts/Montserrat/montserratbold-webfont.ttf') format('truetype'),
-    url('../assets/fonts/Montserrat/montserratbold-webfont.svg#montserratbold') format('svg');
+  src: url('../assets/fonts/Montserrat/montserratbold-webfont.woff2') format('woff2');
+  src: url('../assets/fonts/Montserrat/montserratbold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
