@@ -9,7 +9,7 @@
     "dev:server": "npm run webpack-dev-server -- --env.mode development",
     "build:dev": "gulp && npm run webpack -- --env.mode development && npm run dev:server",
     "build:prod": "gulp && npm run webpack -- --env.mode production",
-    "deploy": "npm run build && gh-pages -d dist",
+    "deploy": "npm run build:prod && gh-pages -d dist",
     "lint": "eslint **/*.js src/templates/**/*.html && echo 'Lint complete.",
     "lint:fix": "prettier-eslint **/*.js src/templates/**/*.html --write",
     "test": "jest",
