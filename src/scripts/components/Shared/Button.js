@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, link, style, config }) => {
-  const options = config !== undefined ? { ...config } : null;
+const Button = ({ text, link, style, config = null }) => {
   const render = link !== undefined ? link.length : 0;
   if (!render > 0) {
     return null;
   }
 
   return (
-    <a data-test="ButtonComponent" href={link} {...options} className={`btn ${style}`}>
+    <a data-test="ButtonComponent" href={link} {...config} className={`btn ${style}`}>
       {text}
     </a>
   );
