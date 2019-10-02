@@ -23,12 +23,14 @@ const sharedPlugins = [
     paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
   })
 ];
+
+const fallbackLibs = ['whatwg-fetch', 'core-js/stable'];
 module.exports = ({ mode } = { mode: 'production' }) => {
   console.log(`mode is: ${mode}`);
 
   return {
     mode,
-    entry: ['./src/scripts/index.js', './src/styles/main.scss'],
+    entry: [...fallbackLibs, './src/scripts/index.js', './src/styles/main.scss'],
     devServer: {
       publicPath: 'http://0.0.0.0:8080/dist/',
       hot: true,
@@ -104,7 +106,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
           ]
         },
         {
-          test: /\.(woff|woff2|ttf|otf|eot|svg)$/,
+          test: /\.(woff|woff2)$/,
           use: [
             {
               loader: 'file-loader',

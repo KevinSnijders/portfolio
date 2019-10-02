@@ -3,9 +3,9 @@
     [
       "@babel/preset-env",
       {
-        "modules": false,
+        "modules": "auto",
         "targets": {
-          "browsers": "> 0.25%, ie 11, not op_mini all, not dead",
+          "browsers": "> 1%, ie 11, not op_mini all, not dead",
           "node": 10
         }
       }
