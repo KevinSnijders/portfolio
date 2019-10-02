@@ -133,8 +133,8 @@ class Home extends Component {
     return (
       <>
         <section className="heading">
+          <Particles className="particles" params={particlesOptions} />
           <div className="container">
-            <Particles className="particles" params={particlesOptions} />
             <Navigation />
             <Hero></Hero>
           </div>
