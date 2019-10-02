@@ -4,8 +4,13 @@ import Icon from '../Shared/Icon';
 const Resources = ({ resources }) => {
   return (
     <>
-      {resources.map(({ name }, index) => {
-        return <Icon key={index} prefix="brand" icon={name} />;
+      {resources.map(({ name, display_name }, index) => {
+        return (
+          <div key={index} className="portfolio__item__resource">
+            <Icon prefix="brand" icon={name} />
+            <p>{display_name}</p>
+          </div>
+        );
       })}
     </>
   );
