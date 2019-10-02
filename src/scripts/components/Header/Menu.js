@@ -36,7 +36,6 @@ class Menu extends Component {
       return null;
     }
 
-    console.log(activeMenuItem);
     return (
       <ul data-test="MenuComponent" className="nav__menu">
         {menuItems.map(({ text, link }, index) => {
