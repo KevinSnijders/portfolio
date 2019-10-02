@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Icon from '../Shared/Icon';
 const Resources = ({ resources }) => {
   return (
     <>
-      {resources.map((resource, index) => {
-        let { name } = resource;
+      {resources.map(({ name, display_name }, index) => {
         return (
-          <svg key={index} className={`brand brand-${name}`}>
-            <use xlinkHref={`#.brand-${name}`}></use>
-          </svg>
+          <div key={index} className="portfolio__item__resource">
+            <Icon prefix="brand" icon={name} />
+            <p>{display_name}</p>
+          </div>
         );
       })}
     </>

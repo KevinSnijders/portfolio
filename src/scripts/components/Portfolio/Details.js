@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Shared/Button';
 
 const Details = ({ title, description, demo, source }) => {
+  const buttonConfig = {
+    target: '_blank',
+    rel: 'noopener noreferrer'
+  };
   return (
     <>
       <h2 className="portfolio__title">{title}</h2>
       <p className="portfolio__details">{description}</p>
       <div className="portfolio__links">
-        <a href={demo} target="_blank" rel="noopener noreferrer" className="btn btn--primary mr-3">
-          View demo
-        </a>
-        <a href={source} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
-          View source code
-        </a>
+        <Button config={buttonConfig} link={demo} style="btn--primary mr-3" text="View Demo" />
+        <Button link={source} style="btn--secondary" text="View source code" />
       </div>
     </>
   );

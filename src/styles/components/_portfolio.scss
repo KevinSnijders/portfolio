@@ -19,6 +19,21 @@
     &:nth-child(odd) {
       clip-path: polygon(0 5%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0 95%);
     }
+    &__resource {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 0.8rem;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      svg {
+        margin: 0 auto;
+      }
+    }
   }
 
   &__title {

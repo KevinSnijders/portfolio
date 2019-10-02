@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Details from './Details';
-import Preview from './Preview';
+import Image from '../Shared/Image';
 import Resources from './Resources';
 import PropTypes from 'prop-types';
 
@@ -11,26 +11,26 @@ class Item extends Component {
 
   getEvenOrOddItem(item) {
     const col = 'col-sm-auto col-md-6';
-    const detailsLeft = `${col} col-lg-3 offset-lg-2 order-2 order-md-1 fade-in`;
-    const previewRight = `${col} col-lg-5 order-1 order-md-2 fade-in-right`;
-    const detailsRight = `${col} col-lg-3 fade-in`;
-    const previewLeft = `${col} col-lg-5 offset-lg-2 fade-in-left`;
+    const detailsLeft = `${col} col-lg-5 order-2 order-md-1 fade-in`;
+    const previewRight = `${col} col-lg-7 order-1 order-md-2 fade-in-right`;
+    const detailsRight = `${col} col-lg-5 fade-in`;
+    const previewLeft = `${col} col-lg-7 fade-in-left`;
 
     const { index, title, description, demo, source, preview } = item;
     const position = this.calculateOddOrEven(index);
     const detailsCompontent = (
       <Details title={title} description={description} demo={demo} source={source} />
     );
-    const previewComponent = <Preview preview={preview} />;
+    const imageComponent = <Image source={preview} alt={title} style="preview__portfolio" />;
     return position ? (
       <>
-        <div className={previewLeft}>{previewComponent}</div>
+        <div className={previewLeft}>{imageComponent}</div>
         <div className={detailsRight}>{detailsCompontent}</div>
       </>
     ) : (
       <>
         <div className={detailsLeft}>{detailsCompontent}</div>
-        <div className={previewRight}>{previewComponent}</div>
+        <div className={previewRight}>{imageComponent}</div>
       </>
     );
   }

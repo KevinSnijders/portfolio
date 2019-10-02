@@ -3,15 +3,16 @@
     [
       "@babel/preset-env",
       {
-        "modules": false,
+        "modules": "auto",
         "targets": {
-          "browsers": "> 0.25%, ie 11, not op_mini all, not dead",
+          "browsers": "> 1%, ie 11, not op_mini all, not dead",
           "node": 10
         }
       }
     ],
     "@babel/preset-react"
   ],
+  "plugins": ["react-hot-loader/babel"],
   "env": {
     "test": {
       "presets": ["@babel/preset-env", "@babel/preset-react"]
