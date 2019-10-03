@@ -25,5 +25,4 @@ if (module.hot) {
   });
 }
 
-console.log(process.env.PUBLIC_URL);
 serviceWorker.register();

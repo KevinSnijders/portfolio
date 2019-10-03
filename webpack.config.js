@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const webpack = require('webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, 'src')
@@ -37,7 +38,32 @@ const prodPlugins = [
     hashDigestLength: 4
   }),
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.NoEmitOnErrorsPlugin()
+  new webpack.NoEmitOnErrorsPlugin(),
+  new WorkboxPlugin.GenerateSW({
+    // Do not precache images
+    exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+    // Define runtime caching rules.
+    runtimeCaching: [
+      {
+        // Match any request that ends with .png, .jpg, .jpeg or .svg.
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+        // Apply a cache-first strategy.
+        handler: 'CacheFirst',
+
+        options: {
+          // Use a custom cache name.
+          cacheName: 'images',
+
+          // Only cache 10 images.
+          expiration: {
+            maxEntries: 10
+          }
+        }
+      }
+    ]
+  })
 ];
 
 const fallbackLibs = ['whatwg-fetch', 'core-js/stable/'];
@@ -48,7 +74,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
     mode,
     entry: [...fallbackLibs, './src/scripts/index.js', './src/styles/main.scss'],
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      publicPath: 'http://0.0.0.0:9000/dist/',
       compress: true,
       port: 9000,
       hot: true,
