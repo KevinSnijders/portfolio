@@ -24,7 +24,7 @@ const sharedPlugins = [
   }),
   new webpack.DefinePlugin({
     'process.env.PUBLIC_URL': JSON.stringify(
-      process.env.PUBLIC_URL || 'https://kevinsnijders.github.io/portfolio/'
+      process.env.PUBLIC_URL || 'https://kevinsnijders.github.io/portfolio'
     )
   })
 ];
