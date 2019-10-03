@@ -21,6 +21,11 @@ const sharedPlugins = [
   }),
   new PurgecssPlugin({
     paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
+  }),
+  new webpack.DefinePlugin({
+    'process.env.PUBLIC_URL': JSON.stringify(
+      process.env.PUBLIC_URL || 'https://kevinsnijders.github.io/portfolio/'
+    )
   })
 ];
 

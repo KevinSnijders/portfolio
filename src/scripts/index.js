@@ -4,7 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import buildStore from './components/App/configureStore';
 
 import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
 const store = buildStore();
 
@@ -25,4 +25,5 @@ if (module.hot) {
   });
 }
 
-registerServiceWorker();
+console.log(process.env.PUBLIC_URL);
+serviceWorker.register();
