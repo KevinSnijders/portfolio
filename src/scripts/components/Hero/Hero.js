@@ -19,12 +19,16 @@ const Hero = () => {
           <Button link="#" style="btn--light mr-3" text="Download my resume" />
         </div>
         <div className="col col-sm-5 col-lg-3 order-1 order-sm-2 fade-in-right">
-          <Image source={Photo} alt="Image Kevin" style="scale-in-center" />
+          <Image source={Photo} alt="A selfie of me" style="scale-in-center" />
         </div>
       </div>
       <div className="hero__cta fade-in-bottom">
         <p className="m-fs mb-0">Learn more about what I do</p>
-        <a className="hero__scroll-down" href="#portfolio">
+        <a
+          className="hero__scroll-down"
+          href="#portfolio"
+          aria-label="click here to scroll to the portfolio section"
+        >
           <Icon icon="keyboard_arrow_down" style="bounce" />
         </a>
       </div>

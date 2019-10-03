@@ -24,7 +24,18 @@ const sharedPlugins = [
   })
 ];
 
-const fallbackLibs = ['whatwg-fetch', 'core-js/stable'];
+const prodPlugins = [
+  new webpack.optimize.ModuleConcatenationPlugin(),
+  new webpack.HashedModuleIdsPlugin({
+    hashFunction: 'sha256',
+    hashDigest: 'hex',
+    hashDigestLength: 4
+  }),
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.NoEmitOnErrorsPlugin()
+];
+
+const fallbackLibs = ['whatwg-fetch', 'core-js/stable/'];
 module.exports = ({ mode } = { mode: 'production' }) => {
   console.log(`mode is: ${mode}`);
 
@@ -32,7 +43,9 @@ module.exports = ({ mode } = { mode: 'production' }) => {
     mode,
     entry: [...fallbackLibs, './src/scripts/index.js', './src/styles/main.scss'],
     devServer: {
-      publicPath: 'http://0.0.0.0:8080/dist/',
+      contentBase: path.join(__dirname, 'dist'),
+      compress: true,
+      port: 9000,
       hot: true,
       inline: true,
       index: 'index.html',
@@ -46,13 +59,13 @@ module.exports = ({ mode } = { mode: 'production' }) => {
     optimization:
       mode === 'production'
         ? {
-            minimizer: [
-              new UglifyJsPlugin({
-                cache: true,
-                parallel: true
-              })
-            ],
+            namedModules: false,
+            namedChunks: false,
+            flagIncludedChunks: true,
+            occurrenceOrder: true,
+            sideEffects: true,
             usedExports: true,
+            concatenateModules: true,
             splitChunks: {
               cacheGroups: {
                 styles: {
@@ -61,8 +74,26 @@ module.exports = ({ mode } = { mode: 'production' }) => {
                   chunks: 'all',
                   enforce: true
                 }
-              }
-            }
+              },
+              minSize: 30000,
+              maxAsyncRequests: 5
+            },
+            noEmitOnErrors: true,
+            minimize: true,
+            minimizer: [
+              new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                uglifyOptions: {
+                  compress: true,
+                  ecma: 5,
+                  mangle: true
+                }
+              })
+            ],
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            mergeDuplicateChunks: true
           }
         : {},
     module: {
@@ -126,7 +157,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
     },
     plugins:
       mode === 'production'
-        ? sharedPlugins
+        ? sharedPlugins.concat([...prodPlugins])
         : sharedPlugins.concat([new webpack.HotModuleReplacementPlugin()])
   };
 };

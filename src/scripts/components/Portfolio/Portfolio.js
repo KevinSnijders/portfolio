@@ -6,7 +6,7 @@ class Portfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemsPerPage: 1
+      itemsPerPage: 3
     };
   }
 
@@ -30,9 +30,9 @@ class Portfolio extends Component {
     }
 
     return (
-      <section data-test="PortfolioComponent" className="portfolio container">
+      <section data-test="PortfolioComponent" className="portfolio">
         {items.slice(0, itemsPerPage).map((item, index) => {
-          return <Item key={index} item={item} />;
+          return <Item key={index} item={item} position={index} />;
         })}
 
         {currentLength > itemsPerPage && (
