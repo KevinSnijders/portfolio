@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import buildStore from './components/App/configureStore';
 
 import App from './components/App/App';
-import buildStore from './components/App/configureStore';
+import registerServiceWorker from './registerServiceWorker';
 
 const store = buildStore();
 
@@ -23,3 +24,5 @@ if (module.hot) {
     renderComponent(App);
   });
 }
+
+registerServiceWorker();

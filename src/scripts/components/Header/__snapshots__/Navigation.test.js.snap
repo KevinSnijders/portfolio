@@ -5,47 +5,43 @@ exports[` 1`] = `
   className="nav fade-in-top"
   data-test="NavigationComponent"
 >
-  <div
-    className="container"
+  <ul
+    className="nav__menu"
+    data-test="MenuComponent"
   >
-    <ul
-      className="nav__menu"
-      data-test="MenuComponent"
+    <li
+      className="nav__item  nav__item--1 active"
     >
-      <li
-        className="nav__item  nav__item--1 active"
+      <a
+        className="nav__item--1"
+        href="#top"
+        onClick={[Function]}
       >
-        <a
-          className="nav__item--1"
-          href="#top"
-          onClick={[Function]}
-        >
-          Home
-        </a>
-      </li>
-      <li
-        className="nav__item  nav__item--2 "
+        Home
+      </a>
+    </li>
+    <li
+      className="nav__item  nav__item--2 "
+    >
+      <a
+        className="nav__item--2"
+        href="#portfolio"
+        onClick={[Function]}
       >
-        <a
-          className="nav__item--2"
-          href="#portfolio"
-          onClick={[Function]}
-        >
-          Portfolio
-        </a>
-      </li>
-      <li
-        className="nav__item  nav__item--3 "
+        Portfolio
+      </a>
+    </li>
+    <li
+      className="nav__item  nav__item--3 "
+    >
+      <a
+        className="nav__item--3"
+        href="#contact"
+        onClick={[Function]}
       >
-        <a
-          className="nav__item--3"
-          href="#contact"
-          onClick={[Function]}
-        >
-          Contact
-        </a>
-      </li>
-    </ul>
-  </div>
+        Contact
+      </a>
+    </li>
+  </ul>
 </nav>
 `;

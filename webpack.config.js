@@ -16,7 +16,7 @@ const sharedPlugins = [
     publicPath: './'
   }),
   new htmlWebpackPlugin({
-    template: './src/templates/index.html',
+    template: './public/index.html',
     filename: 'index.html'
   }),
   new PurgecssPlugin({

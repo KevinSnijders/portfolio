@@ -2,22 +2,17 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const { dest, src, series, parallel, watch } = require('gulp');
 const newer = require('gulp-newer');
-const inputFolder = './src';
-const outputFolder = './dist';
+const srcFolder = './src';
+const publicFolder = './public';
+const distFolder = './dist';
 
 const configFolders = {
   input: {
-    assets: {
-      root: `${inputFolder}/assets/**/*`,
-      images: `${inputFolder}/assets/images/**/*`,
-      favicon: `${inputFolder}/assets/images/favicon.*`
-    }
+    images: `${srcFolder}/assets/images/**/*`,
+    public: `${publicFolder}/**/*.{png,json}`
   },
   output: {
-    assets: {
-      root: `${outputFolder}/assets/`,
-      images: `${outputFolder}/assets/images/`
-    }
+    images: `${distFolder}/assets/images/`
   }
 };
 
@@ -25,7 +20,7 @@ const { input, output } = configFolders;
 function browserSynchronize(done) {
   browserSync.init({
     server: {
-      baseDir: inputFolder
+      baseDir: srcFolder
     },
     port: 3000
   });
@@ -33,30 +28,30 @@ function browserSynchronize(done) {
 }
 
 function clean() {
-  return del(output.assets.images);
+  return del(output.images);
 }
 
 function copyImages() {
-  return src(input.assets.images)
-    .pipe(newer(output.assets.images))
-    .pipe(dest(output.assets.images))
+  return src(input.images)
+    .pipe(newer(output.images))
+    .pipe(dest(output.images))
     .pipe(browserSync.stream());
 }
 
-function copyFavicon() {
-  return src(input.assets.favicon)
-    .pipe(newer(outputFolder))
-    .pipe(dest(outputFolder))
+function copyPublicAssets() {
+  return src(input.public)
+    .pipe(newer(distFolder))
+    .pipe(dest(distFolder))
     .pipe(browserSync.stream());
 }
 
 function watchFiles() {
-  watch(input.assets.images, copyImages);
-  watch(input.assets.favicon, copyFavicon);
+  watch(input.images, copyImages);
+  watch(input.public, copyPublicAssets);
 }
 
 const watchAll = parallel(watchFiles, browserSynchronize);
-const gulp = series(clean, copyImages, copyFavicon);
+const gulp = series(clean, copyImages, copyPublicAssets);
 const development = series(gulp, watchAll);
 const production = series(gulp);
 
