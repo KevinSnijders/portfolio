@@ -24,6 +24,7 @@ exports[` 1`] = `
         className="pl-2 pr-2"
       >
         <a
+          aria-label="display a brand icon"
           href="#"
         >
           <svg
@@ -31,7 +32,7 @@ exports[` 1`] = `
             data-test="IconComponent"
           >
             <use
-              xlinkHref="#.github-square-brands"
+              xlinkHref="#icon-github-square-brands"
             />
           </svg>
         </a>
@@ -40,6 +41,7 @@ exports[` 1`] = `
         className="pl-2 pr-2"
       >
         <a
+          aria-label="display a brand icon"
           href="#"
         >
           <svg
@@ -47,7 +49,7 @@ exports[` 1`] = `
             data-test="IconComponent"
           >
             <use
-              xlinkHref="#.linkedin-brands"
+              xlinkHref="#icon-linkedin-brands"
             />
           </svg>
         </a>
@@ -64,6 +66,7 @@ exports[` 1`] = `
       className="footer__back-to-top"
     >
       <a
+        aria-label="click here to scroll back to the top"
         href="#top"
       >
         <svg
@@ -71,7 +74,7 @@ exports[` 1`] = `
           data-test="IconComponent"
         >
           <use
-            xlinkHref="#.keyboard_arrow_up"
+            xlinkHref="#icon-keyboard_arrow_up"
           />
         </svg>
       </a>
