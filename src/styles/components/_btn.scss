@@ -1,7 +1,7 @@
 .btn {
   border-radius: 0.25rem;
   min-width: 10rem;
-  padding: 0.6rem;
+  padding: 0.6rem 1rem;
   transition: background-color 0.5s;
   border-bottom: 3px solid;
   height: 3.8rem;
@@ -41,5 +41,15 @@
       $text-color-light,
       $secondary-color-dark
     );
+  }
+
+  &--rounded {
+    border-radius: 10rem;
+  }
+
+  &--big {
+    font-size: 1.8rem;
+    height: auto;
+    min-width: 20rem;
   }
 }

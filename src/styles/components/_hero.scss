@@ -6,6 +6,8 @@
     padding: 10rem 0;
     @include media-breakpoint-down(xs) {
       text-align: center;
+      margin: 0 auto;
+      padding: 5rem 0 2rem;
     }
 
     img {
