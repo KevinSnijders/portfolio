@@ -47,9 +47,17 @@ describe('Portfolio Compontent', () => {
           {
             projectid: 2,
             title: 'Trillo'
+          },
+          {
+            projectid: 3,
+            title: 'Nexter'
+          },
+          {
+            projectid: 4,
+            title: 'Portfolio'
           }
         ],
-        itemsPerPage: 1
+        itemsPerPage: 3
       };
 
       wrapper = setUp(props);
