@@ -2,10 +2,13 @@
   border-radius: 0.25rem;
   min-width: 10rem;
   padding: 0.6rem 1rem;
-  transition: background-color 0.5s;
+  transition-property: transform, background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
   border-bottom: 3px solid;
   height: 3.8rem;
   font-size: 1.5rem;
+  cursor: pointer;
 
   &--primary {
     @include btn-style(
@@ -48,8 +51,20 @@
   }
 
   &--big {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     height: auto;
     min-width: 20rem;
+  }
+
+  &--load-more {
+    @include btn-style(
+      $btn-primary-color,
+      $btn-primary-color,
+      $text-color-light,
+      $btn-primary-color-dark
+    );
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
 }
