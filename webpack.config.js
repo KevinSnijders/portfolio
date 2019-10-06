@@ -15,7 +15,7 @@ const PATHS = {
 const sharedPlugins = [
   new CopyWebpackPlugin([
     { from: './src/assets/images/', to: '../dist/assets/images' },
-    { context: './public/', from: '*.{png,json}', to: '../dist', toType: 'dir' }
+    { context: './public/', from: '**/*.{png,json}', to: '../dist', toType: 'dir' }
   ]),
   new MiniCssExtractPlugin({
     filename: 'bundle.min.css',
