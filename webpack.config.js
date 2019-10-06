@@ -5,6 +5,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const PATHS = {
@@ -12,6 +13,10 @@ const PATHS = {
 };
 
 const sharedPlugins = [
+  new CopyWebpackPlugin([
+    { from: './src/assets/images/', to: '../dist/assets/images' },
+    { from: './public/favicon.png', to: '../dist/favicon.png' }
+  ]),
   new MiniCssExtractPlugin({
     filename: 'bundle.min.css',
     publicPath: './'
@@ -40,9 +45,6 @@ const prodPlugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
   new WorkboxPlugin.GenerateSW({
-    // Do not precache images
-    exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
     // Define runtime caching rules.
     runtimeCaching: [
       {
@@ -58,7 +60,7 @@ const prodPlugins = [
 
           // Only cache 10 images.
           expiration: {
-            maxEntries: 10
+            maxEntries: 20
           }
         }
       }
@@ -147,7 +149,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
               loader: 'css-loader',
               options: {
                 url: url => {
-                  // Don't handle image urls, because gulp handles all the static images
+                  // Don't handle image urls
                   let images = 'assets/images';
                   if (url.includes(images)) {
                     return false;
