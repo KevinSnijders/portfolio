@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchPortfolio } from '../../redux/actions';
+import { fetchPortfolio, setNetworkStatus } from '../../redux/actions';
 import Hero from '../Hero/Hero';
 import Navigation from '../Header/Navigation';
 import Particles from 'react-particles-js';
@@ -9,13 +9,23 @@ import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 
 const mapStateToProps = state => {
-  return { items: state.requestPortfolio };
+  return {
+    portfolioItems: !state.getNetworkStatus
+      ? JSON.parse(getLocalStorage('items'))
+      : state.requestPortfolio,
+    hasNetworkConnection: state.getNetworkStatus
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchPortfolio: () => dispatch(fetchPortfolio())
+    onFetchPortfolio: () => dispatch(fetchPortfolio()),
+    onSetNetworkStatus: () => dispatch(setNetworkStatus())
   };
+};
+
+const getLocalStorage = key => {
+  return localStorage.getItem(key);
 };
 
 const particlesOptions = {
