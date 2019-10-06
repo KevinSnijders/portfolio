@@ -39,7 +39,7 @@ describe('Portfolio Compontent', () => {
     let wrapper;
     beforeEach(() => {
       const props = {
-        items: [
+        portfolioItems: [
           {
             projectid: 1,
             title: 'Natours'

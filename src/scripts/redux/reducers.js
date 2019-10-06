@@ -8,3 +8,12 @@ export const requestPortfolio = (state = [], action = {}) => {
       return state;
   }
 };
+
+export const getNetworkStatus = (state = false, action = {}) => {
+  switch (action.type) {
+    case types.GET_NETWORK_STATUS:
+      return action.payload;
+    default:
+      return state;
+  }
+};

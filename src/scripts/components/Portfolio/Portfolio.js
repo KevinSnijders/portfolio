@@ -11,7 +11,16 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
-    this.props.onFetchPortfolio();
+    this.props.onSetNetworkStatus();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { hasNetworkConnection } = this.props;
+    if (prevProps.hasNetworkConnection !== hasNetworkConnection) {
+      if (hasNetworkConnection) {
+        this.props.onFetchPortfolio();
+      }
+    }
   }
 
   loadMoreItems() {
@@ -20,34 +29,52 @@ class Portfolio extends Component {
     });
   }
 
-  render() {
-    const { items } = this.props;
-    const { itemsPerPage } = this.state;
-    let currentLength = items !== undefined ? items.length : 0;
+  getAmountOfPortfolioItems(portfolioItems) {
+    return portfolioItems === null || portfolioItems === undefined ? 0 : portfolioItems.length;
+  }
 
-    if (currentLength === 0) {
+  splitItems(items, itemsPerPage) {
+    let firstItemIndex = 0;
+    let lastItemIndex = itemsPerPage;
+    return items.slice(firstItemIndex, lastItemIndex);
+  }
+
+  renderItems(portfolioItems, itemsPerPage) {
+    return this.splitItems(portfolioItems, itemsPerPage).map((item, index) => {
+      return <Item key={index} item={item} position={index} />;
+    });
+  }
+
+  renderLoadMoreButton() {
+    return (
+      <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
+        <a
+          data-test="loadMoreButton"
+          id="btn--load-more"
+          onClick={() => this.loadMoreItems()}
+          tabIndex="0"
+          className="btn btn--load-more btn--big"
+        >
+          Load more work
+        </a>
+      </div>
+    );
+  }
+
+  render() {
+    const { portfolioItems } = this.props;
+    const { itemsPerPage } = this.state;
+    let amountOfItems = this.getAmountOfPortfolioItems(portfolioItems);
+    let shouldShowLoadMoreButton = amountOfItems > itemsPerPage;
+
+    if (amountOfItems === 0) {
       return null;
     }
 
     return (
       <section data-test="PortfolioComponent" className="portfolio">
-        {items.slice(0, itemsPerPage).map((item, index) => {
-          return <Item key={index} item={item} position={index} />;
-        })}
-
-        {currentLength > itemsPerPage && (
-          <div className="portfolio__load-more d-flex justify-content-center p-5 fade-in">
-            <button
-              data-test="loadMoreButton"
-              id="btn--load-more"
-              onClick={() => this.loadMoreItems()}
-              type="button"
-              className="btn btn--dark btn--load-more btn--big"
-            >
-              Load more work
-            </button>
-          </div>
-        )}
+        {this.renderItems(portfolioItems, itemsPerPage)}
+        {shouldShowLoadMoreButton && this.renderLoadMoreButton()}
       </section>
     );
   }
@@ -56,7 +83,7 @@ class Portfolio extends Component {
 export default Portfolio;
 
 Portfolio.propTypes = {
-  items: PropTypes.arrayOf(
+  portfolioItems: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,
@@ -72,7 +99,9 @@ Portfolio.propTypes = {
       )
     })
   ),
+  hasNetworkConnection: PropTypes.bool,
   itemsPerPage: PropTypes.number,
   loadMoreItems: PropTypes.func,
-  onFetchPortfolio: PropTypes.func
+  onFetchPortfolio: PropTypes.func,
+  onSetNetworkStatus: PropTypes.func
 };

@@ -5,13 +5,24 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, 'src')
 };
 
 const sharedPlugins = [
+  new CleanWebpackPlugin(),
+  new CopyWebpackPlugin([
+    { context: './src/assets/images/', from: '**/*.{png,svg,jpg}', to: './assets/images' },
+    {
+      context: './public/',
+      from: '**/*.{png,json}',
+      to: './assets'
+    }
+  ]),
   new MiniCssExtractPlugin({
     filename: 'bundle.min.css',
     publicPath: './'
@@ -40,9 +51,6 @@ const prodPlugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
   new WorkboxPlugin.GenerateSW({
-    // Do not precache images
-    exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
     // Define runtime caching rules.
     runtimeCaching: [
       {
@@ -58,7 +66,7 @@ const prodPlugins = [
 
           // Only cache 10 images.
           expiration: {
-            maxEntries: 10
+            maxEntries: 20
           }
         }
       }
@@ -147,7 +155,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
               loader: 'css-loader',
               options: {
                 url: url => {
-                  // Don't handle image urls, because gulp handles all the static images
+                  // Don't handle image urls
                   let images = 'assets/images';
                   if (url.includes(images)) {
                     return false;
@@ -173,7 +181,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
             {
               loader: 'file-loader',
               options: {
-                outputPath: '/assets/fonts'
+                outputPath: '/assets/fonts/'
               }
             }
           ]
