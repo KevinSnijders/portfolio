@@ -7,15 +7,21 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, 'src')
 };
 
 const sharedPlugins = [
+  new CleanWebpackPlugin(),
   new CopyWebpackPlugin([
-    { from: './src/assets/images/', to: '../dist/assets/images' },
-    { context: './public/', from: '**/*.{png,json}', to: '../dist', toType: 'dir' }
+    { context: './src/assets/images/', from: '**/*.{png,svg,jpg}', to: './assets/images' },
+    {
+      context: './public/',
+      from: '**/*.{png,json}',
+      to: './assets'
+    }
   ]),
   new MiniCssExtractPlugin({
     filename: 'bundle.min.css',
@@ -175,7 +181,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
             {
               loader: 'file-loader',
               options: {
-                outputPath: '/assets/fonts'
+                outputPath: '/assets/fonts/'
               }
             }
           ]
