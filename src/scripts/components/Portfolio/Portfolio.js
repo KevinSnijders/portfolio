@@ -111,7 +111,7 @@ class Portfolio extends Component {
     }
 
     return (
-      <section data-test="PortfolioComponent" className="portfolio">
+      <section data-test="PortfolioComponent" id="portfolio" className="portfolio">
         {this.renderItems(portfolioItems, itemsPerPage)}
         {shouldShowLoadMoreButton && this.renderLoadMoreButton()}
       </section>
