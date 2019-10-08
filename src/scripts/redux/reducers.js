@@ -9,7 +9,7 @@ export const requestPortfolio = (state = [], action = {}) => {
   }
 };
 
-export const getNetworkStatus = (state = false, action = {}) => {
+export const getNetworkStatus = (state = null, action = {}) => {
   switch (action.type) {
     case types.GET_NETWORK_STATUS:
       return action.payload;
