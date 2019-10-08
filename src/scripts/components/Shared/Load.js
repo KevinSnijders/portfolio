@@ -3,10 +3,10 @@ import Image from './Image';
 import PropTypes from 'prop-types';
 
 const Load = props => {
-  const { image, alt, title, message, children } = props;
+  const { image, alt, title, message, style, children } = props;
   return (
-    <div className="load">
-      <Image source={image} alt={alt} />
+    <div className={`load fade-in-bottom`}>
+      <Image style={`${style}`} source={image} alt={alt} />
       <h2>{title}</h2>
       <p>{message}</p>
       {children}
@@ -21,5 +21,6 @@ Load.propTypes = {
   alt: PropTypes.string,
   title: PropTypes.string,
   message: PropTypes.string,
+  style: PropTypes.string,
   children: PropTypes.any
 };
