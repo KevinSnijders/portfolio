@@ -17,11 +17,15 @@ class Portfolio extends Component {
     this.props.onSetNetworkStatus();
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     if (this.props.hasNetworkConnection !== nextProps.hasNetworkConnection) {
       return true;
     }
     if (JSON.stringify(this.props.portfolioItems) !== JSON.stringify(nextProps.portfolioItems)) {
+      return true;
+    }
+
+    if (this.state.itemsPerPage !== nextState.itemsPerPage) {
       return true;
     }
 
@@ -85,7 +89,7 @@ class Portfolio extends Component {
   }
 
   render() {
-    let { portfolioItems, hasNetworkConnection } = this.props;
+    const { portfolioItems, hasNetworkConnection } = this.props;
     const { itemsPerPage } = this.state;
     let amountOfItems = this.getAmountOfPortfolioItems(portfolioItems);
     let shouldShowLoadMoreButton = amountOfItems > itemsPerPage;
