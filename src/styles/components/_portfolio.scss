@@ -19,11 +19,12 @@
     &:nth-child(odd) {
       clip-path: polygon(0 5%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 0 95%);
     }
-    &__resource {
+    &--brand {
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      margin: 0 0.8rem;
+      align-items: center;
+      margin: 0 0.4rem;
+
       &:first-child {
         margin-left: 0;
       }
@@ -47,6 +48,18 @@
     margin-bottom: 2.4rem;
   }
 
+  &__badge {
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+
+    &--light {
+      background-color: $bg-brightness-high;
+    }
+    &--dark {
+      background-color: $bg-brightness-medium;
+    }
+  }
+
   &__preview {
     margin: 2.4rem 0;
     border-radius: 0.5rem;
@@ -55,15 +68,38 @@
     }
   }
 
-  &__resources {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 2.4rem;
+  &__technical {
+    cursor: pointer;
+    margin: 2.4rem 0;
+    position: relative;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      flex: 1 0 auto;
+
+      h3 {
+        font-size: 2rem;
+        margin: 0;
+      }
+    }
+
+    .icon {
+      transform: rotate(180deg);
+      &.active {
+        transform: rotate(0deg);
+      }
+    }
 
     img {
       max-height: 50px;
       width: auto;
     }
+  }
+
+  &__brands {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__links {

@@ -133,13 +133,7 @@ Portfolio.propTypes = {
       description: PropTypes.string,
       demo: PropTypes.string,
       source: PropTypes.string,
-      preview: PropTypes.string,
-      resources: PropTypes.arrayOf(
-        PropTypes.shape({
-          projectid: PropTypes.number,
-          name: PropTypes.string
-        })
-      )
+      preview: PropTypes.string
     })
   ),
   hasNetworkConnection: PropTypes.bool,

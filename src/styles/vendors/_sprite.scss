@@ -41,79 +41,89 @@
   background-repeat: no-repeat;
   background-image: url('./assets/images/sprites/sprite-brands.svg');
 
-  &-html5 {
-    width: 50px;
-    height: 50px;
+  &-hackhands {
+    width: 25px;
+    height: 25px;
     background-position: 0 0;
   }
+  &-slides {
+    width: 25px;
+    height: 25px;
+    background-position: -41px 0;
+  }
+  &-html5 {
+    width: 25px;
+    height: 25px;
+    background-position: -82px 0;
+  }
   &-webpack {
-    width: 50px;
-    height: 50px;
-    background-position: -66px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -123px 0;
   }
   &-mongodb {
-    width: 50px;
-    height: 50px;
-    background-position: -132px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -164px 0;
   }
   &-git {
-    width: 50px;
-    height: 50px;
-    background-position: -198px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -205px 0;
   }
   &-heroku {
-    width: 50px;
-    height: 50px;
-    background-position: -264px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -246px 0;
   }
   &-eslint {
-    width: 50px;
-    height: 50px;
-    background-position: -330px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -287px 0;
   }
   &-jquery {
-    width: 50px;
-    height: 50px;
-    background-position: -396px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -328px 0;
   }
   &-node-dot-js {
-    width: 50px;
-    height: 50px;
-    background-position: -462px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -369px 0;
   }
   &-circleci {
-    width: 50px;
-    height: 50px;
-    background-position: -528px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -410px 0;
   }
   &-redux {
-    width: 50px;
-    height: 50px;
-    background-position: -594px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -451px 0;
   }
   &-react {
-    width: 50px;
-    height: 50px;
-    background-position: -660px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -492px 0;
   }
   &-javascript {
-    width: 50px;
-    height: 50px;
-    background-position: -726px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -533px 0;
   }
   &-sass {
-    width: 50px;
-    height: 50px;
-    background-position: -792px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -574px 0;
   }
   &-gulp {
-    width: 50px;
-    height: 50px;
-    background-position: -858px 0;
+    width: 25px;
+    height: 25px;
+    background-position: -615px 0;
   }
   &-bootstrap {
-    width: 50px;
-    height: 50px;
-    background-position: -924px 0;
+    width: 25px;
+    height: 25px;
+    background-position: 0 -41px;
   }
 }
