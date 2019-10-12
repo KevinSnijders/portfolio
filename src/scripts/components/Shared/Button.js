@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({ text, link, style, config = null }) => {
-  const render = link !== undefined ? link.length : 0;
+  const render = link !== undefined && link !== null ? link.length : 0;
   if (!render > 0) {
     return null;
   }

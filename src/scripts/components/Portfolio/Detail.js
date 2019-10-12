@@ -13,7 +13,7 @@ const Details = ({ title, description, resources, odd, demo, source }) => {
     <>
       <h2 className="portfolio__title">{title}</h2>
       <p className="portfolio__details">{description}</p>
-      <Resource resources={resources} row={odd} />
+      <Resource resources={resources} odd={odd} />
       <div className="portfolio__links">
         <Button
           config={buttonConfig}

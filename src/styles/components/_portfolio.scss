@@ -23,16 +23,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 0.4rem;
+      margin: 0.4rem 0.8rem 0.4rem 0;
+      flex: 1 0 20%;
 
-      &:first-child {
-        margin-left: 0;
-      }
-      &:last-child {
-        margin-right: 0;
-      }
       svg {
-        margin: 0 auto;
+        margin-right: 0.5rem;
       }
     }
   }
@@ -66,10 +61,13 @@
   }
 
   &__preview {
-    margin: 2.4rem 0;
+    margin: 2.4rem auto;
     border-radius: 0.5rem;
+    width: auto;
+    display: block;
+
     @include media-breakpoint-up(md) {
-      margin: 0;
+      margin: 0 auto;
     }
   }
 

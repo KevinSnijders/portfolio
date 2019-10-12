@@ -17,14 +17,11 @@ class Resource extends Component {
   }
   renderListOfResources() {
     const { resources, odd } = this.props;
+    let badgeTheme = odd ? `portfolio__badge--dark` : `portfolio__badge--light`;
+    console.log(typeof badgeTheme);
     return resources.map(({ name, display_name }, index) => {
       return (
-        <div
-          key={index}
-          className={`portfolio__item--brand portfolio__badge ${
-            odd ? 'portfolio__badge--light' : 'portfolio__badge--dark'
-          }`}
-        >
+        <div key={index} className={`portfolio__item--brand portfolio__badge ${badgeTheme}`}>
           <Icon prefix="brand" icon={name} />
           {display_name}
         </div>
