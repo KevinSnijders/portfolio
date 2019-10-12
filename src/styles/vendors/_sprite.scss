@@ -46,84 +46,99 @@
     height: 25px;
     background-position: 0 0;
   }
-  &-slides {
+  &-postgresql {
     width: 25px;
     height: 25px;
     background-position: -41px 0;
   }
-  &-html5 {
+  &-slides {
     width: 25px;
     height: 25px;
     background-position: -82px 0;
   }
-  &-webpack {
+  &-visualstudiocode {
     width: 25px;
     height: 25px;
     background-position: -123px 0;
   }
-  &-mongodb {
+  &-webstorm {
     width: 25px;
     height: 25px;
     background-position: -164px 0;
   }
-  &-git {
+  &-html5 {
     width: 25px;
     height: 25px;
     background-position: -205px 0;
   }
-  &-heroku {
+  &-webpack {
     width: 25px;
     height: 25px;
     background-position: -246px 0;
   }
-  &-eslint {
+  &-mongodb {
     width: 25px;
     height: 25px;
     background-position: -287px 0;
   }
-  &-jquery {
+  &-git {
     width: 25px;
     height: 25px;
     background-position: -328px 0;
   }
-  &-node-dot-js {
+  &-heroku {
     width: 25px;
     height: 25px;
     background-position: -369px 0;
   }
-  &-circleci {
+  &-eslint {
     width: 25px;
     height: 25px;
     background-position: -410px 0;
   }
-  &-redux {
+  &-jquery {
     width: 25px;
     height: 25px;
     background-position: -451px 0;
   }
-  &-react {
+  &-node-dot-js {
     width: 25px;
     height: 25px;
     background-position: -492px 0;
   }
-  &-javascript {
+  &-circleci {
     width: 25px;
     height: 25px;
     background-position: -533px 0;
   }
-  &-sass {
+  &-redux {
     width: 25px;
     height: 25px;
     background-position: -574px 0;
   }
-  &-gulp {
+  &-react {
     width: 25px;
     height: 25px;
     background-position: -615px 0;
   }
-  &-bootstrap {
+  &-javascript {
     width: 25px;
     height: 25px;
     background-position: 0 -41px;
+  }
+  &-sass {
+    width: 25px;
+    height: 25px;
+    background-position: -41px -41px;
+  }
+  &-gulp {
+    width: 25px;
+    height: 25px;
+    background-position: -82px -41px;
+  }
+  &-bootstrap {
+    width: 25px;
+    height: 25px;
+    background-position: -123px -41px;
   }
 }

@@ -46,11 +46,16 @@
 
   &__details {
     margin-bottom: 2.4rem;
+    p {
+      font-size: 1.6rem;
+    }
   }
 
   &__badge {
-    padding: 0.2rem 0.4rem;
+    padding: 0.5rem;
     border-radius: 0.25rem;
+    font-family: $font-light;
+    font-size: 1.4rem;
 
     &--light {
       background-color: $bg-brightness-high;
