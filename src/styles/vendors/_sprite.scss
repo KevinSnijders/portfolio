@@ -41,104 +41,114 @@
   background-repeat: no-repeat;
   background-image: url('./assets/images/sprites/sprite-brands.svg');
 
-  &-hackhands {
+  &-csswizardry {
     width: 25px;
     height: 25px;
     background-position: 0 0;
   }
-  &-postgresql {
+  &-hackhands {
     width: 25px;
     height: 25px;
     background-position: -41px 0;
   }
-  &-slides {
+  &-jest {
     width: 25px;
     height: 25px;
     background-position: -82px 0;
   }
-  &-visualstudiocode {
+  &-postgresql {
     width: 25px;
     height: 25px;
     background-position: -123px 0;
   }
-  &-webstorm {
+  &-slides {
     width: 25px;
     height: 25px;
     background-position: -164px 0;
   }
-  &-html5 {
+  &-visualstudiocode {
     width: 25px;
     height: 25px;
     background-position: -205px 0;
   }
-  &-webpack {
+  &-webstorm {
     width: 25px;
     height: 25px;
     background-position: -246px 0;
   }
-  &-mongodb {
+  &-html5 {
     width: 25px;
     height: 25px;
     background-position: -287px 0;
   }
-  &-git {
+  &-webpack {
     width: 25px;
     height: 25px;
     background-position: -328px 0;
   }
-  &-heroku {
+  &-mongodb {
     width: 25px;
     height: 25px;
     background-position: -369px 0;
   }
-  &-eslint {
+  &-git {
     width: 25px;
     height: 25px;
     background-position: -410px 0;
   }
-  &-jquery {
+  &-heroku {
     width: 25px;
     height: 25px;
     background-position: -451px 0;
   }
-  &-node-dot-js {
+  &-eslint {
     width: 25px;
     height: 25px;
     background-position: -492px 0;
   }
-  &-circleci {
+  &-jquery {
     width: 25px;
     height: 25px;
     background-position: -533px 0;
   }
-  &-redux {
+  &-node-dot-js {
     width: 25px;
     height: 25px;
     background-position: -574px 0;
   }
-  &-react {
+  &-circleci {
     width: 25px;
     height: 25px;
     background-position: -615px 0;
   }
-  &-javascript {
+  &-redux {
     width: 25px;
     height: 25px;
     background-position: 0 -41px;
   }
-  &-sass {
+  &-react {
     width: 25px;
     height: 25px;
     background-position: -41px -41px;
   }
-  &-gulp {
+  &-javascript {
     width: 25px;
     height: 25px;
     background-position: -82px -41px;
   }
-  &-bootstrap {
+  &-sass {
     width: 25px;
     height: 25px;
     background-position: -123px -41px;
+  }
+  &-gulp {
+    width: 25px;
+    height: 25px;
+    background-position: -164px -41px;
+  }
+  &-bootstrap {
+    width: 25px;
+    height: 25px;
+    background-position: -205px -41px;
   }
 }
