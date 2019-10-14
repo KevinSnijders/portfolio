@@ -37,7 +37,7 @@ class Resource extends Component {
     return (
       <div className="portfolio__technical">
         <div
-          className={`portfolio__technical__header ${odd ? 'dark' : 'light'}`}
+          className={`portfolio__technical__header ${odd ? 'light' : 'dark'}`}
           onClick={() => this.handleOnClick()}
         >
           <h3>Technologies</h3>
