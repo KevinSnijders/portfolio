@@ -2,11 +2,17 @@
   @extend .nav-flex;
   z-index: 100;
   padding: 3rem 0 0;
+  @media only screen and (max-width: 480px) {
+    justify-content: space-evenly;
+  }
   .container {
     @extend .nav-flex;
   }
   &__image {
     width: auto;
+    @media only screen and (max-width: 480px) {
+      width: 75px;
+    }
   }
   &__menu {
     display: flex;

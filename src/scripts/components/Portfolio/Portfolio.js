@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Item from './Item';
+import Load from '../Shared/Load';
+import LoadingImage from '../../../assets/images/loading.png';
+import NotFoundImage from '../../../assets/images/404.png';
 import PropTypes from 'prop-types';
 
 class Portfolio extends Component {
@@ -12,6 +15,21 @@ class Portfolio extends Component {
 
   componentDidMount() {
     this.props.onSetNetworkStatus();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.hasNetworkConnection !== nextProps.hasNetworkConnection) {
+      return true;
+    }
+    if (JSON.stringify(this.props.portfolioItems) !== JSON.stringify(nextProps.portfolioItems)) {
+      return true;
+    }
+
+    if (this.state.itemsPerPage !== nextState.itemsPerPage) {
+      return true;
+    }
+
+    return false;
   }
 
   componentDidUpdate(prevProps) {
@@ -39,6 +57,15 @@ class Portfolio extends Component {
     return items.slice(firstItemIndex, lastItemIndex);
   }
 
+  renderPageLoading(hasNetworkConnection, amountOfItems) {
+    let htmlMarkUp;
+    if (!hasNetworkConnection && amountOfItems === 0) {
+      htmlMarkUp = <div>Items cant be loaded make sure you have internet connection</div>;
+    } else if (hasNetworkConnection && amountOfItems === 0) {
+      htmlMarkUp = <div>Loading</div>;
+    }
+    return <Load>{htmlMarkUp}</Load>;
+  }
   renderItems(portfolioItems, itemsPerPage) {
     return this.splitItems(portfolioItems, itemsPerPage).map((item, index) => {
       return <Item key={index} item={item} position={index} />;
@@ -62,17 +89,33 @@ class Portfolio extends Component {
   }
 
   render() {
-    const { portfolioItems } = this.props;
+    const { portfolioItems, hasNetworkConnection } = this.props;
     const { itemsPerPage } = this.state;
     let amountOfItems = this.getAmountOfPortfolioItems(portfolioItems);
     let shouldShowLoadMoreButton = amountOfItems > itemsPerPage;
 
     if (amountOfItems === 0) {
-      return null;
+      return hasNetworkConnection ? (
+        <Load
+          image={LoadingImage}
+          alt="Loading items"
+          style="scale-in-center"
+          title="Loading!"
+          message="The latest items are being loaded"
+        />
+      ) : (
+        <Load
+          image={NotFoundImage}
+          alt="Not items found"
+          style="scale-in-center"
+          title="Whoops!"
+          message="No items found. Check your connection or try reloading the page."
+        />
+      );
     }
 
     return (
-      <section data-test="PortfolioComponent" className="portfolio">
+      <section data-test="PortfolioComponent" id="portfolio" className="portfolio">
         {this.renderItems(portfolioItems, itemsPerPage)}
         {shouldShowLoadMoreButton && this.renderLoadMoreButton()}
       </section>
@@ -90,13 +133,7 @@ Portfolio.propTypes = {
       description: PropTypes.string,
       demo: PropTypes.string,
       source: PropTypes.string,
-      preview: PropTypes.string,
-      resources: PropTypes.arrayOf(
-        PropTypes.shape({
-          projectid: PropTypes.number,
-          name: PropTypes.string
-        })
-      )
+      preview: PropTypes.string
     })
   ),
   hasNetworkConnection: PropTypes.bool,

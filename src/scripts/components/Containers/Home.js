@@ -10,9 +10,7 @@ import Footer from '../Footer/Footer';
 
 const mapStateToProps = state => {
   return {
-    portfolioItems: !state.getNetworkStatus
-      ? JSON.parse(getLocalStorage('items'))
-      : state.requestPortfolio,
+    portfolioItems: setPortfolioItems(state),
     hasNetworkConnection: state.getNetworkStatus
   };
 };
@@ -22,6 +20,22 @@ const mapDispatchToProps = dispatch => {
     onFetchPortfolio: () => dispatch(fetchPortfolio()),
     onSetNetworkStatus: () => dispatch(setNetworkStatus())
   };
+};
+
+const setPortfolioItems = state => {
+  let data;
+  const { getNetworkStatus, requestPortfolio } = state;
+  switch (getNetworkStatus) {
+    case true:
+      data = requestPortfolio;
+      break;
+    case false:
+      data = JSON.parse(getLocalStorage('items'));
+      break;
+    default:
+      data = [];
+  }
+  return data;
 };
 
 const getLocalStorage = key => {

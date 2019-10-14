@@ -9,13 +9,6 @@ exports[` 1`] = `
   <div
     className="col-sm-auto fade-in-bottom"
   >
-    <a
-      className="btn btn--light mb-4"
-      data-test="ButtonComponent"
-      href="#"
-    >
-      Contact me
-    </a>
     <ul
       className="d-flex flex-row justify-content-center mb-4"
       data-test="SocialComponent"

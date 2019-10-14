@@ -11,11 +11,11 @@ class Social extends Component {
       socials: [
         {
           icon: 'github-square-brands',
-          link: '#'
+          link: 'https://github.com/KevinSnijders'
         },
         {
           icon: 'linkedin-brands',
-          link: '#'
+          link: 'https://nl.linkedin.com/in/kevin-snijders-7822a3105'
         }
       ]
     };
@@ -25,7 +25,12 @@ class Social extends Component {
     return socials.map(({ icon, link }, index) => {
       return (
         <li key={index} className="pl-2 pr-2">
-          <a href={`${link}`} aria-label="display a brand icon">
+          <a
+            href={`${link}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="display a brand icon"
+          >
             <Icon icon={`${icon}`} />
           </a>
         </li>

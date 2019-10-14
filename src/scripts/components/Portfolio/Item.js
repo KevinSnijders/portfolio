@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Details from './Details';
+import Details from './Detail';
 import Image from '../Shared/Image';
-import Resources from './Resources';
 import PropTypes from 'prop-types';
 
 class Item extends Component {
@@ -10,22 +9,29 @@ class Item extends Component {
   }
 
   getEvenOrOddItem(item, position) {
-    const col = 'col-sm-auto col-md-6';
-    const detailsLeft = `${col} col-lg-5 order-2 order-md-1 fade-in`;
-    const previewRight = `${col} col-lg-7 order-1 order-md-2 fade-in-right`;
-    const detailsRight = `${col} col-lg-5 fade-in`;
-    const previewLeft = `${col} col-lg-7 fade-in-left`;
+    const col = 'col-md-6';
+    const detailsLeft = `col ${col} col-lg-5 order-2 order-md-1 fade-in`;
+    const previewRight = `col-sm-auto  ${col} col-lg-7 order-1 order-md-2 fade-in-right`;
+    const detailsRight = `col ${col} col-lg-5 fade-in`;
+    const previewLeft = `col-sm-auto ${col} col-lg-7 fade-in-left`;
 
-    const { title, description, demo, source, preview } = item;
+    const { title, description, resources, demo, source, preview } = item;
     const currentPosition = this.calculateOddOrEven(position);
     const detailsCompontent = (
-      <Details title={title} description={description} demo={demo} source={source} />
+      <Details
+        title={title}
+        description={description}
+        resources={resources}
+        demo={demo}
+        source={source}
+        odd={currentPosition}
+      />
     );
     const imageComponent = (
       <Image
         source={preview}
         alt={`Showcase example of the website called: ${title}`}
-        style="preview__portfolio"
+        style="portfolio__preview"
       />
     );
     return currentPosition ? (
@@ -48,6 +54,7 @@ class Item extends Component {
 
   render() {
     const { item, position } = this.props;
+
     return (
       <>
         {Object.entries(item).length > 0 ? (
@@ -55,9 +62,6 @@ class Item extends Component {
             <div className="container">
               <div className="row d-flex align-items-center">
                 {this.getEvenOrOddItem(item, position)}
-              </div>
-              <div className="row d-flex justify-content-center">
-                <Resources resources={item.resources} />
               </div>
             </div>
           </div>
