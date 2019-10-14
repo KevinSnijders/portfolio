@@ -16,7 +16,12 @@ const Hero = () => {
             <span className="m-fs">Web Developer</span>
           </h1>
           <Social />
-          <Button link="#" style="btn--primary btn--big mr-3" text="Download my resume" />
+          <Button
+            link="https://raw.githubusercontent.com/KevinSnijders/resume/master/resume.pdf"
+            style="btn--primary btn--big mr-3"
+            text="Download my resume"
+            externUrl={true}
+          />
         </div>
         <div className="col col-sm-5 col-lg-3 order-1 order-sm-2 fade-in-right">
           <Image source={Photo} alt="A selfie of me" style="scale-in-center" />
