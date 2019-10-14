@@ -40,10 +40,9 @@
   }
 
   &__details {
+    font-size: 1.8rem;
+    letter-spacing: 0.25px;
     margin-bottom: 2.4rem;
-    p {
-      font-size: 1.6rem;
-    }
   }
 
   &__badge {
@@ -81,6 +80,8 @@
       display: flex;
       justify-content: space-between;
       flex: 1 0 auto;
+      position: relative;
+      z-index: 10;
 
       h3 {
         font-size: 2rem;

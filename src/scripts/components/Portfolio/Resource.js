@@ -15,8 +15,7 @@ class Resource extends Component {
       isVisible: !this.state.isVisible
     });
   }
-  renderListOfResources() {
-    const { resources, odd } = this.props;
+  renderListOfResources(resources, odd) {
     let badgeTheme = odd ? `portfolio__badge--dark` : `portfolio__badge--light`;
     return resources.map(({ name, display_name }, index) => {
       return (
@@ -28,7 +27,7 @@ class Resource extends Component {
     });
   }
   render() {
-    const { resources } = this.props;
+    const { resources, odd } = this.props;
     const { isVisible } = this.state;
 
     if (resources.length === 0) {
@@ -37,12 +36,17 @@ class Resource extends Component {
 
     return (
       <div className="portfolio__technical">
-        <div className="portfolio__technical__header" onClick={() => this.handleOnClick()}>
+        <div
+          className={`portfolio__technical__header ${odd ? 'dark' : 'light'}`}
+          onClick={() => this.handleOnClick()}
+        >
           <h3>Technologies</h3>
           <Icon style={`${isVisible ? 'active' : ''}`} icon="keyboard_arrow_up" />
         </div>
         {isVisible ? (
-          <div className="portfolio__brands fade-in-top">{this.renderListOfResources()}</div>
+          <div className="portfolio__brands fade-in-top">
+            {this.renderListOfResources(resources, odd)}
+          </div>
         ) : null}
       </div>
     );
