@@ -1,5 +1,7 @@
 .portfolio {
   background-color: $bg-brightness-high;
+  position: relative;
+  z-index: 1;
   a {
     color: $text-color-light;
   }
