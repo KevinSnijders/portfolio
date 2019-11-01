@@ -41,124 +41,129 @@
   background-repeat: no-repeat;
   background-image: url('./assets/images/sprites/sprite-brands.svg');
 
-  &-webstorm {
+  &-django {
     width: 25px;
     height: 25px;
     background-position: 0 0;
   }
-  &-visualstudiocode {
+  &-webstorm {
     width: 25px;
     height: 25px;
     background-position: -41px 0;
   }
-  &-heroku {
+  &-visualstudiocode {
     width: 25px;
     height: 25px;
     background-position: -82px 0;
   }
-  &-git {
+  &-heroku {
     width: 25px;
     height: 25px;
     background-position: -123px 0;
   }
-  &-circleci {
+  &-git {
     width: 25px;
     height: 25px;
     background-position: -164px 0;
   }
-  &-eslint {
+  &-circleci {
     width: 25px;
     height: 25px;
     background-position: -205px 0;
   }
-  &-mongodb {
+  &-eslint {
     width: 25px;
     height: 25px;
     background-position: -246px 0;
   }
-  &-postgresql {
+  &-mongodb {
     width: 25px;
     height: 25px;
     background-position: -287px 0;
   }
-  &-node-dot-js {
+  &-postgresql {
     width: 25px;
     height: 25px;
     background-position: -328px 0;
   }
-  &-gulp {
+  &-node-dot-js {
     width: 25px;
     height: 25px;
     background-position: -369px 0;
   }
-  &-jest {
+  &-gulp {
     width: 25px;
     height: 25px;
     background-position: -410px 0;
   }
-  &-redux {
+  &-jest {
     width: 25px;
     height: 25px;
     background-position: -451px 0;
   }
-  &-react {
+  &-redux {
     width: 25px;
     height: 25px;
     background-position: -492px 0;
   }
-  &-webpack {
+  &-react {
     width: 25px;
     height: 25px;
     background-position: -533px 0;
   }
-  &-csswizardry {
+  &-webpack {
     width: 25px;
     height: 25px;
     background-position: -574px 0;
   }
-  &-slides {
+  &-csswizardry {
     width: 25px;
     height: 25px;
     background-position: -615px 0;
   }
-  &-hackhands {
+  &-slides {
     width: 25px;
     height: 25px;
     background-position: 0 -41px;
   }
-  &-bootstrap {
+  &-hackhands {
     width: 25px;
     height: 25px;
     background-position: -41px -41px;
   }
-  &-jquery {
+  &-bootstrap {
     width: 25px;
     height: 25px;
     background-position: -82px -41px;
   }
-  &-sass {
+  &-jquery {
     width: 25px;
     height: 25px;
     background-position: -123px -41px;
   }
-  &-javascript {
+  &-sass {
     width: 25px;
     height: 25px;
     background-position: -164px -41px;
   }
-  &-html5 {
+  &-javascript {
     width: 25px;
     height: 25px;
     background-position: -205px -41px;
   }
-  &-python {
+  &-html5 {
     width: 25px;
     height: 25px;
     background-position: -246px -41px;
   }
-  &-rollup-dot-js {
+  &-python {
     width: 25px;
     height: 25px;
     background-position: -287px -41px;
+  }
+  &-rollup-dot-js {
+    width: 25px;
+    height: 25px;
+    background-position: -328px -41px;
   }
 }
