@@ -21,7 +21,7 @@ class Portfolio extends Component {
     if (this.props.hasNetworkConnection !== nextProps.hasNetworkConnection) {
       return true;
     }
-    if (JSON.stringify(this.props.portfolioItems) !== JSON.stringify(nextProps.portfolioItems)) {
+    if (JSON.stringify(this.props.items) !== JSON.stringify(nextProps.items)) {
       return true;
     }
 
@@ -47,27 +47,19 @@ class Portfolio extends Component {
     });
   }
 
-  getAmountOfPortfolioItems(portfolioItems) {
-    return portfolioItems === null || portfolioItems === undefined ? 0 : portfolioItems.length;
+  getCurrentLength(data) {
+    return data === null || data === undefined ? 0 : data.length;
   }
 
-  splitItems(items, itemsPerPage) {
+  getListOfItemsPerPage(items, itemsPerPage) {
     let firstItemIndex = 0;
     let lastItemIndex = itemsPerPage;
     return items.slice(firstItemIndex, lastItemIndex);
   }
 
-  renderPageLoading(hasNetworkConnection, amountOfItems) {
-    let htmlMarkUp;
-    if (!hasNetworkConnection && amountOfItems === 0) {
-      htmlMarkUp = <div>Items cant be loaded make sure you have internet connection</div>;
-    } else if (hasNetworkConnection && amountOfItems === 0) {
-      htmlMarkUp = <div>Loading</div>;
-    }
-    return <Load>{htmlMarkUp}</Load>;
-  }
-  renderItems(portfolioItems, itemsPerPage) {
-    return this.splitItems(portfolioItems, itemsPerPage).map((item, index) => {
+  renderItems(items) {
+    const { itemsPerPage } = this.state;
+    return this.getListOfItemsPerPage(items, itemsPerPage).map((item, index) => {
       return <Item key={index} item={item} position={index} />;
     });
   }
@@ -89,12 +81,12 @@ class Portfolio extends Component {
   }
 
   render() {
-    const { portfolioItems, hasNetworkConnection } = this.props;
+    const { items, hasNetworkConnection } = this.props;
     const { itemsPerPage } = this.state;
-    let amountOfItems = this.getAmountOfPortfolioItems(portfolioItems);
-    let shouldShowLoadMoreButton = amountOfItems > itemsPerPage;
+    let listLength = this.getCurrentLength(items);
+    let shouldShowButton = listLength > itemsPerPage;
 
-    if (amountOfItems === 0) {
+    if (listLength === 0) {
       return hasNetworkConnection ? (
         <Load
           image={LoadingImage}
@@ -116,8 +108,8 @@ class Portfolio extends Component {
 
     return (
       <section data-test="PortfolioComponent" id="portfolio" className="portfolio">
-        {this.renderItems(portfolioItems, itemsPerPage)}
-        {shouldShowLoadMoreButton && this.renderLoadMoreButton()}
+        {this.renderItems(items)}
+        {shouldShowButton && this.renderLoadMoreButton()}
       </section>
     );
   }
@@ -126,7 +118,7 @@ class Portfolio extends Component {
 export default Portfolio;
 
 Portfolio.propTypes = {
-  portfolioItems: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       title: PropTypes.string,

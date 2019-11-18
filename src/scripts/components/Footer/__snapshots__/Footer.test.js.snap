@@ -7,7 +7,7 @@ exports[` 1`] = `
   id="contact"
 >
   <div
-    className="col-sm-auto fade-in-bottom"
+    className="footer__main col-sm-auto fade-in-bottom"
   >
     <ul
       className="d-flex flex-row justify-content-center mb-4"
@@ -18,7 +18,9 @@ exports[` 1`] = `
       >
         <a
           aria-label="display a brand icon"
-          href="#"
+          href="https://github.com/KevinSnijders"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <svg
             className="icon icon-github-square-brands "
@@ -35,7 +37,9 @@ exports[` 1`] = `
       >
         <a
           aria-label="display a brand icon"
-          href="#"
+          href="https://nl.linkedin.com/in/kevin-snijders-7822a3105"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <svg
             className="icon icon-linkedin-brands "

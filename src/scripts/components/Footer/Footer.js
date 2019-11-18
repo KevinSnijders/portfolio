@@ -16,7 +16,7 @@ class Footer extends Component {
   render() {
     return (
       <footer data-test="FooterComponent" id="contact" className="footer">
-        <div className="col-sm-auto fade-in-bottom">
+        <div className="footer__main col-sm-auto fade-in-bottom">
           <Social style="justify-content-center mb-4" />
           <p className="footer__copyright">
             Kevin Snijders &copy; {this.getCurrentYear()} all rights reserved

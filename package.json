@@ -100,6 +100,7 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
     "bootstrap": "^4.3.1",
     "core-js": "^3.2.1",
     "indent-string": "^4.0.0",

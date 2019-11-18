@@ -34,7 +34,7 @@
       margin: 0 0 0 0.8rem;
     }
     &.active {
-      @include nav-link-hover-border(2px, solid, $primary-color);
+      @include nav-link-hover-border(2px, solid, $accent-color);
     }
     a {
       color: $text-color-light;

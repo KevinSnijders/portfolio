@@ -30,6 +30,10 @@ class Menu extends Component {
     }
   }
 
+  handleToggleTheme() {
+    this.props.handleToggleTheme(this.props.theme);
+  }
+
   render() {
     const { menuItems, activeMenuItem } = this.state;
     if (!menuItems.length > 0) {
@@ -57,6 +61,9 @@ class Menu extends Component {
             </li>
           );
         })}
+        <a href="#" onClick={() => this.handleToggleTheme()}>
+          Change color
+        </a>
       </ul>
     );
   }

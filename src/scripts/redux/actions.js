@@ -19,3 +19,8 @@ export const setNetworkStatus = () => dispatch => {
     payload: navigator.onLine ? true : false
   });
 };
+
+export const setTheme = theme => ({
+  type: types.GET_THEME,
+  payload: theme
+});
