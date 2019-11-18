@@ -63,8 +63,8 @@ class Menu extends Component {
             </li>
           );
         })}
-        <li className="nav__switch">
-          <input type="checkbox" checked={isToggled} onClick={() => this.handleToggleTheme()} />
+        <li className="nav__switch" onClick={() => this.handleToggleTheme()}>
+          <input type="checkbox" checked={isToggled} />
           <label htmlFor="darkSwitch">{isToggled ? 'Dark' : 'Light'} Mode</label>
         </li>
       </ul>
