@@ -7,11 +7,12 @@
   border-bottom: $px $type $color;
 }
 
-@mixin btn-style($b-c, $b, $c, $b-b-c) {
+@mixin btn-style($b-c, $b, $c, $b-b-c, $t-s-c) {
   background-color: $b-c;
   border-color: $b;
   color: $c;
   border-bottom-color: $b-b-c;
+  text-shadow: 1px 1px $t-s-c;
   &:hover {
     background-color: $b-b-c;
     color: $c;

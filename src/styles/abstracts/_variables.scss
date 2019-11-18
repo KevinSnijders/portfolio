@@ -1,3 +1,51 @@
+// CSS VAR COLORS
+:root,
+[data-theme='light'] {
+  --primary-color: white;
+  --bg-color: white;
+  --hero-bg-color: #282c34;
+  --bg-color-odd: #e8e8e8;
+  --bg-color-even: #fff;
+  --primary-font-color: #fff;
+  --secondary-font-color: #2b2a2c;
+  --btn-primary-bg-color: #f44336;
+  --btn-primary-bg-color-light: #ff7961;
+  --btn-primary-bg-color-dark: #d32f2f;
+  --btn-primary-font-color: #fff;
+  --btn-secondary-bg-color: #5c6bc0;
+  --btn-secondary-bg-color-light: #8e99f3;
+  --btn-secondary-bg-color-dark: #3f51b5;
+  --btn-tertiary-bg-color: #2b2a2c;
+  --btn-tertiary-bg-color-light: #3c3b3d;
+  --btn-tertiary-bg-color-dark: #1a191b;
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
+  --text-shadow-color: #2b2a2c;
+  --accent-color: #f44336;
+}
+
+[data-theme='dark'] {
+  --primary-color: white;
+  --bg-color: black;
+  --hero-bg-color: #0b0e17;
+  --bg-color-odd: #131521;
+  --bg-color-even: #1d212d;
+  --primary-font-color: #fff;
+  --secondary-font-color: #fff;
+  --btn-primary-bg-color: #f44336;
+  --btn-primary-bg-color-light: #ff7961;
+  --btn-primary-bg-color-dark: #d32f2f;
+  --btn-primary-font-color: #fff;
+  --btn-secondary-bg-color: #5c6bc0;
+  --btn-secondary-bg-color-light: #8e99f3;
+  --btn-secondary-bg-color-dark: #3f51b5;
+  --btn-tertiary-bg-color: #2b2a2c;
+  --btn-tertiary-bg-color-light: #3c3b3d;
+  --btn-tertiary-bg-color-dark: #1a191b;
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
+  --text-shadow-color: #2b2a2c;
+  --accent-color: #f44336;
+}
+
 // Descriptive colors
 $black: #2b2a2c;
 $black-dark: #1a191b;
@@ -11,39 +59,6 @@ $navy: #282c34;
 $red: #f44336;
 $red-dark: #d32f2f;
 $red-light: #ff7961;
-
-// Main colors
-$primary-color: $white;
-
-$secondary-color: $black;
-$secondary-color-dark: $black-dark;
-$secondary-color-light: $black-light;
-
-// Background
-$bg-hero: $navy;
-$bg-brightness-high: $white;
-$bg-brightness-medium: $dark-grey;
-
-// Button
-$btn-primary-color: $red;
-$btn-primary-color-dark: $red-dark;
-$btn-primary-color-light: $red-light;
-
-$btn-secondary-color: $blue;
-$btn-secondary-color-dark: $blue-dark;
-$btn-secondary-color-light: $blue-light;
-
-// Text
-$text-color-light: $primary-color;
-$text-color-dark: $black;
-$text-color-paragraph: #333;
-$text-shadow-color: $black;
-
-// Accent colors
-$accent-color: $red;
-
-// Links
-$links-color: $secondary-color;
 
 //Filters
 $filter-primary-color: invert(45%) sepia(98%) saturate(5543%) hue-rotate(343deg) brightness(99%)

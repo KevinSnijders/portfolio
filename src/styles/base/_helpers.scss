@@ -67,9 +67,9 @@
 .xl-fs {
 }
 
-.light {
-  background-color: $bg-brightness-high;
+.odd {
+  background-color: var(--bg-color-odd);
 }
-.dark {
-  background-color: $bg-brightness-medium;
+.even {
+  background-color: var(--bg-color-even);
 }

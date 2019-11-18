@@ -16,37 +16,31 @@
 
   &--primary {
     @include btn-style(
-      $btn-primary-color,
-      $btn-primary-color,
-      $text-color-light,
-      $btn-primary-color-dark
+      var(--btn-primary-bg-color),
+      var(--btn-primary-bg-color),
+      var(--btn-primary-font-color),
+      var(--btn-primary-bg-color-dark),
+      var(--text-shadow-color)
     );
-    text-shadow: 1px 1px $text-shadow-color;
   }
 
   &--secondary {
     @include btn-style(
-      $btn-secondary-color,
-      $btn-secondary-color,
-      $text-color-light,
-      $btn-secondary-color-dark
+      var(--btn-secondary-bg-color),
+      var(--btn-secondary-bg-color),
+      var(--btn-primary-font-color),
+      var(--btn-secondary-bg-color-dark),
+      var(--text-shadow-color)
     );
-    text-shadow: 1px 1px $text-shadow-color;
   }
 
-  &--light {
-    @include btn-style(transparent, $primary-color, $text-color-light, $primary-color);
-    &:hover {
-      color: $text-color-dark;
-    }
-  }
-
-  &--dark {
+  &--tertiary {
     @include btn-style(
-      $secondary-color,
-      $secondary-color,
-      $text-color-light,
-      $secondary-color-dark
+      var(--btn-tertiary-bg-color),
+      var(--btn-tertiary-bg-color),
+      var(--btn-primary-font-color),
+      var(--btn-tertiary-bg-color-dark),
+      var(--text-shadow-color)
     );
   }
 
@@ -58,14 +52,5 @@
     font-size: 1.6rem;
     height: auto;
     min-width: 20rem;
-  }
-
-  &--load-more {
-    @include btn-style(
-      $secondary-color,
-      $secondary-color,
-      $text-color-light,
-      $secondary-color-dark
-    );
   }
 }

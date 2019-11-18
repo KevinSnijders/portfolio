@@ -2,7 +2,6 @@
   &__intro {
     @extend .hero__section;
     align-self: center;
-    background-color: transparent;
     padding: 10rem 0;
     @include media-breakpoint-down(xs) {
       text-align: center;
@@ -13,7 +12,7 @@
       width: 15rem;
       height: 15rem;
       border-radius: 50%;
-      border: 2px solid $primary-color;
+      border: 2px solid var(--primary-color);
       display: block;
       margin: 0 auto 2.4rem auto;
       @include media-breakpoint-up(md) {
@@ -42,14 +41,10 @@
     text-align: center;
     align-self: flex-end;
     padding-bottom: 5rem;
-    p {
-      color: $text-color-light;
-    }
   }
 }
 
 .hero__section {
-  color: $text-color-light;
   width: 100%;
   z-index: 100;
 }

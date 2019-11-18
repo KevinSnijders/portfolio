@@ -51,7 +51,10 @@ class Home extends Component {
   }
 
   configParticles() {
-    let color = '#000';
+    let { theme } = this.props;
+    let blackColor = '#000';
+    let whiteColor = '#fff';
+    let color = theme === 'light' ? whiteColor : whiteColor;
     return {
       particles: {
         number: {
@@ -66,10 +69,6 @@ class Home extends Component {
         },
         shape: {
           type: 'circle',
-          stroke: {
-            width: 0,
-            color: '#000000'
-          },
           polygon: {
             nb_sides: 5
           }
