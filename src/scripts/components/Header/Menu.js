@@ -61,17 +61,12 @@ class Menu extends Component {
             </li>
           );
         })}
-        <div className="custom-control custom-switch nav__switch">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="darkSwitch"
-            onClick={() => this.handleToggleTheme()}
-          />
-          <label className="custom-control-label" htmlFor="darkSwitch">
+        <li className="nav__switch">
+          <input type="checkbox" onClick={() => this.handleToggleTheme()} />
+          <label className="" htmlFor="darkSwitch">
             Dark Mode
           </label>
-        </div>
+        </li>
       </ul>
     );
   }
