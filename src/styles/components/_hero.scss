@@ -12,7 +12,8 @@
       width: 15rem;
       height: 15rem;
       border-radius: 50%;
-      border: 2px solid var(--primary-color);
+      border: 2px solid;
+      @include var(border-color, -primary-color);
       display: block;
       margin: 0 auto 2.4rem auto;
       @include media-breakpoint-up(md) {

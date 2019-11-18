@@ -1,5 +1,5 @@
 .footer {
-  background: var(--hero-bg-color);
+  @include var(background, -hero-bg-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,7 +23,7 @@
     bottom: 2.4rem;
     width: 3.6rem;
     height: 3.6rem;
-    background-color: var(--primary-color);
+    @include var(background-color, -primary-color);
     border-radius: 4px;
     display: flex;
     justify-content: center;

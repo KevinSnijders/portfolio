@@ -1,5 +1,5 @@
 .heading {
-  background-color: var(--hero-bg-color);
+  @include var(background-color, -hero-bg-color);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -10,7 +10,7 @@
 .load {
   padding: 5rem 0 7.5rem;
   text-align: center;
-  background-color: var(--bg-color-odd);
+  @include var(background-color, -bg-color-odd);
   img {
     width: auto;
   }

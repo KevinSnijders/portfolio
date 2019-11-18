@@ -1,21 +1,24 @@
-@mixin font-size($size) {
-  font-size: $size; //Fallback in px
-  font-size: calculateRem($size);
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    -#{$key}: $value;
+  }
 }
 
-@mixin nav-link-hover-border($px, $type, $color) {
-  border-bottom: $px $type $color;
+@mixin var($property, $varName) {
+  #{$property}: map-get($theme-map-light, $varName);
+  #{$property}: var(-#{$varName}, map-get($theme-map-light, $varName));
 }
 
 @mixin btn-style($b-c, $b, $c, $b-b-c, $t-s-c) {
   background-color: $b-c;
-  border-color: $b;
-  color: $c;
-  border-bottom-color: $b-b-c;
-  text-shadow: 1px 1px $t-s-c;
+  @include var(background-color, $b-c);
+  @include var(border-color, $b);
+  @include var(color, $c);
+  @include var(border-bottom-color, $b-b-c);
+  @include var(text-shadow, $t-s-c);
   &:hover {
-    background-color: $b-b-c;
-    color: $c;
-    border-bottom-color: $b-b-c;
+    @include var(background-color, $b-b-c);
+    @include var(color, $c);
+    @include var(border-bottom-color, $b-b-c);
   }
 }

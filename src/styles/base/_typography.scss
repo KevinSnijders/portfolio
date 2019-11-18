@@ -5,20 +5,20 @@ h2 {
 }
 
 a {
-  color: var(--primary-font-color);
+  @include var(color, -primary-font-color);
 }
 
 p {
-  color: var(--primary-font-color);
+  @include var(color, -primary-font-color);
   font-family: $font-light;
   font-size: 1.5rem;
 }
 
 .portfolio {
-  color: var(--secondary-font-color);
+  @include var(color, -secondary-font-color);
   h2,
   p {
-    color: var(--secondary-font-color);
+    @include var(color, -secondary-font-color);
   }
 }
 

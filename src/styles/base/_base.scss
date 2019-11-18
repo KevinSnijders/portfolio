@@ -61,5 +61,5 @@ li {
 
 body {
   font-size: 1.6rem;
-  color: var(--primary-font-color);
+  @include var(color, -primary-font-color);
 }

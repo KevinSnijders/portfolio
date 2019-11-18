@@ -16,31 +16,31 @@
 
   &--primary {
     @include btn-style(
-      var(--btn-primary-bg-color),
-      var(--btn-primary-bg-color),
-      var(--btn-primary-font-color),
-      var(--btn-primary-bg-color-dark),
-      var(--text-shadow-color)
+      -btn-primary-bg-color,
+      -btn-primary-bg-color,
+      -btn-primary-font-color,
+      -btn-primary-bg-color-dark,
+      -text-shadow-color
     );
   }
 
   &--secondary {
     @include btn-style(
-      var(--btn-secondary-bg-color),
-      var(--btn-secondary-bg-color),
-      var(--btn-primary-font-color),
-      var(--btn-secondary-bg-color-dark),
-      var(--text-shadow-color)
+      -btn-secondary-bg-color,
+      -btn-secondary-bg-color,
+      -btn-primary-font-color,
+      -btn-secondary-bg-color-dark,
+      -text-shadow-color
     );
   }
 
   &--tertiary {
     @include btn-style(
-      var(--btn-tertiary-bg-color),
-      var(--btn-tertiary-bg-color),
-      var(--btn-primary-font-color),
-      var(--btn-tertiary-bg-color-dark),
-      var(--text-shadow-color)
+      -btn-tertiary-bg-color,
+      -btn-tertiary-bg-color,
+      -btn-primary-font-color,
+      -btn-tertiary-bg-color-dark,
+      -text-shadow-color
     );
   }
 

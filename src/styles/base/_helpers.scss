@@ -68,8 +68,8 @@
 }
 
 .odd {
-  background-color: var(--bg-color-odd);
+  @include var(background-color, -bg-color-odd);
 }
 .even {
-  background-color: var(--bg-color-even);
+  @include var(background-color, -bg-color-even);
 }

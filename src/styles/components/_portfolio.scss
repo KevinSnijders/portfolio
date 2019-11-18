@@ -1,12 +1,12 @@
 .portfolio {
-  background-color: var(--bg-color-odd);
+  @include var(background-color, -bg-color-odd);
   position: relative;
   z-index: 1;
   &__item {
     padding: 4.8rem 2.4rem;
 
     &:nth-child(even) {
-      background-color: var(--bg-color-even);
+      @include var(background-color, -bg-color-even);
       box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
     }
 
@@ -43,10 +43,10 @@
     font-size: 1.4rem;
 
     &--even {
-      background-color: var(--bg-color-even);
+      @include var(background-color, -bg-color-even);
     }
     &--odd {
-      background-color: var(--bg-color-odd);
+      @include var(background-color, -bg-color-odd);
     }
   }
 

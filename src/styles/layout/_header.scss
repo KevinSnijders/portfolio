@@ -37,12 +37,13 @@
       margin: 0 0 0 0.8rem;
     }
     &.active {
-      @include nav-link-hover-border(2px, solid, var(--accent-color));
+      border-bottom: 2px, solid;
+      @include var(border-color, -accent-color);
     }
   }
 
   &__switch {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex: 1;
@@ -62,7 +63,7 @@
     }
 
     input[type='checkbox']:checked {
-      background: var(--accent-color);
+      @include var(background, -accent-color);
     }
 
     input[type='checkbox']:after {
@@ -71,7 +72,7 @@
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background: var(--primary-color);
+      @include var(background, -primary-color);
       box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
       transform: scale(0.7);
       left: 0;
@@ -98,4 +99,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+@supports (--css: variables) {
+  .nav__switch {
+    display: flex;
+  }
 }
