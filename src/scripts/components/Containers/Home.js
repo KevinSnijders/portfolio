@@ -9,7 +9,6 @@ import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     items: setCurrentItems(state),
     hasNetworkConnection: state.getNetworkStatus,
