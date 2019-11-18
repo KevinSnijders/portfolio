@@ -40,6 +40,8 @@ class Menu extends Component {
       return null;
     }
 
+    let theme = this.props.theme;
+    let isToggled = theme === 'dark' ? true : false;
     return (
       <ul data-test="MenuComponent" className="nav__menu">
         {menuItems.map(({ text, link }, index) => {
@@ -62,10 +64,8 @@ class Menu extends Component {
           );
         })}
         <li className="nav__switch">
-          <input type="checkbox" onClick={() => this.handleToggleTheme()} />
-          <label className="" htmlFor="darkSwitch">
-            Dark Mode
-          </label>
+          <input type="checkbox" checked={isToggled} onClick={() => this.handleToggleTheme()} />
+          <label htmlFor="darkSwitch">{isToggled ? 'Dark' : 'Light'} Mode</label>
         </li>
       </ul>
     );
@@ -81,5 +81,7 @@ Menu.propTypes = {
       link: PropTypes.string
     })
   ),
-  activeMenuItem: PropTypes.string
+  activeMenuItem: PropTypes.string,
+  theme: PropTypes.string,
+  handleToggleTheme: PropTypes.func
 };
