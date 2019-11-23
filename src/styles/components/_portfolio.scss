@@ -83,6 +83,7 @@
 
     .icon {
       transform: rotate(180deg);
+      @include var(filter, -filter-invert);
       &.active {
         transform: rotate(0deg);
       }
