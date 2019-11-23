@@ -22,5 +22,6 @@
   }
   p {
     font-size: 1.8rem;
+    @include var(color, -secondary-font-color);
   }
 }
