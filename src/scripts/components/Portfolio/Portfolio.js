@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Item from './Item';
 import Load from '../Shared/Load';
-import LoadingImage from '../../../assets/images/loading.png';
-import NotFoundImage from '../../../assets/images/404.png';
+import LoadingImage from '../../../assets/images/loading.svg';
+import EmptyImage from '../../../assets/images/empty.svg';
 import PropTypes from 'prop-types';
 
 class Portfolio extends Component {
@@ -97,7 +97,7 @@ class Portfolio extends Component {
         />
       ) : (
         <Load
-          image={NotFoundImage}
+          image={EmptyImage}
           alt="Not items found"
           style="scale-in-center"
           title="Whoops!"

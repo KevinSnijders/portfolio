@@ -1,7 +1,7 @@
 // CSS VAR COLORS
 $theme-map-light: (
-  -primary-color: white,
-  -bg-color: white,
+  -primary-color: #fff,
+  -bg-color: #fff,
   -hero-bg-color: #282c34,
   -bg-color-odd: #e8e8e8,
   -bg-color-even: #fff,
@@ -23,8 +23,8 @@ $theme-map-light: (
 );
 
 $theme-map-dark: (
-  -primary-color: white,
-  -bg-color: black,
+  -primary-color: #fff,
+  -bg-color: #000,
   -hero-bg-color: #0b0e17,
   -bg-color-odd: #131521,
   -bg-color-even: #1d212d,
@@ -37,9 +37,9 @@ $theme-map-dark: (
   -btn-secondary-bg-color: #5c6bc0,
   -btn-secondary-bg-color-light: #8e99f3,
   -btn-secondary-bg-color-dark: #3f51b5,
-  -btn-tertiary-bg-color: #2b2a2c,
-  -btn-tertiary-bg-color-light: #3c3b3d,
-  -btn-tertiary-bg-color-dark: #1a191b,
+  -btn-tertiary-bg-color: #e8e8e8,
+  -btn-tertiary-bg-color-light: #f8f8f8,
+  -btn-tertiary-bg-color-dark: #d0d0d0,
   -box-shadow-color: rgba(0, 0, 0, 0.4),
   -text-shadow-color: #2b2a2c,
   -accent-color: #f44336

@@ -13,10 +13,12 @@
   @include var(background-color, -bg-color-odd);
   img {
     width: auto;
+    max-height: 25rem;
   }
   h2 {
     margin-top: 1.8rem;
     text-transform: unset;
+    @include var(color, -secondary-font-color);
   }
   p {
     font-size: 1.8rem;
