@@ -10,6 +10,8 @@
 .load {
   padding: 5rem 0 7.5rem;
   text-align: center;
+  z-index: 10;
+  position: relative;
   @include var(background-color, -bg-color-odd);
   img {
     width: auto;
