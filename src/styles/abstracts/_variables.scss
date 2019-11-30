@@ -19,7 +19,8 @@ $theme-map-light: (
   -btn-tertiary-bg-color-dark: #1a191b,
   -box-shadow-color: rgba(0, 0, 0, 0.4),
   -text-shadow-color: #2b2a2c,
-  -accent-color: #f44336
+  -accent-color: #f44336,
+  -filter-invert: invert(0%)
 );
 
 $theme-map-dark: (
@@ -42,7 +43,8 @@ $theme-map-dark: (
   -btn-tertiary-bg-color-dark: #1a191b,
   -box-shadow-color: rgba(0, 0, 0, 0.4),
   -text-shadow-color: #2b2a2c,
-  -accent-color: #f44336
+  -accent-color: #f44336,
+  -filter-invert: invert(100%)
 );
 
 // Descriptive colors
