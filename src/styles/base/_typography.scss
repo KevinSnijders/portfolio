@@ -1,14 +1,25 @@
 h2 {
-  color: $secondary-color;
   font-family: $font-bold;
   font-size: 2.8rem;
   text-transform: uppercase;
 }
 
+a {
+  @include var(color, -primary-font-color);
+}
+
 p {
-  color: $text-color-paragraph;
+  @include var(color, -primary-font-color);
   font-family: $font-light;
   font-size: 1.5rem;
+}
+
+.portfolio {
+  @include var(color, -secondary-font-color);
+  h2,
+  p {
+    @include var(color, -secondary-font-color);
+  }
 }
 
 span {
@@ -16,29 +27,14 @@ span {
   font-size: 2.4rem;
 }
 
-.particles {
-  p {
-    color: $text-color-light;
-  }
-}
-
 nav {
+  font-size: 2rem;
   a {
     font-family: $font-light;
-    font-size: 2rem;
-    @include media-breakpoint-up(md) {
-      font-size: 2.2rem;
-    }
   }
 }
 .btn {
   font-size: 1.4rem;
   font-family: $font-light;
   letter-spacing: 0.4px;
-}
-
-.footer {
-  p {
-    color: $text-color-light;
-  }
 }

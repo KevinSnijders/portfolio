@@ -5,6 +5,9 @@
   @media only screen and (max-width: 480px) {
     justify-content: space-evenly;
   }
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
   .container {
     @extend .nav-flex;
   }
@@ -34,14 +37,59 @@
       margin: 0 0 0 0.8rem;
     }
     &.active {
-      @include nav-link-hover-border(2px, solid, $accent-color);
+      border-bottom: 2px, solid;
+      @include var(border-color, -accent-color);
     }
-    a {
-      color: $text-color-light;
-      padding-bottom: 0.5rem;
-      &:hover {
-        @include nav-link-hover-border(2px, solid, $primary-color);
-      }
+  }
+
+  &__switch {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-left: 2rem;
+    padding: 0 0 0.5rem;
+
+    input[type='checkbox'] {
+      appearance: none;
+      width: 4.2rem;
+      height: 2rem;
+      background: #ddd;
+      border-radius: 3em;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    input[type='checkbox']:checked {
+      @include var(background, -accent-color);
+    }
+
+    input[type='checkbox']:after {
+      position: absolute;
+      content: '';
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      @include var(background, -primary-color);
+      box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
+      transform: scale(0.7);
+      left: 0;
+      transition: all 0.2s ease-in-out;
+    }
+
+    input[type='checkbox']:checked:after {
+      left: calc(100% - 2rem);
+    }
+
+    label {
+      margin: 0 0 0 0.5rem;
+      font-size: 1.6rem;
+      cursor: pointer;
+      user-select: none;
+      min-width: 94px;
+      text-align: right;
     }
   }
 }
@@ -51,4 +99,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+@supports (--css: variables) {
+  .nav__switch {
+    display: flex;
+  }
 }

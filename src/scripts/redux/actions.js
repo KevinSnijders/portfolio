@@ -20,7 +20,10 @@ export const setNetworkStatus = () => dispatch => {
   });
 };
 
-export const setTheme = theme => ({
-  type: types.GET_THEME,
-  payload: theme
-});
+export const setTheme = theme => dispatch => {
+  dispatch({
+    type: types.GET_THEME,
+    payload: theme
+  });
+  localStorage.setItem('theme', JSON.stringify(theme));
+};

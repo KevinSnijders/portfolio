@@ -9,9 +9,8 @@ import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    items: setItems(state),
+    items: setCurrentItems(state),
     hasNetworkConnection: state.getNetworkStatus,
     theme: state.getTheme
   };
@@ -25,7 +24,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const setItems = state => {
+const setCurrentItems = state => {
   let data;
   const { getNetworkStatus, requestPortfolio } = state;
   switch (getNetworkStatus) {
@@ -33,7 +32,7 @@ const setItems = state => {
       data = requestPortfolio;
       break;
     case false:
-      data = JSON.parse(getLocalStorage('items'));
+      data = JSON.parse(getLocalStorageByKey('items'));
       break;
     default:
       data = [];
@@ -41,7 +40,7 @@ const setItems = state => {
   return data;
 };
 
-const getLocalStorage = key => {
+const getLocalStorageByKey = key => {
   return localStorage.getItem(key);
 };
 
@@ -51,7 +50,10 @@ class Home extends Component {
   }
 
   configParticles() {
-    let color = '#000';
+    let { theme } = this.props;
+    let blackColor = '#000';
+    let whiteColor = '#fff';
+    let color = theme === 'light' ? whiteColor : whiteColor;
     return {
       particles: {
         number: {
@@ -66,10 +68,6 @@ class Home extends Component {
         },
         shape: {
           type: 'circle',
-          stroke: {
-            width: 0,
-            color: '#000000'
-          },
           polygon: {
             nb_sides: 5
           }
@@ -163,6 +161,22 @@ class Home extends Component {
     const theme = currentTheme === 'dark' ? 'light' : 'dark';
     this.props.onChangeTheme(theme);
     document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  getStoredTheme() {
+    let storedTheme = JSON.parse(getLocalStorageByKey('theme'));
+    switch (storedTheme !== null) {
+      case true:
+        document.documentElement.setAttribute('data-theme', storedTheme);
+        this.props.onChangeTheme(storedTheme);
+        break;
+      default:
+        return null;
+    }
+  }
+
+  componentDidMount() {
+    this.getStoredTheme();
   }
 
   render() {

@@ -16,7 +16,8 @@ class Menu extends Component {
         },
         { text: 'Contact', link: 'contact' }
       ],
-      activeMenuItem: 'Home'
+      activeMenuItem: 'Home',
+      shouldShowSmallMenu: false
     };
   }
 
@@ -34,37 +35,58 @@ class Menu extends Component {
     this.props.handleToggleTheme(this.props.theme);
   }
 
+  handleToggleMenu() {
+    this.setState({ shouldShowSmallMenu: !this.state.shouldShowSmallMenu });
+  }
+
   render() {
-    const { menuItems, activeMenuItem } = this.state;
+    const { menuItems, activeMenuItem, shouldShowSmallMenu } = this.state;
+    const show = shouldShowSmallMenu ? 'show' : '';
+    let theme = this.props.theme;
+    let isToggled = theme === 'dark' ? true : false;
+
     if (!menuItems.length > 0) {
       return null;
     }
 
     return (
-      <ul data-test="MenuComponent" className="nav__menu">
-        {menuItems.map(({ text, link }, index) => {
-          index++;
-          return (
-            <li
-              className={`nav__item  nav__item--${index} ${
-                text === activeMenuItem ? 'active' : ''
-              }`}
-              key={index}
-            >
-              <a
-                className={`nav__item--${index}`}
-                onClick={() => this.handleClikMenu(text)}
-                href={`#${link}`}
-              >
-                {text}
-              </a>
+      <>
+        <button
+          className="navbar-toggler"
+          type="button"
+          onClick={() => this.handleToggleMenu()}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className={`collapse navbar-collapse ${show}`}>
+          <ul data-test="MenuComponent" className=" navbar-nav">
+            {menuItems.map(({ text, link }, index) => {
+              index++;
+              return (
+                <li
+                  className={`nav__item  nav__item--${index} ${
+                    text === activeMenuItem ? 'active' : ''
+                  }`}
+                  key={index}
+                >
+                  <a
+                    className={`nav__item--${index}`}
+                    onClick={() => this.handleClikMenu(text)}
+                    href={`#${link}`}
+                  >
+                    {text}
+                  </a>
+                </li>
+              );
+            })}
+            <li className="nav__switch" onClick={() => this.handleToggleTheme()}>
+              <input type="checkbox" checked={isToggled} />
+              <label htmlFor="darkSwitch">{isToggled ? 'Dark' : 'Light'} Mode</label>
             </li>
-          );
-        })}
-        <a href="#" onClick={() => this.handleToggleTheme()}>
-          Change color
-        </a>
-      </ul>
+          </ul>
+        </div>
+      </>
     );
   }
 }
@@ -78,5 +100,7 @@ Menu.propTypes = {
       link: PropTypes.string
     })
   ),
-  activeMenuItem: PropTypes.string
+  activeMenuItem: PropTypes.string,
+  theme: PropTypes.string,
+  handleToggleTheme: PropTypes.func
 };

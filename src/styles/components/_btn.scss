@@ -16,37 +16,31 @@
 
   &--primary {
     @include btn-style(
-      $btn-primary-color,
-      $btn-primary-color,
-      $text-color-light,
-      $btn-primary-color-dark
+      -btn-primary-bg-color,
+      -btn-primary-bg-color,
+      -btn-primary-font-color,
+      -btn-primary-bg-color-dark,
+      -text-shadow-color
     );
-    text-shadow: 1px 1px $text-shadow-color;
   }
 
   &--secondary {
     @include btn-style(
-      $btn-secondary-color,
-      $btn-secondary-color,
-      $text-color-light,
-      $btn-secondary-color-dark
+      -btn-secondary-bg-color,
+      -btn-secondary-bg-color,
+      -btn-primary-font-color,
+      -btn-secondary-bg-color-dark,
+      -text-shadow-color
     );
-    text-shadow: 1px 1px $text-shadow-color;
   }
 
-  &--light {
-    @include btn-style(transparent, $primary-color, $text-color-light, $primary-color);
-    &:hover {
-      color: $text-color-dark;
-    }
-  }
-
-  &--dark {
+  &--tertiary {
     @include btn-style(
-      $secondary-color,
-      $secondary-color,
-      $text-color-light,
-      $secondary-color-dark
+      -btn-tertiary-bg-color,
+      -btn-tertiary-bg-color,
+      -btn-primary-font-color,
+      -btn-tertiary-bg-color-dark,
+      -text-shadow-color
     );
   }
 
@@ -58,14 +52,5 @@
     font-size: 1.6rem;
     height: auto;
     min-width: 20rem;
-  }
-
-  &--load-more {
-    @include btn-style(
-      $secondary-color,
-      $secondary-color,
-      $text-color-light,
-      $secondary-color-dark
-    );
   }
 }

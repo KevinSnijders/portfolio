@@ -16,7 +16,7 @@ class Resource extends Component {
     });
   }
   renderListOfResources(resources, odd) {
-    let badgeTheme = odd ? `portfolio__badge--dark` : `portfolio__badge--light`;
+    let badgeTheme = odd ? `portfolio__badge--even` : `portfolio__badge--odd`;
     return resources.map(({ name, display_name }, index) => {
       return (
         <div key={index} className={`portfolio__item--brand portfolio__badge ${badgeTheme}`}>
@@ -37,7 +37,7 @@ class Resource extends Component {
     return (
       <div className="portfolio__technical">
         <div
-          className={`portfolio__technical__header ${odd ? 'light' : 'dark'}`}
+          className={`portfolio__technical__header ${odd ? 'odd' : 'even'}`}
           onClick={() => this.handleOnClick()}
         >
           <h3>Technologies</h3>

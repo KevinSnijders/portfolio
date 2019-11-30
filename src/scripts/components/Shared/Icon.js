@@ -9,7 +9,7 @@ const Icon = ({ prefix = 'icon', icon, style = '' }) => {
   }
   return (
     <svg data-test="IconComponent" className={`${prefix} ${iconName} ${style}`}>
-      <use xlinkHref={`#${iconName}`}></use>
+      <use className="svg" xlinkHref={`#${iconName}`}></use>
     </svg>
   );
 };

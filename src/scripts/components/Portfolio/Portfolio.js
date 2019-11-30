@@ -72,7 +72,7 @@ class Portfolio extends Component {
           id="btn--load-more"
           onClick={() => this.loadMoreItems()}
           tabIndex="0"
-          className="btn btn--load-more btn--big"
+          className="btn btn--tertiary btn--big"
         >
           Load more work
         </a>

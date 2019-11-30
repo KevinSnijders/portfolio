@@ -1,9 +1,8 @@
 .heading {
-  background-color: $bg-hero;
+  @include var(background-color, -hero-bg-color);
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 1rem;
   z-index: 1;
   box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
@@ -11,16 +10,15 @@
 .load {
   padding: 5rem 0 7.5rem;
   text-align: center;
+  @include var(background-color, -bg-color-odd);
   img {
     width: auto;
   }
   h2 {
-    color: #a8a8a8;
     margin-top: 1.8rem;
     text-transform: unset;
   }
   p {
-    color: #a8a8a8;
     font-size: 1.8rem;
   }
 }
