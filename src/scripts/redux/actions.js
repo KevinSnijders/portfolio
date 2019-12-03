@@ -10,7 +10,16 @@ export const fetchPortfolio = () => dispatch => {
       });
       localStorage.setItem('items', JSON.stringify(data));
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      if (localStorage.getItem('items') !== null) {
+        dispatch({
+          type: types.GET_PORTFOLIO,
+          payload: JSON.parse(localStorage.getItem('items'))
+        });
+      } else {
+        return console.log(error);
+      }
+    });
 };
 
 export const setNetworkStatus = () => dispatch => {
